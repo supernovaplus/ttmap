@@ -20,7 +20,7 @@ function isMobileDevice() {
 };
 
 var hdMap = true;
-var imglink = (isMobileDevice === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
+var imglink = (isMobileDevice() === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
 
 const mapdiv = document.getElementById("map");
 const cmenu = document.getElementById("cmenu");
