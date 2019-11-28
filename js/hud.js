@@ -113,7 +113,8 @@ serversSelection.innerHTML=`
 ${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" checked> <span>${item[1]}</span> <span>-</span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None</button>
-<br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>`;
+<br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
+<br><button onclick="toogleImageQuality(this);return false;">Toggle Image Quality (HD-)</button>`;
 
 
 const serversSelectionCheckboxes = document.getElementsByClassName("servers")
@@ -159,6 +160,14 @@ function servers_checknone(){
     for (const i of serversSelectionCheckboxes) {
         i.checked = false;
     }
+}
+
+function toogleImageQuality(dom){
+    hdMap = !hdMap;
+    dom.innerText = (hdMap === false ? "Toggle Image Quality (LQ)" : "Toggle Image Quality (HD-)");
+    
+    image = L.imageOverlay(hdMap === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
+    map.fitBounds(bounds);
 }
 
 
