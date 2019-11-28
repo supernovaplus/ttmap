@@ -18,7 +18,7 @@ var serversList = [
 const isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
 var hdMap = !isMobileDevice;
-var imglink = (hdMap === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
+var imglink = (hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
 
 const mapdiv = document.getElementById("map");
 const cmenu = document.getElementById("cmenu");
