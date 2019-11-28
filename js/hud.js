@@ -1,3 +1,4 @@
+const hud = document.getElementById("hud");
 // let el = document.createElement("div")
 // el.style.position = "fixed";
 // el.style.top = "10px";
@@ -6,13 +7,43 @@
 // el.innerHTML = "<b>test</b>"
 // mapdiv.append(el);
 
-// let el2 = document.createElement("div")
-// el2.style.position = "fixed";
-// el2.style.top = "10px";
-// el2.style.left = "150px"
-// el2.style.zIndex = "1200"
-// el2.innerHTML = "<input type='text'>";
-// mapdiv.append(el2);
+let findplayerdom = document.createElement("div")
+findplayerdom.style.position = "fixed";
+findplayerdom.style.top = "10px";
+findplayerdom.style.left = "150px"
+findplayerdom.style.zIndex = "9999"
+findplayerdom.style.color = "black";
+findplayerdom.innerHTML = `<input type='text' id="findplayerinputfield" placeholder="Find Player"><input type="submit" value="find" onclick="findplayer(this);return false;">`;
+hud.append(findplayerdom);
+
+document.getElementById('findplayerinputfield').onkeypress = function(e){
+    if (!e) e = window.event;
+    let keyCode = e.keyCode || e.which;
+    if (keyCode === 13){
+        findplayer(e.target.nextSibling);
+        return false;
+    }else{
+        // e.target.style.backgroundColor = "white";
+    }
+}
+
+function findplayer(input){
+    if(!input.previousSibling.value) return;
+    // console.log(input.previousSibling.value)
+    let found = Object.values(playerMarkers).find(item=>(item.nova.gameid).toLowerCase().includes((input.previousSibling.value).toLowerCase()));
+    if(found){
+        input.previousSibling.style.backgroundColor = "lime";
+        map.flyTo(found._latlng, -1, {
+            animate: true,
+            duration: .5
+        });
+        return false;
+    }else{
+        input.previousSibling.style.backgroundColor  = "red";
+    }
+    
+}
+
 
 
 
@@ -114,7 +145,7 @@ ${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" cl
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None</button>
 <br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
-<br><button onclick="toogleImageQuality(this);return false;">Toggle Image Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>`;
+<br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>`;
 
 
 const serversSelectionCheckboxes = document.getElementsByClassName("servers")
@@ -164,7 +195,7 @@ function servers_checknone(){
 
 function toogleImageQuality(dom){
     hdMap = !hdMap;
-    dom.innerHTML = (hdMap === false ? "Toggle Image Quality<br>(Low)" : "Toggle Image Quality<br>(Medium)");
+    dom.innerHTML = (hdMap === false ? "Toggle Map Quality<br>(Low)" : "Toggle Map Quality<br>(Medium)");
     
     image = L.imageOverlay(hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
     // map.fitBounds(bounds);

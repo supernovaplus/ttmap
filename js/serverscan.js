@@ -63,6 +63,7 @@ function getServerData(checkbox){
 
 
                 playerMarkers[res.players[i][2]].nova = {}
+                playerMarkers[res.players[i][2]].nova.gameid = res.players[i][0]+"#"+res.players[i][2];
                 playerMarkers[res.players[i][2]].nova.timestamp = looptimestamp;
                 playerMarkers[res.players[i][2]].nova.vehicle = res.players[i][4];
                 playerMarkers[res.players[i][2]].nova.job = res.players[i][5];

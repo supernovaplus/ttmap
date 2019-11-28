@@ -106,10 +106,14 @@ b{
     transition-duration: 2s !important; 
 }
 
-.showbox{
-
+#hud input{
+    border: 1px solid rgba(0, 3, 165, 0.411) !important;
 }
-  
+
+
+*:focus {
+    outline: none !important;
+}
 
 
 #serversSelection{
