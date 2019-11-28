@@ -1,19 +1,15 @@
 const playerMarkers = {};
-setInterval(() => {
-    scanServers();
-}, 5000);
+setInterval(scanServers, 5000);
 scanServers();
 
-setInterval(() => {
-    scanInactivePlayers();
-}, 6000);
+setInterval(scanInactivePlayers, 6000);
 
 function scanInactivePlayers(){
     if(Object.keys(playerMarkers).length === 0) return;
     let timeNow = Date.now();
 
     for (const key in playerMarkers) {
-        if(timeNow - playerMarkers[key].nova.timestamp > 10000){
+        if(timeNow - playerMarkers[key].nova.timestamp > 7000){
             map.removeLayer(playerMarkers[key])
             delete playerMarkers[key];
         }
@@ -24,9 +20,9 @@ function scanInactivePlayers(){
 
 
 function scanServers(){
-    for (const i of serversSelectionCheckboxes) {
-        if(i.checked === true){
-            getServerData(i.value, i);
+    for (const checkbox of serversSelectionCheckboxes) {
+        if(checkbox.checked === true){
+            getServerData(checkbox);
         }
     }
 }
@@ -35,8 +31,8 @@ function scanServers(){
 
 
 
-function getServerData(ip,checkbox){
-    fetch("http://"+ip+"/status/map/positions.json").then(res=>res.json()).then(res=>{
+function getServerData(checkbox){
+    fetch("http://"+checkbox.value+"/status/map/positions.json").then(res=>res.json()).then(res=>{
 
         // el.innerHTML = "";
         let looptimestamp = Date.now();
@@ -117,7 +113,7 @@ function parsePlayerInfo(data,checkbox){
 
     return `<b>Name:</b> ${data[0]}<br>
     <b>ID:</b> ${data[2]}<br>
-    <b>Job:</b> ${data[5].name}<br>
+    <b>Job:</b> ${data[5].name || "N/A"}<br>
     <b>Vehicle:</b> ${(data[4]["vehicle_label"] === "NULL"? 
             "N/A" : 
             `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<br>
