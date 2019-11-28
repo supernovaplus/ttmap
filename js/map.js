@@ -15,8 +15,12 @@ var serversList = [
     ["54.37.88.125:30125","Server #A"]
 ]
 
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+
 var hdMap = true;
-var imglink = mapFolder+"map.jpg";
+var imglink = (isMobileDevice === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
 
 const mapdiv = document.getElementById("map");
 const cmenu = document.getElementById("cmenu");
