@@ -166,8 +166,8 @@ function toogleImageQuality(dom){
     hdMap = !hdMap;
     dom.innerHTML = (hdMap === false ? "Toggle Image Quality<br>(Low)" : "Toggle Image Quality<br>(Medium)");
     
-    image = L.imageOverlay(hdMap === false ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
-    map.fitBounds(bounds);
+    image = L.imageOverlay(hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
+    // map.fitBounds(bounds);
 }
 
 
