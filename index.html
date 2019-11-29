@@ -23,7 +23,10 @@
 </head>
 <body>
     <div id="map"></div>
-    <div id="cmenu" hidden></div>
+    <div id="cmenu" hidden><b>Copy link to this position:</b><br>
+        <input type="text" id="copyLinkInputField" value=""><br><br>
+        Show players: <input type="checkbox" id="showPlayersCheck" onclick="refreshLink()">
+    </div>
     <div id="hud"></div>
     <div id="credits"></div>
 </body>

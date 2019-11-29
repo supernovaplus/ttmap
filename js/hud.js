@@ -100,17 +100,24 @@ function findplayer(input){
 //     cmenu.hidden = false;
 // }, false);
 
+
+var copyLinkUrls = "";
 map.on('contextmenu', function(event){
-    // x: ${event.latlng.lat}<br>y:${event.latlng.lng}
     cmenu.style.top = event.originalEvent.y + "px";
     cmenu.style.left = event.originalEvent.x + "px";
-    cmenu.innerHTML = `
-    <ul>
-    <li>{ lat: ${event.latlng.lat}, lng: ${event.latlng.lng} }</li>
-    </ul> 
-    `;
+    copyLinkUrls = `${copyLink}?x=${event.latlng.lat.toFixed(3)}&y=${event.latlng.lng.toFixed(3)}`;
+    refreshLink();
     cmenu.hidden = false;
 });
+
+
+const copyLinkInputField = document.getElementById("copyLinkInputField");
+const copyLinkCheckbox = document.getElementById("showPlayersCheck");
+
+function refreshLink(){
+    copyLinkInputField.value = copyLinkCheckbox.checked === true ? copyLinkUrls : copyLinkUrls + "&hideplayers";
+    return;
+}
 
 map.on('click', function(event){
     cmenu.hidden = true;
@@ -120,22 +127,6 @@ map.on('drag', function(event){
     cmenu.hidden = true;
 });
 
-// setInterval(joinServer, 1000);
-
-// setTimeout(joinServer,2000);
-
-// function joinServer(){
-//     cmenu.style.top = window.innerHeight/2 + "px";
-//     cmenu.style.left = 0;
-//     cmenu.style.width = "100%";
-//     cmenu.style.margin = "0 auto !important";
-//     cmenu.innerHTML = `
-//     <span style="text-align:center;padding:100px;margin:0 auto;">
-//     server info
-//     </span>
-//     `;
-//     cmenu.hidden = false;
-// }
 
 
 
@@ -143,11 +134,11 @@ const serversSelection = document.createElement("div");
 serversSelection.id = "serversSelection";
 document.body.append(serversSelection);
 
-const defaultCheckboxState = "checked" //checked or "";
+const defaultServerSelectorState = (params["hideplayers"] === true ? "" : "checked");//"checked" //checked or "";
 
 serversSelection.innerHTML=`
 <div id="server-selector-header" onclick="test();return false;">Server Selection:</div>
-${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultCheckboxState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
+${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None</button>
 <br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
@@ -207,6 +198,22 @@ function toogleImageQuality(dom){
     // map.fitBounds(bounds);
 }
 
+// setInterval(joinServer, 1000);
+
+// setTimeout(joinServer,2000);
+
+// function joinServer(){
+//     cmenu.style.top = window.innerHeight/2 + "px";
+//     cmenu.style.left = 0;
+//     cmenu.style.width = "100%";
+//     cmenu.style.margin = "0 auto !important";
+//     cmenu.innerHTML = `
+//     <span style="text-align:center;padding:100px;margin:0 auto;">
+//     server info
+//     </span>
+//     `;
+//     cmenu.hidden = false;
+// }
 
 
 

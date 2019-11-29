@@ -69,17 +69,20 @@ button{
     color:white !important;
 }
 
-ul{
-    padding: 0 0 0 10px;
-    margin: 0;
-    list-style-type: square;
-}
+
 #cmenu{
     position: fixed;
     z-index: 9999 !important;
-    background-color: rgba(255, 255, 255, 0.788);
-    padding:10px;
-    border-bottom: 1px red solid;
+    padding:2px;
+    /* border: 1px black solid; */
+    min-width: 250px;
+}
+
+
+#cmenu input[type="text"]{
+    border: 1px solid blue;
+    background-color:white;
+    width: 98%;
 }
 
 b{
@@ -143,12 +146,16 @@ b{
     border-bottom-right-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.281);
     border-left: 2px solid red;
+    
+}
+
+#serversSelection, #cmenu{
     color: white;
     text-shadow: 1px 2px black;
-
     background: rgb(32,123,255);
     background: linear-gradient(356deg, rgba(32,123,255,0.7) 41%, rgba(0,212,255,0.7) 100%);
 }
+
 
 
 /* .myIconTXT {

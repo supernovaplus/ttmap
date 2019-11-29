@@ -18,8 +18,20 @@ var serversList = [
 
 const isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
-// console.log("mykey",new URL(location.href).searchParams.get("my_key"))
-// console.log("mykey2s",new URL(location.href).searchParams.get("my_key2"))
+const params = {
+    "hideplayers": new URL(location.href).searchParams.get("hideplayers") === "",
+    "coords": (()=>{
+        let paramx = new URL(location.href).searchParams.get("x");
+        let paramy = new URL(location.href).searchParams.get("y");
+        if(!paramx || !paramy)return false
+        return [paramx,paramy];
+    })()
+}
+console.log("params =>",JSON.stringify(params))
+
+
+const copyLink = window.location.protocol + "//" + window.location.host + "/";
+
 
 var hdMap = !isMobileDevice;
 var imglink = (hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");

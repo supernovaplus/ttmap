@@ -137,7 +137,7 @@ function generateIcon(vehicle,job){
         
     }
 
-    return ikon = L.icon({
+    return L.icon({
         iconUrl: iconlink,
         iconSize: [40, 40],
         iconAnchor: [20, 20],
