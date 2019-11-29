@@ -6,6 +6,7 @@ const bussnessIcons = {
     "Vehicle Garage": `${customEmojiFolder}25px-Garage.png`,
     "Car Garage": `${customEmojiFolder}25px-Garage.png`,
     "Self Storage": `${customEmojiFolder}22px-Self_Storage.png`,
+    "point": `${customEmojiFolder}point22px.png`,
 }
 
 
@@ -13,8 +14,8 @@ function createDataIcon (name){
     return L.icon({
         iconUrl: bussnessIcons[name],
         iconSize: [22, 23],
-        iconAnchor: [22, 23],
-        popupAnchor: [-11, -23],
+        iconAnchor: [11, 11.5],
+        popupAnchor: [0, 0],
         className: "dataicon"
 
         // shadowUrl: '',
@@ -58,6 +59,17 @@ fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
         .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`)
     }
 })
+
+if(params.coords !== false){
+    L.marker(params.coords,{ icon:createDataIcon("point")}).addTo(map)
+    .bindTooltip('Location');
+
+
+    map.flyTo(params.coords, -1, {
+        animate: true,
+        duration: .5
+    });
+}
 
 
 // var markers = [
