@@ -13,7 +13,10 @@ findplayerdom.style.top = "10px";
 findplayerdom.style.left = "150px"
 findplayerdom.style.zIndex = "9999"
 findplayerdom.style.color = "black";
-findplayerdom.innerHTML = `<input type='text' id="findplayerinputfield" placeholder="Find Player"><input type="submit" value="find" onclick="findplayer(this);return false;">`;
+findplayerdom.style.margin = "0";
+findplayerdom.style.padding = "0";
+// findplayerdom.style.paddingLeft = "3px";
+findplayerdom.innerHTML = `<input type='text' id="findplayerinputfield" placeholder="Find Player" style="padding-left:5px;padding-right:5px;"><input type="submit" value="Search" onclick="findplayer(this);return false;">`;
 hud.append(findplayerdom);
 
 document.getElementById('findplayerinputfield').onkeypress = function(e){
@@ -37,6 +40,7 @@ function findplayer(input){
             animate: true,
             duration: .5
         });
+        // found._popup.openOn(map)
         return false;
     }else{
         input.previousSibling.style.backgroundColor  = "red";
