@@ -101,11 +101,11 @@ function findplayer(input){
 // }, false);
 
 
-var copyLinkUrls = "";
+var copyLinkUrl = "";
 map.on('contextmenu', function(event){
     cmenu.style.top = event.originalEvent.y + "px";
     cmenu.style.left = event.originalEvent.x + "px";
-    copyLinkUrls = `${copyLink}?x=${event.latlng.lat.toFixed(3)}&y=${event.latlng.lng.toFixed(3)}`;
+    copyLinkUrl = `${copyLink}?x=${event.latlng.lat.toFixed(3)}&y=${event.latlng.lng.toFixed(3)}`;
     refreshLink();
     cmenu.hidden = false;
 });
@@ -115,7 +115,7 @@ const copyLinkInputField = document.getElementById("copyLinkInputField");
 const copyLinkCheckbox = document.getElementById("showPlayersCheck");
 
 function refreshLink(){
-    copyLinkInputField.value = copyLinkCheckbox.checked === true ? copyLinkUrls : copyLinkUrls + "&hideplayers";
+    copyLinkInputField.value = copyLinkCheckbox.checked === true ? copyLinkUrl : copyLinkUrl + "&hideplayers";
     return;
 }
 
@@ -140,7 +140,7 @@ serversSelection.innerHTML=`
 <div id="server-selector-header" onclick="test();return false;">Server Selection:</div>
 ${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
-<br><button onclick="servers_checknone();return false;">Check None</button>
+<br><button onclick="servers_checknone();return false;">Check None<br>Hide Players</button>
 <br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
 <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>`;
 
@@ -179,6 +179,8 @@ function servers_checkall(){
         if(i.disabled === true)continue;
         i.checked = true;
     }
+
+    scanServers();
     // serversSelectionCheckboxes.forEach(element => {
     //     element.checked = true;
     // });
@@ -188,6 +190,7 @@ function servers_checknone(){
     for (const i of serversSelectionCheckboxes) {
         i.checked = false;
     }
+    scanInactivePlayers(true);
 }
 
 function toogleImageQuality(dom){

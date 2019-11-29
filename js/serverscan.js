@@ -4,12 +4,12 @@ scanServers();
 
 setInterval(scanInactivePlayers, 6000);
 
-function scanInactivePlayers(){
+function scanInactivePlayers(noCheck = false){
     if(Object.keys(playerMarkers).length === 0) return;
     let timeNow = Date.now();
 
     for (const key in playerMarkers) {
-        if(timeNow - playerMarkers[key].nova.timestamp > 7000){
+        if(noCheck === true || timeNow - playerMarkers[key].nova.timestamp > 7000){
             map.removeLayer(playerMarkers[key])
             delete playerMarkers[key];
         }

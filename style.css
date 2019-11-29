@@ -76,6 +76,7 @@ button{
     padding:2px;
     /* border: 1px black solid; */
     min-width: 250px;
+    padding-bottom: 10px;
 }
 
 
