@@ -49,63 +49,11 @@ function findplayer(input){
 }
 
 
-
-
-// var helloPopup = L.popup().setContent('Hello World!');
-
-// L.easyButton('fa-globe', function(btn, map){
-//     helloPopup.setLatLng(map.getCenter()).openOn(map);
-//     console.log(map.getCenter());
-// }).addTo( map );
-// // =====
-// L.easyButton("X", function(btn, map){
-//     image.remove();
-//     image = L.imageOverlay((hdMap === true ? "https://i.imgur.com/6T9UmkS.jpg" : imglink), bounds).addTo(map);
-
-//     hdMap = !hdMap;
-
-// }).addTo( map );
-
-
-
-
-
-
-// L.easyButton({
-//     states: [{
-//             stateName: 'zoom-to-forest',        // name the state
-//             icon:      'fa-tree',               // and define its properties
-//             title:     'zoom to a forest',      // like its title
-//             onClick: function(btn, map) {       // and its callback
-//                 map.setView([46.25,-121.8],10);
-//                 btn.state('zoom-to-school');    // change state on click!
-//             }
-//         }, {
-//             stateName: 'zoom-to-school',
-//             icon:      'fa-university',
-//             title:     'zoom to a school',
-//             onClick: function(btn, map) {
-//                 map.setView([42.3748204,-71.1161913],16);
-//                 btn.state('zoom-to-forest');
-//             }
-//     }]
-// }).addTo( map );
-
-
-
-// document.addEventListener('contextmenu', function(event) {
-//     cmenu.style.top = event.y + "px";
-//     cmenu.style.left = event.x + "px";
-//     event.preventDefault();
-//     cmenu.hidden = false;
-// }, false);
-
-
 var copyLinkUrl = "";
 map.on('contextmenu', function(event){
     cmenu.style.top = event.originalEvent.y + "px";
     cmenu.style.left = event.originalEvent.x + "px";
-    copyLinkUrl = `${copyLink}?x=${event.latlng.lat.toFixed(3)}&y=${event.latlng.lng.toFixed(3)}`;
+    copyLinkUrl = `${copyLink}?x=${event.latlng.lng.toFixed(3)}&y=${event.latlng.lat.toFixed(3)}`;
     refreshLink();
     cmenu.hidden = false;
 });
@@ -239,3 +187,53 @@ function toogleImageQuality(dom){
 //     //     }
 //     // console.log("Current Zoom Level =" + zoomlevel)
 // });
+
+
+// var helloPopup = L.popup().setContent('Hello World!');
+
+// L.easyButton('fa-globe', function(btn, map){
+//     helloPopup.setLatLng(map.getCenter()).openOn(map);
+//     console.log(map.getCenter());
+// }).addTo( map );
+// // =====
+// L.easyButton("X", function(btn, map){
+//     image.remove();
+//     image = L.imageOverlay((hdMap === true ? "https://i.imgur.com/6T9UmkS.jpg" : imglink), bounds).addTo(map);
+
+//     hdMap = !hdMap;
+
+// }).addTo( map );
+
+
+
+
+
+
+// L.easyButton({
+//     states: [{
+//             stateName: 'zoom-to-forest',        // name the state
+//             icon:      'fa-tree',               // and define its properties
+//             title:     'zoom to a forest',      // like its title
+//             onClick: function(btn, map) {       // and its callback
+//                 map.setView([46.25,-121.8],10);
+//                 btn.state('zoom-to-school');    // change state on click!
+//             }
+//         }, {
+//             stateName: 'zoom-to-school',
+//             icon:      'fa-university',
+//             title:     'zoom to a school',
+//             onClick: function(btn, map) {
+//                 map.setView([42.3748204,-71.1161913],16);
+//                 btn.state('zoom-to-forest');
+//             }
+//     }]
+// }).addTo( map );
+
+
+
+// document.addEventListener('contextmenu', function(event) {
+//     cmenu.style.top = event.y + "px";
+//     cmenu.style.left = event.x + "px";
+//     event.preventDefault();
+//     cmenu.hidden = false;
+// }, false);

@@ -61,11 +61,11 @@ fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
 })
 
 if(params.coords !== false){
-    L.marker(params.coords,{ icon:createDataIcon("point")}).addTo(map)
+    L.marker([params.coords[1],params.coords[0]],{ icon:createDataIcon("point")}).addTo(map)
     .bindTooltip('Location');
 
 
-    map.flyTo(params.coords, -1, {
+    map.flyTo([params.coords[1],params.coords[0]], -1, {
         animate: true,
         duration: .5
     });
