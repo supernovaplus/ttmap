@@ -143,9 +143,11 @@ const serversSelection = document.createElement("div");
 serversSelection.id = "serversSelection";
 document.body.append(serversSelection);
 
+const defaultCheckboxState = "checked" //checked or "";
+
 serversSelection.innerHTML=`
 <div id="server-selector-header" onclick="test();return false;">Server Selection:</div>
-${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" checked> <span>${item[1]}</span> <span>-</span></div>`).join("")}
+${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultCheckboxState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None</button>
 <br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>

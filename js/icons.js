@@ -10,24 +10,29 @@ const jobsEmojiList = {
     "trucker": "🚛",
     "hunter": "🐗",
     "mechanic": "🛠️",
-    "frllc_paramedic": "🚑",
-    "collinsco_cabbie_job": "📦",
     "farmer": "🚜",
     "leisurepilot": "⛱️",
-    "delivery_iaa": "?",
     "miner": "⛏️",
-    "rts_job": "®️",
     "garbage": "🗑️",
-    "ia_pilot": "✈️",
-    "bat_trucker": "🛠️",
     "cleanup": "🏖️",
     "postop": "✉️",
     "delivery_ups": "📦",
-    "rts_job_air": "✈️",
-    "collinsco_plane_job": "✈️",
-    "collinsco_train_job": "🚂",
-    "rts_professional": "®️",
+    "taxi": "🚕",
+
+    "bat_trucker": `<img src='${customEmojiFolder}bat_tag.png'> `,
+    "frllc_paramedic": `<img src='${customEmojiFolder}frllc_tag.png'> `,
+    "collinsco_cabbie_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
+    "collinsco_plane_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
+    "collinsco_train_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
+    "ia_pilot": `<img src='${customEmojiFolder}ia_tag.png'> `,
+    "delivery_iaa": `<img src='${customEmojiFolder}ia_tag.png'> `,
+    "rts_job": `<img src='${customEmojiFolder}rts_tag.png'> `,
+    "rts_job_air": `<img src='${customEmojiFolder}rts_tag.png'> `,
+    "rts_professional": `<img src='${customEmojiFolder}rts_tag.png'> `,
+    "pigs_job": `<img src='${customEmojiFolder}pigs_tag.png'> `,
 }
+const debugtag = false;
+const defaultTagNameForDebug = "bat_trucker";
 
 const vehicleIconList = {
     //vehicle class id
@@ -70,6 +75,7 @@ const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Spor
 
 
 function generateTag(job){
+    if(debugtag === true)return jobsEmojiList[defaultTagNameForDebug];
     return jobsEmojiList[job] === undefined ? "" : jobsEmojiList[job];
 }
 

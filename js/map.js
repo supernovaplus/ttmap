@@ -1,21 +1,25 @@
 const emojiFolder = "./images/openmoji/";
 // const numbersFolder = "./images/numbers/";
 const mapFolder = "./images/maps/";
+const customEmojiFolder = "./images/companyemoji/";
 
 var serversList = [
-    ["145.239.150.71:30120","Server #1"],
-    ["145.239.150.71:30122","Server #2"],
-    ["145.239.150.71:30123","Server #3"],
-    ["145.239.150.71:30124","Server #4"],
-    ["145.239.150.71:30125","Server #5 (Beta)"],
-    ["54.37.88.125:30120","Server #6"],
-    ["54.37.88.125:30122","Server #7"],
-    ["54.37.88.125:30123","Server #8"],
-    ["54.37.88.125:30124","Server #9"],
-    ["54.37.88.125:30125","Server #A"]
+    ["server.tycoon.community:30120","Server #1"],
+    ["server.tycoon.community:30122","Server #2"],
+    ["server.tycoon.community:30123","Server #3"],
+    ["server.tycoon.community:30124","Server #4"],
+    ["server.tycoon.community:30125","Server #5 (Beta)"],
+    ["na.tycoon.community:30120","Server #6"],
+    ["na.tycoon.community:30122","Server #7"],
+    ["na.tycoon.community:30123","Server #8"],
+    ["na.tycoon.community:30124","Server #9"],
+    ["na.tycoon.community:30125","Server #A"]
 ]
 
 const isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+
+// console.log("mykey",new URL(location.href).searchParams.get("my_key"))
+// console.log("mykey2s",new URL(location.href).searchParams.get("my_key2"))
 
 var hdMap = !isMobileDevice;
 var imglink = (hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg");
