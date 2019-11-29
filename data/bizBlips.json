@@ -40,7 +40,7 @@
       "name": "Pacific Bluffs Country Club"
     },
     "biz_train_sandy": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "2009",
         "y": "3630"
@@ -80,7 +80,7 @@
       "name": "Sandy Shores Liquor"
     },
     "biz_train_davis": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "2745",
         "y": "2788"
@@ -136,7 +136,7 @@
       "name": "Venetian"
     },
     "biz_train_docks": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "-176",
         "y": "-2582"
@@ -176,7 +176,7 @@
       "name": "Los Santos International Airport"
     },
     "biz_train_grapeseed": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "2932",
         "y": "4617"
@@ -200,7 +200,7 @@
       "name": "Playboy Mansion"
     },
     "biz_train_terminal": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "858",
         "y": "-3204"
@@ -368,7 +368,7 @@
       "name": "Vespucci Movie Masks"
     },
     "biz_train_mp": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "486",
         "y": "-592"
@@ -400,7 +400,7 @@
       "name": "Bahama Mamas"
     },
     "biz_train_lm": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "696",
         "y": "-875"
@@ -416,7 +416,7 @@
       "name": "Yellowjack"
     },
     "biz_train_paleto": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "147",
         "y": "6361"
@@ -504,7 +504,7 @@
       "name": "Medical Center Parking Garage"
     },
     "biz_train_lc": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>self_storage_train</em> x1<br/>",
+      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
       "coordinates": {
         "x": "-1506",
         "y": "6647"
