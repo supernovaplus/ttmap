@@ -76,12 +76,12 @@ function getServerData(checkbox){
                 playerMarkers[res.players[i][2]].nova.timestamp = looptimestamp;
                 playerMarkers[res.players[i][2]].bindPopup( parsePlayerInfo(res.players[i],checkbox) )
 
-                if(playerMarkers[res.players[i][2]].nova.job.name !== res.players[i][5]["name"] ||
-                    playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]
-                    ){
+                // if(playerMarkers[res.players[i][2]].nova.job.name !== res.players[i][5]["name"] ||
+                //     playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]
+                //     ){
                     playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4],res.players[i][5]) );
                     
-                }
+                // }
 
             }
 

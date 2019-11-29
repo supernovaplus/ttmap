@@ -1,12 +1,66 @@
-// let markers = [
+const bussnessIcons = {
+    "Business": `${customEmojiFolder}22px-Business_Owned.png`,
+    "Watercraft Garage": `${customEmojiFolder}25px-Boat_Garage.png`,
+    "Helicopter Garage": `${customEmojiFolder}25px-Helicopter_Garage.png`,
+    "Aircraft Garage": `${customEmojiFolder}25px-Aircraft_Garage.png`,
+    "Vehicle Garage": `${customEmojiFolder}25px-Garage.png`,
+    "Car Garage": `${customEmojiFolder}25px-Garage.png`,
+    "Self Storage": `${customEmojiFolder}22px-Self_Storage.png`,
+}
 
-// L.marker([100, 100])
-// .addTo(map)
-// .bindPopup('A pretty CSS3 popup.<br> Easily customizable.'),
 
-// L.marker([100, 500])
-// .addTo(map)
-// .bindPopup('A pretty CSS3 popup.<br> Easily customizable.'),
+function createDataIcon (name){
+    return L.icon({
+        iconUrl: bussnessIcons[name],
+        iconSize: [22, 23],
+        iconAnchor: [22, 23],
+        popupAnchor: [-11, -23],
+        className: "dataicon"
+
+        // shadowUrl: '',
+        // shadowSize: [68, 95],
+        // shadowAnchor: [22, 94]
+    });
+}
+
+
+
+
+fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{
+    for (const key in res) {
+        L.marker([res[key].coordinates.y,res[key].coordinates.x],
+            { icon:  createDataIcon("Business")})
+        .addTo(map)
+        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`);
+    }
+})
+
+// (\s+"description": "<b>Type:</b> )(.+)(<br/>.+)
+// $1$2$3\n"type":"$2",
+fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
+    for (const key in res) {
+        L.marker(
+            [res[key].coordinates.y,res[key].coordinates.x],
+            { icon:  createDataIcon(res[key]["type"]) } 
+        )
+        .addTo(map)
+        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`)
+    }
+})
+
+fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
+    for (const key in res) {
+        L.marker(
+            [res[key].coordinates.y,res[key].coordinates.x],
+            { icon:  createDataIcon("Self Storage") } 
+        )
+        .addTo(map)
+        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`)
+    }
+})
+
+
+// var markers = [
 
 
 // L.marker([100, 1500])

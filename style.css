@@ -97,7 +97,9 @@ b{
     color: rgb(0, 217, 255);
 }
 
-
+.dataicon{
+    z-index: 100 !important;
+}
 
 #serversSelection {
     transition-property: left !important;
