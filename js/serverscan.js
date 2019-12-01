@@ -40,7 +40,12 @@ function getServerData(checkbox){
         for (let i = 0; i < res.players.length; i++) {
             // if (res.players[i][2] !== 123456)continue;
 
-            if(res.players[i][3] === null || res.players[i][0] === "null")continue;
+            if(res.players[i][3] === null)continue;
+            if(res.players[i][0] === "null"){
+                map.removeLayer(playerMarkers[res.players[i][2]])
+                delete playerMarkers[res.players[i][2]];
+                continue;
+            }
             
 
             if(playerMarkers[res.players[i][2]] === undefined){
@@ -123,5 +128,5 @@ function parsePlayerInfo(data,checkbox){
             <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? 
                             "N/A" : 
                             `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
-            <b>${checkbox.dataset.server}</b>`
+            <b>${checkbox.dataset.server}</b> <a href="fivem://connect/${checkbox.value}" title="Join: ${checkbox.value}">JOIN</a>`
 }
