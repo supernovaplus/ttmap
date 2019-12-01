@@ -1,618 +1,1095 @@
 {
-    "biz_cluckingbell_co": {
-      "description": "<b>Price:</b> $11,000,000<br/><b>Perks:</b> <br/><em>Chat Prefix</em> x1<br/><em>Business Bonus</em> x1<br/><em>Marketplace</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-138",
-        "y": "6199"
-      },
-      "name": "Clucking Bell Co."
-    },
-    "biz_youtool_ss": {
-      "description": "<b>Price:</b> $500,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "2748",
-        "y": "3472"
-      },
-      "name": "You Tool Sandy Shores"
-    },
-    "biz_docks_ls": {
-      "description": "<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Unavailable Feature (Type 0x0040)</em> x1<br/><em>ATM</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Repair Point</em> x1<br/>",
-      "coordinates": {
-        "x": "-53",
-        "y": "-2524"
-      },
-      "name": "Los Santos Docks"
-    },
-    "biz_stay_frosty": {
-      "description": "<b>Price:</b> $8,000,000<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "868",
-        "y": "-1630"
-      },
-      "name": "Fridgit Co."
-    },
-    "biz_pbcc": {
-      "description": "<b>Price:</b> $18,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-3024",
-        "y": "81"
-      },
-      "name": "Pacific Bluffs Country Club"
-    },
-    "biz_train_sandy": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "2009",
-        "y": "3630"
-      },
-      "name": "Train Yard - Sandy Shores"
-    },
-    "biz_kortz": {
-      "description": "<b>Price:</b> $35,000,000<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>ATM</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2287",
-        "y": "354"
-      },
-      "name": "KO RTZ"
-    },
-    "biz_opium_hotel": {
-      "description": "<b>Price:</b> $17,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-703",
-        "y": "-2277"
-      },
-      "name": "Opium Nights Hotel"
-    },
-    "biz_stripclub": {
-      "description": "<b>Price:</b> $30,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Unavailable Feature (Type 0x4000)</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "126",
-        "y": "-1284"
-      },
-      "name": "Vanilla Unicorn"
-    },
-    "biz_liquor_ss": {
-      "description": "<b>Price:</b> $250,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Marketplace</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1952",
-        "y": "3842"
-      },
-      "name": "Sandy Shores Liquor"
-    },
-    "biz_train_davis": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "2745",
-        "y": "2788"
-      },
-      "name": "Train Yard - Davis Quartz"
-    },
-    "biz_windfarm": {
-      "description": "<b>Price:</b> $350,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "2462",
-        "y": "1575"
-      },
-      "name": "Ron Alternates Wind Farm"
-    },
-    "biz_sisyphus": {
-      "description": "<b>Price:</b> $5,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "225",
-        "y": "1171"
-      },
-      "name": "Sisyphus Theater"
-    },
-    "biz_korean_plaza": {
-      "description": "<b>Price:</b> $750,000<br/><b>Perks:</b> <br/><em>Market</em> x2<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-602",
-        "y": "-1136"
-      },
-      "name": "Korean Plaza"
-    },
-    "biz_murrietta_oil": {
-      "description": "<b>Price:</b> $125,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1708",
-        "y": "-1611"
-      },
-      "name": "Collins Petrochemical Corp."
-    },
-    "biz_airfield_ss": {
-      "description": "<b>Price:</b> $47,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Spawn Point</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Plane Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1701",
-        "y": "3290"
-      },
-      "name": "Sandy Shores Airfield"
-    },
-    "biz_venetian": {
-      "description": "<b>Price:</b> $7.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-1363",
-        "y": "-1079"
-      },
-      "name": "Venetian"
-    },
-    "biz_train_docks": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "-176",
-        "y": "-2582"
-      },
-      "name": "Train Yard - LS Docks"
-    },
-    "biz_vacaloco": {
-      "description": "<b>Price:</b> $150,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "142",
-        "y": "-1521"
-      },
-      "name": "La Vaca Loco"
-    },
-    "biz_merryweather": {
-      "description": "<b>Price:</b> $17.50M<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Boat Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "448",
-        "y": "-2762"
-      },
-      "name": "Bristols Storage"
-    },
-    "biz_dp_pier": {
-      "description": "<b>Price:</b> $350,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Permission Set</em> x1<br/><em>Chat Prefix</em> x2<br/><em>Repair Point</em> x1<br/><em>Boat Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1813",
-        "y": "-1206"
-      },
-      "name": "Del Perro Pier"
-    },
-    "biz_lsia": {
-      "description": "<b>Price:</b> $125,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x2<br/><em>Business Bonus</em> x1<br/><em>Marketplace</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1046",
-        "y": "-2751"
-      },
-      "name": "Los Santos International Airport"
-    },
-    "biz_train_grapeseed": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "2932",
-        "y": "4617"
-      },
-      "name": "Train Yard - Grapeseed"
-    },
-    "biz_lcstau_casino": {
-      "description": "<b>Price:</b> $15,000,000<br/><b>Perks:</b> <br/><em>Unavailable Feature (Type 0x0001)</em> x1<br/><em>Business Bonus</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2643",
-        "y": "5876"
-      },
-      "name": "Staunton Island Casino"
-    },
-    "biz_playboi": {
-      "description": "<b>Price:</b> $550,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1538",
-        "y": "129"
-      },
-      "name": "Playboy Mansion"
-    },
-    "biz_train_terminal": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "858",
-        "y": "-3204"
-      },
-      "name": "Train Yard - LS Terminal"
-    },
-    "biz_zancudo": {
-      "description": "<b>Price:</b> $35,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Spawner</em> x1<br/><em>Job Center</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2436",
-        "y": "3288"
-      },
-      "name": "Fort Zancudo"
-    },
-    "biz_carrier": {
-      "description": "<b>Price:</b> $65,000,000<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Unavailable Feature (Type 0x0040)</em> x1<br/><em>Business Bonus</em> x1<br/><em>Plane Garage</em> x1<br/><em>Repair Point</em> x1<br/>",
-      "coordinates": {
-        "x": "3084",
-        "y": "-4687"
-      },
-      "name": "Aircraft Carrier"
-    },
-    "biz_jetsam_pb": {
-      "description": "<b>Price:</b> $3.50M<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-250",
-        "y": "6160"
-      },
-      "name": "Jetsam Paleto Bay"
-    },
-    "biz_vineyard": {
-      "description": "<b>Price:</b> $600,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1889",
-        "y": "2049"
-      },
-      "name": "Tongva Hills Vineyard"
-    },
-    "biz_catfish": {
-      "description": "<b>Price:</b> $4,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "3807",
-        "y": "4478"
-      },
-      "name": "Catfish View"
-    },
-    "biz_baracuda": {
-      "description": "<b>Price:</b> $750,000<br/><b>Perks:</b> <br/><em>Boat Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-3277",
-        "y": "965"
-      },
-      "name": "Baracuda Cafe"
-    },
-    "biz_lcssv_dam": {
-      "description": "<b>Price:</b> $250,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-4277",
-        "y": "7626"
-      },
-      "name": "Cochrane Dam"
-    },
-    "biz_tung": {
-      "description": "<b>Price:</b> $25,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-903",
-        "y": "-228"
-      },
-      "name": "Jonny Tung"
-    },
-    "biz_banner": {
-      "description": "<b>Price:</b> $4,000,000<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-287",
-        "y": "-1063"
-      },
-      "name": "Banner Hotel & Spa"
-    },
-    "biz_lcssv_aeroport": {
-      "description": "<b>Price:</b> $150,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-3857",
-        "y": "6699"
-      },
-      "name": "Francis Intl. Airport"
-    },
-    "biz_lcssv_house": {
-      "description": "<b>Price:</b> $20,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-3750",
-        "y": "7311"
-      },
-      "name": "Shoreside Vale Safehouse"
-    },
-    "biz_lcport_mansion": {
-      "description": "<b>Price:</b> $35,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1613",
-        "y": "7106"
-      },
-      "name": "Portland Mansion"
-    },
-    "biz_lcport_house": {
-      "description": "<b>Price:</b> $750,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2190",
-        "y": "6992"
-      },
-      "name": "Portland Safehouse"
-    },
-    "biz_chiliad_base": {
-      "description": "<b>Price:</b> $200,000,000<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x3<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "517",
-        "y": "5582"
-      },
-      "name": "Mt. Chiliad Base"
-    },
-    "biz_raven": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "941",
-        "y": "-2143"
-      },
-      "name": "Raven Slaughterhouse"
-    },
-    "biz_pier_400": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-102",
-        "y": "-2694"
-      },
-      "name": "Pier 400"
-    },
-    "biz_jetsam_ls": {
-      "description": "<b>Price:</b> $3,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "813",
-        "y": "-2983"
-      },
-      "name": "Jetsam Terminal"
-    },
-    "biz_shipyard_pa": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "94",
-        "y": "-2695"
-      },
-      "name": "Pacific Allied Shipyard"
-    },
-    "biz_bishops_chicken": {
-      "description": "<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "2581",
-        "y": "463"
-      },
-      "name": "Bishops Chicken"
-    },
-    "biz_vespucci_masks": {
-      "description": "<b>Price:</b> $150,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-1338",
-        "y": "-1277"
-      },
-      "name": "Vespucci Movie Masks"
-    },
-    "biz_train_mp": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "486",
-        "y": "-592"
-      },
-      "name": "Train Yard - Mirror Park"
-    },
-    "biz_horny_burgie": {
-      "description": "<b>Price:</b> $300,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "1241",
-        "y": "-368"
-      },
-      "name": "Horny's Burgers"
-    },
-    "biz_elboo": {
-      "description": "<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "109",
-        "y": "-154"
-      },
-      "name": "LÃ¢rss & ElboÃ¶"
-    },
-    "biz_bahama_mamas": {
-      "description": "<b>Price:</b> $32,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1384",
-        "y": "-613"
-      },
-      "name": "Bahama Mamas"
-    },
-    "biz_train_lm": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "696",
-        "y": "-875"
-      },
-      "name": "Train Yard - La Mesa"
-    },
-    "biz_yellowjack": {
-      "description": "<b>Price:</b> $950,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1983",
-        "y": "3026"
-      },
-      "name": "Yellowjack"
-    },
-    "biz_train_paleto": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "147",
-        "y": "6361"
-      },
-      "name": "Train Yard - Paleto Bay"
-    },
-    "biz_racetrack_vw": {
-      "description": "<b>Price:</b> $60,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Unavailable Feature (Type 0x0001)</em> x1<br/><em>ATM</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1044",
-        "y": "191"
-      },
-      "name": "Vinewood Racetrack"
-    },
-    "biz_gas_harmony": {
-      "description": "<b>Price:</b> $2.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "1039",
-        "y": "2664"
-      },
-      "name": "Harmony Gas Station"
-    },
-    "biz_pacific_standard": {
-      "description": "<b>Price:</b> $500,000,000<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Bonus Collector</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "260",
-        "y": "205"
-      },
-      "name": "Pacific Standard Bank"
-    },
-    "biz_satn": {
-      "description": "<b>Price:</b> $750,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "781",
-        "y": "1296"
-      },
-      "name": "San Andreas Telecom Network"
-    },
-    "biz_lcstau_house": {
-      "description": "<b>Price:</b> $5,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2982",
-        "y": "6815"
-      },
-      "name": "Staunton Island Safehouse"
-    },
-    "biz_caseys_diner": {
-      "description": "<b>Price:</b> $350,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "792",
-        "y": "-736"
-      },
-      "name": "Casey's Diner"
-    },
-    "biz_oilrig": {
-      "description": "<b>Price:</b> $125,000,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Chat Prefix</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Boat Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-4170",
-        "y": "8913"
-      },
-      "name": "Oil Platform"
-    },
-    "biz_integrity": {
-      "description": "<b>Price:</b> $300,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-15",
-        "y": "-613"
-      },
-      "name": "4 Integrity Way"
-    },
-    "biz_uginc_gs": {
-      "description": "<b>Price:</b> $4.50M<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "2016",
-        "y": "4987"
-      },
-      "name": "Union Grain Inc Grapeseed"
-    },
-    "biz_hospital_parking_strawberry": {
-      "description": "<b>Price:</b> $6,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "407",
-        "y": "-1348"
-      },
-      "name": "Medical Center Parking Garage"
-    },
-    "biz_train_lc": {
-      "description": "<b>Price:</b> $80,000,000<br/><b>Perks:</b> <br/><em>Self Storage Train</em> x1<br/>",
-      "coordinates": {
-        "x": "-1506",
-        "y": "6647"
-      },
-      "name": "Ship Yard - Portland"
-    },
-    "biz_ltweld": {
-      "description": "<b>Price:</b> $37,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Repair Point</em> x1<br/><em>Job Center</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1165",
-        "y": "-1348"
-      },
-      "name": "LT Weld Supply Co"
-    },
-    "biz_granny": {
-      "description": "<b>Price:</b> $500,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "2220",
-        "y": "5614"
-      },
-      "name": "Grandma's House"
-    },
-    "biz_alphamail_lsia": {
-      "description": "<b>Price:</b> $6,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-743",
-        "y": "-2487"
-      },
-      "name": "Alphamail Couriers LSIA"
-    },
-    "biz_mazebank_arena": {
-      "description": "<b>Price:</b> $8,000,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-254",
-        "y": "-1993"
-      },
-      "name": "Maze Bank Arena"
-    },
-    "biz_spoke_bikes": {
-      "description": "<b>Price:</b> $250,000<br/><b>Perks:</b> <br/><em>ATM</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Spawner</em> x2<br/>",
-      "coordinates": {
-        "x": "-1107",
-        "y": "-1696"
-      },
-      "name": "Mr. Spoke's Bike Rental"
-    },
-    "biz_hookies": {
-      "description": "<b>Price:</b> $300,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-2194",
-        "y": "4286"
-      },
-      "name": "Hookies"
-    },
-    "biz_persons": {
-      "description": "<b>Price:</b> $4.50M<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-1517",
-        "y": "852"
-      },
-      "name": "Parsons Rehabilitation Center"
-    },
-    "biz_walker": {
-      "description": "<b>Price:</b> $120,000,000<br/><b>Perks:</b> <br/><em>Self Storage</em> x1<br/><em>Helicopter Garage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "152",
-        "y": "-3211"
-      },
-      "name": "Walker Logistics"
-    },
-    "biz_cablecar": {
-      "description": "<b>Price:</b> $250,000<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "-755",
-        "y": "5566"
-      },
-      "name": "Pala Springs Aerial Tramway"
-    },
-    "biz_rebel": {
-      "description": "<b>Price:</b> $9,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "733",
-        "y": "2523"
-      },
-      "name": "Rebel Radio"
-    },
-    "biz_wenger": {
-      "description": "<b>Price:</b> $15,000<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>",
-      "coordinates": {
-        "x": "-369",
-        "y": "-241"
-      },
-      "name": "Wenger Institute"
-    },
-    "biz_quarry": {
-      "description": "<b>Price:</b> $18,000,000<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Job Center</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "2569",
-        "y": "2719"
-      },
-      "name": "Davis Quartz Quarry"
-    },
-    "biz_ Millars": {
-      "description": "<b>Price:</b> $12.50M<br/><b>Perks:</b> <br/><em>Unavailable Feature (Type 0x1000)</em> x1<br/><em>Business Bonus</em> x1<br/><em>Boat Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/>",
-      "coordinates": {
-        "x": "1310",
-        "y": "4361"
-      },
-      "name": " Millars Boat Shop"
-    }
+  "biz_cluckingbell_co": {
+    "price": "$11,000,000",
+    "perks": [
+      "Chat Prefix x1",
+      "Business Bonus x1",
+      "Marketplace x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-138",
+      "y": "6199"
+    },
+    "name": "Clucking Bell Co.",
+    "payout": "$360,238"
+  },
+  "biz_youtool_ss": {
+    "price": "$500,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "2748",
+      "y": "3472"
+    },
+    "name": "You Tool Sandy Shores",
+    "payout": "$30,885"
+  },
+  "biz_docks_ls": {
+    "price": "$1,500,000",
+    "perks": [
+      "Business Bonus x1",
+      "Unavailable Feature (Type 0x0040) x1",
+      "ATM x1",
+      "Vehicle Garage x1",
+      "Repair Point x1"
+    ],
+    "coordinates": {
+      "x": "-53",
+      "y": "-2524"
+    },
+    "name": "Los Santos Docks",
+    "payout": "$72,799"
+  },
+  "biz_stay_frosty": {
+    "price": "$8,000,000",
+    "perks": [
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "868",
+      "y": "-1630"
+    },
+    "name": "Fridgit Co.",
+    "payout": "$278,056"
+  },
+  "biz_pbcc": {
+    "price": "$18,000,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-3024",
+      "y": "81"
+    },
+    "name": "Pacific Bluffs Country Club",
+    "payout": "$538,870"
+  },
+  "biz_train_sandy": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "2009",
+      "y": "3630"
+    },
+    "name": "Train Yard - Sandy Shores",
+    "payout": "$1,852,986"
+  },
+  "biz_kortz": {
+    "price": "$35,000,000",
+    "perks": [
+      "Spawn Point x1",
+      "ATM x1",
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2287",
+      "y": "354"
+    },
+    "name": "KO RTZ",
+    "payout": "$932,018"
+  },
+  "biz_opium_hotel": {
+    "price": "$17,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-703",
+      "y": "-2277"
+    },
+    "name": "Opium Nights Hotel",
+    "payout": "$514,193"
+  },
+  "biz_stripclub": {
+    "price": "$30,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "ATM x1",
+      "Unavailable Feature (Type 0x4000) x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "126",
+      "y": "-1284"
+    },
+    "name": "Vanilla Unicorn",
+    "payout": "$820,523"
+  },
+  "biz_liquor_ss": {
+    "price": "$250,000",
+    "perks": [
+      "Business Bonus x1",
+      "Marketplace x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1952",
+      "y": "3842"
+    },
+    "name": "Sandy Shores Liquor",
+    "payout": "$18,173"
+  },
+  "biz_train_davis": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "2745",
+      "y": "2788"
+    },
+    "name": "Train Yard - Davis Quartz",
+    "payout": "$1,852,986"
+  },
+  "biz_windfarm": {
+    "price": "$350,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "2462",
+      "y": "1575"
+    },
+    "name": "Ron Alternates Wind Farm",
+    "payout": "$6,415,741"
+  },
+  "biz_sisyphus": {
+    "price": "$5,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "225",
+      "y": "1171"
+    },
+    "name": "Sisyphus Theater",
+    "payout": "$190,160"
+  },
+  "biz_korean_plaza": {
+    "price": "$750,000",
+    "perks": [
+      "Market x2",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-602",
+      "y": "-1136"
+    },
+    "name": "Korean Plaza",
+    "payout": "$42,286"
+  },
+  "biz_murrietta_oil": {
+    "price": "$125,000,000",
+    "perks": [
+      "Self Storage x1",
+      "Spawn Point x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1708",
+      "y": "-1611"
+    },
+    "name": "Collins Petrochemical Corp.",
+    "payout": "$2,692,309"
+  },
+  "biz_airfield_ss": {
+    "price": "$47,000,000",
+    "perks": [
+      "Market x1",
+      "Spawn Point x1",
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Plane Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1701",
+      "y": "3290"
+    },
+    "name": "Sandy Shores Airfield",
+    "payout": "$1,189,949"
+  },
+  "biz_venetian": {
+    "price": "$7.50M",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-1363",
+      "y": "-1079"
+    },
+    "name": "Venetian",
+    "payout": "$263,879"
+  },
+  "biz_train_docks": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "-176",
+      "y": "-2582"
+    },
+    "name": "Train Yard - LS Docks",
+    "payout": "$1,852,986"
+  },
+  "biz_vacaloco": {
+    "price": "$150,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "142",
+      "y": "-1521"
+    },
+    "name": "La Vaca Loco",
+    "payout": "$12,367"
+  },
+  "biz_merryweather": {
+    "price": "$17.50M",
+    "perks": [
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Boat Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "448",
+      "y": "-2762"
+    },
+    "name": "Bristols Storage",
+    "payout": "$526,561"
+  },
+  "biz_dp_pier": {
+    "price": "$350,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Permission Set x1",
+      "Chat Prefix x2",
+      "Repair Point x1",
+      "Boat Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1813",
+      "y": "-1206"
+    },
+    "name": "Del Perro Pier",
+    "payout": "$6,415,741"
+  },
+  "biz_lsia": {
+    "price": "$125,000,000",
+    "perks": [
+      "Self Storage x2",
+      "Business Bonus x1",
+      "Marketplace x1",
+      "ATM x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1046",
+      "y": "-2751"
+    },
+    "name": "Los Santos International Airport",
+    "payout": "$2,692,309"
+  },
+  "biz_train_grapeseed": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "2932",
+      "y": "4617"
+    },
+    "name": "Train Yard - Grapeseed",
+    "payout": "$1,852,986"
+  },
+  "biz_lcstau_casino": {
+    "price": "$15,000,000",
+    "perks": [
+      "Unavailable Feature (Type 0x0001) x1",
+      "Business Bonus x1",
+      "Helicopter Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2643",
+      "y": "5876"
+    },
+    "name": "Staunton Island Casino",
+    "payout": "$464,088"
+  },
+  "biz_playboi": {
+    "price": "$550,000,000",
+    "perks": [
+      "Self Storage x1",
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1538",
+      "y": "129"
+    },
+    "name": "Playboy Mansion",
+    "payout": "$9,417,751"
+  },
+  "biz_train_terminal": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "858",
+      "y": "-3204"
+    },
+    "name": "Train Yard - LS Terminal",
+    "payout": "$1,852,986"
+  },
+  "biz_zancudo": {
+    "price": "$35,000,000",
+    "perks": [
+      "Market x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Business Bonus x1",
+      "Vehicle Spawner x1",
+      "Job Center x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2436",
+      "y": "3288"
+    },
+    "name": "Fort Zancudo",
+    "payout": "$932,018"
+  },
+  "biz_carrier": {
+    "price": "$65,000,000",
+    "perks": [
+      "Spawn Point x1",
+      "Unavailable Feature (Type 0x0040) x1",
+      "Business Bonus x1",
+      "Plane Garage x1",
+      "Repair Point x1"
+    ],
+    "coordinates": {
+      "x": "3084",
+      "y": "-4687"
+    },
+    "name": "Aircraft Carrier",
+    "payout": "$1,558,286"
+  },
+  "biz_jetsam_pb": {
+    "price": "$3.50M",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-250",
+      "y": "6160"
+    },
+    "name": "Jetsam Paleto Bay",
+    "payout": "$142,790"
+  },
+  "biz_vineyard": {
+    "price": "$600,000,000",
+    "perks": [
+      "Self Storage x1",
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1889",
+      "y": "2049"
+    },
+    "name": "Tongva Hills Vineyard",
+    "payout": "$10,141,798"
+  },
+  "biz_catfish": {
+    "price": "$4,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "3807",
+      "y": "4478"
+    },
+    "name": "Catfish View",
+    "payout": "$158,926"
+  },
+  "biz_baracuda": {
+    "price": "$750,000",
+    "perks": [
+      "Boat Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-3277",
+      "y": "965"
+    },
+    "name": "Baracuda Cafe",
+    "payout": "$42,286"
+  },
+  "biz_lcssv_dam": {
+    "price": "$250,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-4277",
+      "y": "7626"
+    },
+    "name": "Cochrane Dam",
+    "payout": "$4,826,081"
+  },
+  "biz_tung": {
+    "price": "$25,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-903",
+      "y": "-228"
+    },
+    "name": "Jonny Tung",
+    "payout": "$705,961"
+  },
+  "biz_banner": {
+    "price": "$4,000,000",
+    "perks": [
+      "Spawn Point x1",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-287",
+      "y": "-1063"
+    },
+    "name": "Banner Hotel & Spa",
+    "payout": "$158,926"
+  },
+  "biz_lcssv_aeroport": {
+    "price": "$150,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Helicopter Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-3857",
+      "y": "6699"
+    },
+    "name": "Francis Intl. Airport",
+    "payout": "$3,137,812"
+  },
+  "biz_lcssv_house": {
+    "price": "$20,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-3750",
+      "y": "7311"
+    },
+    "name": "Shoreside Vale Safehouse",
+    "payout": "$587,558"
+  },
+  "biz_lcport_mansion": {
+    "price": "$35,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1613",
+      "y": "7106"
+    },
+    "name": "Portland Mansion",
+    "payout": "$932,018"
+  },
+  "biz_lcport_house": {
+    "price": "$750,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2190",
+      "y": "6992"
+    },
+    "name": "Portland Safehouse",
+    "payout": "$42,286"
+  },
+  "biz_chiliad_base": {
+    "price": "$200,000,000",
+    "perks": [
+      "Helicopter Garage x3",
+      "Spawn Point x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "517",
+      "y": "5582"
+    },
+    "name": "Mt. Chiliad Base",
+    "payout": "$3,997,670"
+  },
+  "biz_raven": {
+    "price": "$80,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "941",
+      "y": "-2143"
+    },
+    "name": "Raven Slaughterhouse",
+    "payout": "$1,852,986"
+  },
+  "biz_pier_400": {
+    "price": "$80,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-102",
+      "y": "-2694"
+    },
+    "name": "Pier 400",
+    "payout": "$1,852,986"
+  },
+  "biz_jetsam_ls": {
+    "price": "$3,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "813",
+      "y": "-2983"
+    },
+    "name": "Jetsam Terminal",
+    "payout": "$126,226"
+  },
+  "biz_shipyard_pa": {
+    "price": "$80,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "94",
+      "y": "-2695"
+    },
+    "name": "Pacific Allied Shipyard",
+    "payout": "$1,852,986"
+  },
+  "biz_bishops_chicken": {
+    "price": "$1,500,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "2581",
+      "y": "463"
+    },
+    "name": "Bishops Chicken",
+    "payout": "$72,799"
+  },
+  "biz_vespucci_masks": {
+    "price": "$150,000",
+    "perks": [
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-1338",
+      "y": "-1277"
+    },
+    "name": "Vespucci Movie Masks",
+    "payout": "$12,367"
+  },
+  "biz_train_mp": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "486",
+      "y": "-592"
+    },
+    "name": "Train Yard - Mirror Park",
+    "payout": "$1,852,986"
+  },
+  "biz_horny_burgie": {
+    "price": "$300,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "1241",
+      "y": "-368"
+    },
+    "name": "Horny's Burgers",
+    "payout": "$23,483"
+  },
+  "biz_elboo": {
+    "price": "$1,500,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "109",
+      "y": "-154"
+    },
+    "name": "Larss & Elboo",
+    "payout": "$72,799"
+  },
+  "biz_bahama_mamas": {
+    "price": "$32,000,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "ATM x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1384",
+      "y": "-613"
+    },
+    "name": "Bahama Mamas",
+    "payout": "$865,455"
+  },
+  "biz_train_lm": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "696",
+      "y": "-875"
+    },
+    "name": "Train Yard - La Mesa",
+    "payout": "$1,852,986"
+  },
+  "biz_yellowjack": {
+    "price": "$950,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Self Storage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1983",
+      "y": "3026"
+    },
+    "name": "Yellowjack",
+    "payout": "$50,850"
+  },
+  "biz_train_paleto": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "147",
+      "y": "6361"
+    },
+    "name": "Train Yard - Paleto Bay",
+    "payout": "$1,852,986"
+  },
+  "biz_racetrack_vw": {
+    "price": "$60,000,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Unavailable Feature (Type 0x0001) x1",
+      "ATM x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1044",
+      "y": "191"
+    },
+    "name": "Vinewood Racetrack",
+    "payout": "$1,457,790"
+  },
+  "biz_gas_harmony": {
+    "price": "$2.50M",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "1039",
+      "y": "2664"
+    },
+    "name": "Harmony Gas Station",
+    "payout": "$109,142"
+  },
+  "biz_pacific_standard": {
+    "price": "$500,000,000",
+    "perks": [
+      "Spawn Point x1",
+      "Bonus Collector x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "260",
+      "y": "205"
+    },
+    "name": "Pacific Standard Bank",
+    "payout": "$0"
+  },
+  "biz_satn": {
+    "price": "$750,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "781",
+      "y": "1296"
+    },
+    "name": "San Andreas Telecom Network",
+    "payout": "$12,266,483"
+  },
+  "biz_lcstau_house": {
+    "price": "$5,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Spawn Point x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2982",
+      "y": "6815"
+    },
+    "name": "Staunton Island Safehouse",
+    "payout": "$190,160"
+  },
+  "biz_caseys_diner": {
+    "price": "$350,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "792",
+      "y": "-736"
+    },
+    "name": "Casey's Diner",
+    "payout": "$30,885"
+  },
+  "biz_oilrig": {
+    "price": "$125,000,000",
+    "perks": [
+      "Market x1",
+      "Helicopter Garage x1",
+      "Chat Prefix x1",
+      "ATM x1",
+      "Spawn Point x1",
+      "Boat Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-4170",
+      "y": "8913"
+    },
+    "name": "Oil Platform",
+    "payout": "$2,692,309"
+  },
+  "biz_integrity": {
+    "price": "$300,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-15",
+      "y": "-613"
+    },
+    "name": "4 Integrity Way",
+    "payout": "$20,876"
+  },
+  "biz_uginc_gs": {
+    "price": "$4.50M",
+    "perks": [
+      "Spawn Point x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "2016",
+      "y": "4987"
+    },
+    "name": "Union Grain Inc Grapeseed",
+    "payout": "$174,699"
+  },
+  "biz_hospital_parking_strawberry": {
+    "price": "$6,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "407",
+      "y": "-1348"
+    },
+    "name": "Medical Center Parking Garage",
+    "payout": "$220,288"
+  },
+  "biz_train_lc": {
+    "price": "$80,000,000",
+    "perks": [
+      "Self Storage Train x1"
+    ],
+    "coordinates": {
+      "x": "-1506",
+      "y": "6647"
+    },
+    "name": "Ship Yard - Portland",
+    "payout": "$1,852,986"
+  },
+  "biz_ltweld": {
+    "price": "$37,000,000",
+    "perks": [
+      "Self Storage x1",
+      "Business Bonus x1",
+      "Repair Point x1",
+      "Job Center x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1165",
+      "y": "-1348"
+    },
+    "name": "LT Weld Supply Co",
+    "payout": "$975,880"
+  },
+  "biz_granny": {
+    "price": "$500,000",
+    "perks": [
+      "Self Storage x1",
+      "Helicopter Garage x1",
+      "Business Bonus x1",
+      "Chat Prefix x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "2220",
+      "y": "5614"
+    },
+    "name": "Grandma's House",
+    "payout": "$20,876"
+  },
+  "biz_alphamail_lsia": {
+    "price": "$6,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-743",
+      "y": "-2487"
+    },
+    "name": "Alphamail Couriers LSIA",
+    "payout": "$220,288"
+  },
+  "biz_mazebank_arena": {
+    "price": "$8,000,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-254",
+      "y": "-1993"
+    },
+    "name": "Maze Bank Arena",
+    "payout": "$278,056"
+  },
+  "biz_spoke_bikes": {
+    "price": "$250,000",
+    "perks": [
+      "ATM x1",
+      "Business Bonus x1",
+      "Vehicle Spawner x2"
+    ],
+    "coordinates": {
+      "x": "-1107",
+      "y": "-1696"
+    },
+    "name": "Mr. Spoke's Bike Rental",
+    "payout": "$18,173"
+  },
+  "biz_hookies": {
+    "price": "$300,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Self Storage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-2194",
+      "y": "4286"
+    },
+    "name": "Hookies",
+    "payout": "$20,876"
+  },
+  "biz_persons": {
+    "price": "$4.50M",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-1517",
+      "y": "852"
+    },
+    "name": "Parsons Rehabilitation Center",
+    "payout": "$174,699"
+  },
+  "biz_walker": {
+    "price": "$120,000,000",
+    "perks": [
+      "Self Storage x1",
+      "Helicopter Garage x1",
+      "Spawn Point x1",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "152",
+      "y": "-3211"
+    },
+    "name": "Walker Logistics",
+    "payout": "$2,601,669"
+  },
+  "biz_cablecar": {
+    "price": "$250,000",
+    "perks": [
+      "Market x1",
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "-755",
+      "y": "5566"
+    },
+    "name": "Pala Springs Aerial Tramway",
+    "payout": "$18,173"
+  },
+  "biz_rebel": {
+    "price": "$9,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "733",
+      "y": "2523"
+    },
+    "name": "Rebel Radio",
+    "payout": "$305,961"
+  },
+  "biz_wenger": {
+    "price": "$15,000",
+    "perks": [
+      "Vehicle Garage x1",
+      "Business Bonus x1"
+    ],
+    "coordinates": {
+      "x": "-369",
+      "y": "-241"
+    },
+    "name": "Wenger Institute",
+    "payout": "$2,355"
+  },
+  "biz_quarry": {
+    "price": "$18,000,000",
+    "perks": [
+      "Business Bonus x1",
+      "Job Center x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "2569",
+      "y": "2719"
+    },
+    "name": "Davis Quartz Quarry",
+    "payout": "$538,870"
+  },
+  "biz_ Millars": {
+    "price": "$12.50M",
+    "perks": [
+      "Unavailable Feature (Type 0x1000) x1",
+      "Business Bonus x1",
+      "Boat Garage x1",
+      "Vehicle Garage x1"
+    ],
+    "coordinates": {
+      "x": "1310",
+      "y": "4361"
+    },
+    "name": "Millars Boat Shop",
+    "payout": "$399,830"
   }
+}

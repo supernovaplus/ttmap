@@ -89,7 +89,8 @@ serversSelection.innerHTML=`
 ${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None<br>Hide Players</button>
-<br><br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
+<br><button onclick="pauseUnpause(this);return false;">🟢 Pause</button>
+<br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
 <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>`;
 
 
@@ -119,6 +120,11 @@ function toggleNameTags(){
         ".leaflet-tooltip-top{display:none};" )
 
     players_showBoxes = !players_showBoxes;
+}
+
+function pauseUnpause(button){
+    button.innerText = (mapUpdatingPaused === false ? "🟡 Unpause" : "🟢 Pause");
+    mapUpdatingPaused = !mapUpdatingPaused;
 }
 
 
