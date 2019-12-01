@@ -27,12 +27,17 @@ function createDataIcon (name){
 
 
 
-fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{
+fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
     for (const key in res) {
         L.marker([res[key].coordinates.y,res[key].coordinates.x],
             { icon:  createDataIcon("Business")})
         .addTo(map)
-        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`);
+        .bindPopup(`<div class="markerHead">Business</div>
+        <b>Name:</b> ${res[key].name}<hr>
+        <b>Price</b>: ${res[key].price}<hr>
+        <b>Perks:</b><br>${res[key].perks.join("<br>")}<hr>
+        <b>Payout:</b> ${res[key].payout}<br>
+        <small>(in 24 hours / 8 stacks)</small>`);
     }
 })
 
@@ -45,7 +50,9 @@ fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
             { icon:  createDataIcon(res[key]["type"]) } 
         )
         .addTo(map)
-        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`)
+        .bindPopup(`<div class="markerHead">${res[key].type}</div>
+        <b>Name:</b> ${res[key].name}<hr>
+        <b>Spawns:</b> ${res[key].spawns}`)
     }
 })
 
@@ -56,7 +63,10 @@ fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
             { icon:  createDataIcon("Self Storage") } 
         )
         .addTo(map)
-        .bindPopup(`<b>${res[key].name}</b><br>${res[key].description}`)
+        .bindPopup(`<div class="markerHead">Self Storage Unit</div>
+        Name: <b>${res[key].name}</b><hr>
+        Fee: <b>${res[key].fee}</b><hr>
+        Capacity: <b>${res[key].capacity}</b>`)
     }
 })
 

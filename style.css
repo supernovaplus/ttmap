@@ -14,6 +14,18 @@ body, #map{
     text-align: center;
 }
 
+.markerHead{
+    background-color: red;
+    width:99%;
+    border: 1px solid red;
+    font-weight: bold;
+    text-shadow: 1px 2px black;
+    color:white;
+
+}
+
+
+
 .leaflet-popup-content-wrapper{
     border-bottom: 1px solid red;
     border-radius: 0;
@@ -68,6 +80,23 @@ button{
     background-color: red !important;
     color:white !important;
 }
+
+hr{
+    padding: 0;
+    margin: auto;
+    /* border: 5px solid; */
+    border:0;
+    /* background-color: rgba(255, 0, 0, 0.137); */
+    background-color: white;
+    border-bottom: 1px solid rgba(255, 39, 39, 0.171);
+    height:1px;
+    /* width:80%; */
+    /* border-image: linear-gradient(356deg, rgba(32,123,255,0.7) 41%, rgba(0,212,255,0.7) 100%) !important; */
+    /* border: 2px solid;
+    border-image-source: linear-gradient(to bottom, black, red);
+    border-image-slice: 5; */
+}
+
 
 
 #cmenu{
@@ -129,14 +158,14 @@ b{
 }
 
 
-*:focus {
-    outline: none !important;
-}
 
+small {
+    font-size: smaller;
+}
 
 #serversSelection{
     margin: 0 !important;
-    padding: 0px 0 5px !important;
+    padding: 0 !important;
     z-index: 9999 !important;
     position: fixed;
     top:250px;

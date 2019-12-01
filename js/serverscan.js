@@ -4,12 +4,12 @@ scanServers();
 
 setInterval(scanInactivePlayers, 6000);
 
-function scanInactivePlayers(noCheck = false){
-    if(Object.keys(playerMarkers).length === 0) return;
+function scanInactivePlayers(skipCheck = false){
+    if(mapUpdatingPaused === true || Object.keys(playerMarkers).length === 0) return;
     let timeNow = Date.now();
 
     for (const key in playerMarkers) {
-        if(noCheck === true || timeNow - playerMarkers[key].nova.timestamp > 7000){
+        if(skipCheck === true || timeNow - playerMarkers[key].nova.timestamp > 7000){
             map.removeLayer(playerMarkers[key])
             delete playerMarkers[key];
         }
@@ -20,6 +20,7 @@ function scanInactivePlayers(noCheck = false){
 
 
 function scanServers(){
+    if(mapUpdatingPaused === true) return;
     for (const checkbox of serversSelectionCheckboxes) {
         if(checkbox.checked === true){
             getServerData(checkbox);
@@ -51,15 +52,12 @@ function getServerData(checkbox){
                     })
                 .addTo(map)
                 .bindPopup(parsePlayerInfo(res.players[i],checkbox))
-
-                if(players_showBoxes === true){
-                    playerMarkers[res.players[i][2]].bindTooltip(generateTag(res.players[i][5]["group"]) + res.players[i][0], {
-                        permanent: true,
-                        offset: [0, -5],
-                        opacity: 0.8,
-                        direction: "top"
-                    });
-                }
+                .bindTooltip(generateTag(res.players[i][5]["group"]) + res.players[i][0], {
+                    permanent: true,
+                    offset: [0, -5],
+                    opacity: 0.8,
+                    direction: "top"
+                });
 
 
                 playerMarkers[res.players[i][2]].nova = {}
@@ -76,23 +74,21 @@ function getServerData(checkbox){
                 playerMarkers[res.players[i][2]].nova.timestamp = looptimestamp;
                 playerMarkers[res.players[i][2]].bindPopup( parsePlayerInfo(res.players[i],checkbox) )
 
-                // if(playerMarkers[res.players[i][2]].nova.job.name !== res.players[i][5]["name"] ||
-                //     playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]
-                //     ){
+                if(playerMarkers[res.players[i][2]].nova.job.name !== res.players[i][5]["name"] ||
+                    playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]
+                    ){
                     playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4],res.players[i][5]) );
                     
-                // }
+                }
+
+                // console.log(playerMarkers[res.players[i][2]]._tooltip._content)
+
 
             }
 
 
             
-
-            // el.innerHTML += res.players[i][0] + "<br>";
-        }//(join) [0]
-        // console.log("checkbox.nextSibling",checkbox);
-        // checkbox.nextSibling.nodeValue = res.players.length;
-        // console.log(checkbox.nextSibling)
+        }
     }).catch(err=>{
         console.log(err);
         checkbox.checked = false;
@@ -112,11 +108,20 @@ function parsePlayerInfo(data,checkbox){
     //     {"group":"garbage","name":"Garbage Collector"}
     // ]
 
-    return `<b>Name:</b> ${data[0]}<br>
-    <b>ID:</b> ${data[2]}<br>
-    <b>Job:</b> ${data[5].name || "N/A"}<br>
-    <b>Vehicle:</b> ${(data[4]["vehicle_label"] === "NULL"? 
-            "N/A" : 
-            `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<br>
-    <b>${checkbox.dataset.server}</b>`;
+    // return `<b>Name:</b> ${data[0]}<br>
+    // <b>ID:</b> ${data[2]}<br>
+    // <b>Job:</b> ${data[5].name || "N/A"}<br>
+    // <b>Vehicle:</b> ${(data[4]["vehicle_label"] === "NULL"? 
+    //         "N/A" : 
+    //         `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<br>
+    // <b>${checkbox.dataset.server}</b>`;
+
+    return `<div class="markerHead">Player Info</div>
+            <b>Name:</b> ${data[0]}<hr>
+            <b>ID:</b> ${data[2]}<hr>
+            <b>Job:</b> ${data[5].name || "N/A"}<hr>
+            <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? 
+                            "N/A" : 
+                            `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
+            <b>${checkbox.dataset.server}</b>`
 }

@@ -17,6 +17,7 @@ var serversList = [
 ]
 
 const isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+var mapUpdatingPaused = false;
 
 const params = {
     "hideplayers": new URL(location.href).searchParams.get("hideplayers") === "",

@@ -1,317 +1,317 @@
 {
   "garage_3": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Helicopters, Aircraft",
+    "name": "LSIA Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Helicopters, Aircraft",
     "coordinates": {
       "x": "-1058",
       "y": "-3510"
-    },
-    "name": "LSIA Hangar"
+    }
   },
   "garage_30": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "Hospital Parkway",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "-530",
       "y": "-327"
-    },
-    "name": "Hospital Parkway"
+    }
   },
   "garage_8": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Legion Square Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "233",
       "y": "-784"
-    },
-    "name": "Legion Square Garage"
+    }
   },
   "garage_21": {
-    "description": "Watercraft Garage<br/><b>Spawns:</b> Boats",
+    "name": "LS Marina",
     "type": "Watercraft Garage",
+    "spawns": "Boats",
     "coordinates": {
       "x": "-790",
       "y": "-1453"
-    },
-    "name": "LS Marina"
+    }
   },
   "garage_2": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "LSIA Main Gate",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "-1184",
       "y": "-2532"
-    },
-    "name": "LSIA Main Gate"
+    }
   },
   "garage_9": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Sandy Shores Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "1699",
       "y": "3598"
-    },
-    "name": "Sandy Shores Garage"
+    }
   },
   "garage_29": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "SA Logistics HQ",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-1080",
       "y": "-2172"
-    },
-    "name": "SA Logistics HQ"
+    }
   },
   "garage_12": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "Pacific Ocean Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "2977",
       "y": "-748"
-    },
-    "name": "Pacific Ocean Hangar"
+    }
   },
   "garage_7": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Truck Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-130",
       "y": "-2417"
-    },
-    "name": "Truck Garage"
+    }
   },
   "garage_34": {
-    "description": "Helicopter Garage<br/><b>Spawns:</b> Helicopters",
+    "name": "First Responders Helipad",
     "type": "Helicopter Garage",
+    "spawns": "Helicopters",
     "coordinates": {
       "x": "319",
       "y": "-597"
-    },
-    "name": "First Responders Helipad"
+    }
   },
   "garage_18": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "PIA Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "1070",
       "y": "6587"
-    },
-    "name": "PIA Garage"
+    }
   },
   "garage_16": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "SSIA Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "628",
       "y": "3650"
-    },
-    "name": "SSIA Garage"
+    }
   },
   "garage_28": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Imperial Airlines HQ",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-1513",
       "y": "-3194"
-    },
-    "name": "Imperial Airlines HQ"
+    }
   },
   "garage_23": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "Race Track Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "3717",
       "y": "5768"
-    },
-    "name": "Race Track Garage"
+    }
   },
   "garage_35": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "P.I.G.S. Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "1011",
       "y": "-3159"
-    },
-    "name": "P.I.G.S. Garage"
+    }
   },
   "garage_17": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "PIA Hangar",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "1167",
       "y": "6729"
-    },
-    "name": "PIA Hangar"
+    }
   },
   "garage_31": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Substation Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "712",
       "y": "141"
-    },
-    "name": "Substation Garage"
+    }
   },
   "garage_15": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "SSIA Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "1070",
       "y": "3787"
-    },
-    "name": "SSIA Hangar"
+    }
   },
   "garage_13": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "McKenzie Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "2130",
       "y": "4809"
-    },
-    "name": "McKenzie Hangar"
+    }
   },
   "garage_5": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "Mission Row PD Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "441",
       "y": "-1021"
-    },
-    "name": "Mission Row PD Garage"
+    }
   },
   "garage_24": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Palmer-Taylor Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "2727",
       "y": "1415"
-    },
-    "name": "Palmer-Taylor Garage"
+    }
   },
   "garage_20": {
-    "description": "Watercraft Garage<br/><b>Spawns:</b> Boats",
+    "name": "El Gordo Lighthouse",
     "type": "Watercraft Garage",
+    "spawns": "Boats",
     "coordinates": {
       "x": "3368",
       "y": "5184"
-    },
-    "name": "El Gordo Lighthouse"
+    }
   },
   "garage_22": {
-    "description": "Watercraft Garage<br/><b>Spawns:</b> Boats",
+    "name": "Sandy Shores Marina",
     "type": "Watercraft Garage",
+    "spawns": "Boats",
     "coordinates": {
       "x": "1589",
       "y": "3898"
-    },
-    "name": "Sandy Shores Marina"
+    }
   },
   "garage_11": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "Paleto Airport Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "-253",
       "y": "6585"
-    },
-    "name": "Paleto Airport Hangar"
+    }
   },
   "garage_32": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Bay Area Towing HQ",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-625",
       "y": "-1649"
-    },
-    "name": "Bay Area Towing HQ"
+    }
   },
   "garage_10": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Paleto Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-231",
       "y": "6258"
-    },
-    "name": "Paleto Garage"
+    }
   },
   "garage_33": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "First Responders LLC HQ",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "330",
       "y": "-550"
-    },
-    "name": "First Responders LLC HQ"
+    }
   },
   "garage_1": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Parking Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-336",
       "y": "-779"
-    },
-    "name": "Parking Garage"
+    }
   },
   "garage_25": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "Rockwell T.S. HQ",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "973",
       "y": "-3004"
-    },
-    "name": "Rockwell T.S. HQ"
+    }
   },
   "garage_6": {
-    "description": "Car Garage<br/><b>Spawns:</b> Bikes, Cars",
+    "name": "Vinewood Warehouse Garage",
     "type": "Car Garage",
+    "spawns": "Bikes, Cars",
     "coordinates": {
       "x": "84",
       "y": "162"
-    },
-    "name": "Vinewood Warehouse Garage"
+    }
   },
   "garage_26": {
-    "description": "Helicopter Garage<br/><b>Spawns:</b> Helicopters",
+    "name": "Rockwell T.S. HQ Roof",
     "type": "Helicopter Garage",
+    "spawns": "Helicopters",
     "coordinates": {
       "x": "-146",
       "y": "-605"
-    },
-    "name": "Rockwell T.S. HQ Roof"
+    }
   },
   "garage_4": {
-    "description": "Vehicle Garage<br/><b>Spawns:</b> Bikes, Cars, Trailers",
+    "name": "Parking Garage",
     "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers",
     "coordinates": {
       "x": "-1212",
       "y": "-366"
-    },
-    "name": "Parking Garage"
+    }
   },
   "garage_27": {
-    "description": "Helicopter Garage<br/><b>Spawns:</b> Helicopters",
+    "name": "Richard's Majestic Roof",
     "type": "Helicopter Garage",
+    "spawns": "Helicopters",
     "coordinates": {
       "x": "-901",
       "y": "-375"
-    },
-    "name": "Richard's Majestic Roof"
+    }
   },
   "garage_19": {
-    "description": "Watercraft Garage<br/><b>Spawns:</b> Boats",
+    "name": "Paleto Bay Marina",
     "type": "Watercraft Garage",
+    "spawns": "Boats",
     "coordinates": {
       "x": "-270",
       "y": "6637"
-    },
-    "name": "Paleto Bay Marina"
+    }
   },
   "garage_14": {
-    "description": "Aircraft Garage<br/><b>Spawns:</b> Bikes, Aircraft, Helicopters, Cars",
+    "name": "Zancudo Hangar",
     "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars",
     "coordinates": {
       "x": "-2088",
       "y": "2985"
-    },
-    "name": "Zancudo Hangar"
+    }
   }
 }
