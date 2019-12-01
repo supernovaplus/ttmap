@@ -86,7 +86,7 @@ const defaultServerSelectorState = (params["hideplayers"] === true ? "" : "check
 
 serversSelection.innerHTML=`
 <div id="server-selector-header" onclick="test();return false;">Server Selection:</div>
-${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span>-</span></div>`).join("")}
+${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span style="text-shadow: none;"><a href="fivem://connect/${item[0]}" title="Join: ${item[0]}">🎮</a></span></div>`).join("")}
 <button onclick="servers_checkall();return false;">Check All</button>
 <br><button onclick="servers_checknone();return false;">Check None<br>Hide Players</button>
 <br><button onclick="pauseUnpause(this);return false;">🟢 Pause</button>
