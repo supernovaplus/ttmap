@@ -111,7 +111,7 @@ function getServerData(checkbox){
             
         }
     }).catch(err=>{
-        console.log(err);
+        // console.log(err);
         checkbox.checked = false;
         checkbox.disabled = true;
     });
