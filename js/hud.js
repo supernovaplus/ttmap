@@ -65,7 +65,7 @@ createGUIblock(DIVBLOCK=>{
     DIVBLOCK.innerHTML = `
     <input type="button" value="Players" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
-        <input type='text' id="findplayerinputfield" placeholder="enter player's id or name" style="padding-left:5px;padding-right:5px;font-size:.95em;border:none;" >
+        <input type='text' id="findplayerinputfield" placeholder="enter player's id or name">
         <input type="submit" value="Find" onclick="findplayer(this);return false;">
     </div>
     `;
