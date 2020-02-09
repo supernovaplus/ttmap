@@ -24,6 +24,7 @@ const jobsEmojiList = {
     "collinsco_cabbie_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
     "collinsco_plane_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
     "collinsco_train_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
+    "collinsco_metro_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
     "ia_pilot": `<img src='${customEmojiFolder}ia_tag.png'> `,
     "delivery_iaa": `<img src='${customEmojiFolder}ia_tag.png'> `,
     "rts_job": `<img src='${customEmojiFolder}rts_tag.png'> `,
