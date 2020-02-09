@@ -24,9 +24,6 @@ function createDataIcon (name){
     });
 }
 
-
-
-
 fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
     for (const key in res) {
         L.marker([res[key].coordinates.y,res[key].coordinates.x],
