@@ -23,7 +23,7 @@ createGUIblock(DIVBLOCK=>{
     // <div id="server-selector-header" onclick="toggleGUIblock(this);return false;">Server Selection:</div>
 
     DIVBLOCK.innerHTML=`
-    <input type="button" value="Toggle Servers Menu" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <input type="button" value="Servers" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
 
     ${serversList.map(item=>`
@@ -47,7 +47,7 @@ createGUIblock(DIVBLOCK=>{
 
 createGUIblock(DIVBLOCK=>{
     DIVBLOCK.innerHTML=`
-    <input type="button" value="Toggle Options" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <input type="button" value="Map Options" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
     <button onclick="pauseUnpause(this);return false;">Pause Updating</button>
     <br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
@@ -63,10 +63,10 @@ createGUIblock(DIVBLOCK=>{
 createGUIblock(DIVBLOCK=>{
 
     DIVBLOCK.innerHTML = `
-    <input type="button" value="Player Filter" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <input type="button" value="Players" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
         <input type='text' id="findplayerinputfield" placeholder="enter player's id or name" style="padding-left:5px;padding-right:5px;font-size:.95em;border:none;" >
-        <input type="submit" value="Search" onclick="findplayer(this);return false;">
+        <input type="submit" value="Find" onclick="findplayer(this);return false;">
     </div>
     `;
 
