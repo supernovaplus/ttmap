@@ -7,17 +7,87 @@ const hud = document.getElementById("hud");
 // el.innerHTML = "<b>test</b>"
 // mapdiv.append(el);
 
-let findplayerdom = document.createElement("div")
-findplayerdom.style.position = "fixed";
-findplayerdom.style.top = "10px";
-findplayerdom.style.left = "150px"
-findplayerdom.style.zIndex = "9999"
-findplayerdom.style.color = "black";
-findplayerdom.style.margin = "0";
-findplayerdom.style.padding = "0";
-// findplayerdom.style.paddingLeft = "3px";
-findplayerdom.innerHTML = `<input type='text' id="findplayerinputfield" placeholder="Find Player" style="padding-left:5px;padding-right:5px;"><input type="submit" value="Search" onclick="findplayer(this);return false;">`;
-hud.append(findplayerdom);
+
+
+function createGUIblock(callback){
+    map.addControl(new (L.Control.extend({
+        options: {position: 'topleft'},
+        onAdd: function(map) {
+            // const inputDiv = L.DomUtil.create('input');
+            return callback(L.DomUtil.create("div"));
+        }
+    })));
+}
+
+createGUIblock(DIVBLOCK=>{
+    // <div id="server-selector-header" onclick="toggleGUIblock(this);return false;">Server Selection:</div>
+
+    DIVBLOCK.innerHTML=`
+    <input type="button" value="Toggle Servers Menu" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <div class="divBlock">
+
+    ${serversList.map(item=>`
+        <div class="playersonlinerow">
+        <input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${(params["hideplayers"] === true ? "" : "checked") /*if hidden players, remove hecked*/}> 
+        <span>${item[1]}</span> 
+        <span style="text-shadow: none;">${isMobileDevice === false ? `<a href="fivem://connect/${item[0]}" title="Join: ${item[0]}">🎮</a>` : ""}</span>
+        </div>
+    `).join("")}
+
+    <button onclick="servers_checkall();return false;">Check All</button>
+    <br><button onclick="servers_checknone();return false;">Check None<br>(Hide Players)</button>
+    </div>`;
+    
+    toggleGUIblock(DIVBLOCK.children[0])
+
+    serversSelectionCheckboxes = document.getElementsByClassName("servers");
+
+    return DIVBLOCK;
+});
+
+createGUIblock(DIVBLOCK=>{
+    DIVBLOCK.innerHTML=`
+    <input type="button" value="Toggle Options" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <div class="divBlock">
+    <button onclick="pauseUnpause(this);return false;">Pause Updating</button>
+    <br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
+    <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>
+    <br><button onclick="toggleTrailMode(this);return false;">Toggle Trail Mode<br>(Snake)</button>
+    </div> `;
+
+    toggleGUIblock(DIVBLOCK.children[0])
+
+    return DIVBLOCK;
+});
+
+createGUIblock(DIVBLOCK=>{
+
+    DIVBLOCK.innerHTML = `
+    <input type="button" value="Player Filter" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <div class="divBlock">
+        <input type='text' id="findplayerinputfield" placeholder="enter player's id or name" style="padding-left:5px;padding-right:5px;font-size:.95em;border:none;" >
+        <input type="submit" value="Search" onclick="findplayer(this);return false;">
+    </div>
+    `;
+
+    toggleGUIblock(DIVBLOCK.children[0])
+
+    return DIVBLOCK;
+});
+
+
+
+
+
+
+
+
+
+
+
+function toggleGUIblock (el) {
+    el.nextElementSibling.style.display = (el.nextElementSibling.style.display === "none" ? "block" : "none");
+}
 
 document.getElementById('findplayerinputfield').onkeypress = function(e){
     if (!e) e = window.event;
@@ -43,7 +113,7 @@ function findplayer(input){
         // found._popup.openOn(map)
         return false;
     }else{
-        input.previousSibling.style.backgroundColor  = "red";
+        input.previousSibling.style.backgroundColor = "red";
     }
     
 }
@@ -67,34 +137,21 @@ function refreshLink(){
     return;
 }
 
-map.on('click', function(event){
+map.on('click', function(){
     cmenu.hidden = true;
 });
 
-map.on('drag', function(event){
+map.on('drag', function(){
     cmenu.hidden = true;
 });
 
 
 
 
-const serversSelection = document.createElement("div");
-serversSelection.id = "serversSelection";
-document.body.append(serversSelection);
-
-const defaultServerSelectorState = (params["hideplayers"] === true ? "" : "checked");//"checked" //checked or "";
-
-serversSelection.innerHTML=`
-<div id="server-selector-header" onclick="test();return false;">Server Selection:</div>
-${serversList.map(item=>`<div class="playersonlinerow"><input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${defaultServerSelectorState}> <span>${item[1]}</span> <span style="text-shadow: none;"><a href="fivem://connect/${item[0]}" title="Join: ${item[0]}">🎮</a></span></div>`).join("")}
-<button onclick="servers_checkall();return false;">Check All</button>
-<br><button onclick="servers_checknone();return false;">Check None<br>Hide Players</button>
-<br><button onclick="pauseUnpause(this);return false;">🟢 Pause</button>
-<br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
-<br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>`;
 
 
-const serversSelectionCheckboxes = document.getElementsByClassName("servers")
+var serversSelectionCheckboxes;
+
 // console.log(serversSelectionCheckboxes);
 
 //animation
@@ -153,6 +210,23 @@ function toogleImageQuality(dom){
     
     image = L.imageOverlay(hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
     // map.fitBounds(bounds);
+}
+
+var currentTrailMode = 0;
+
+function toggleTrailMode(dom){
+    if(currentTrailMode === 0){
+        dom.innerText = "Toggle Trail Mode\n(Long)";
+
+    }else if(currentTrailMode === 1){
+        dom.innerText = "Toggle Trail Mode\n(None)";
+
+    }else{
+        dom.innerText = "Toggle Trail Mode\n(Snake)";
+        currentTrailMode = 0;
+        return;
+    }
+    currentTrailMode++;
 }
 
 // setInterval(joinServer, 1000);

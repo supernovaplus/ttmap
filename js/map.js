@@ -24,7 +24,7 @@ const params = {
     "coords": (()=>{
         let paramx = new URL(location.href).searchParams.get("x");
         let paramy = new URL(location.href).searchParams.get("y");
-        if(!paramx || !paramy)return false
+        if(!paramx || !paramy) return false;
         return [paramx,paramy];
     })()
 }
