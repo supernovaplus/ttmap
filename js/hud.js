@@ -1,11 +1,4 @@
 const hud = document.getElementById("hud");
-// let el = document.createElement("div")
-// el.style.position = "fixed";
-// el.style.top = "10px";
-// el.style.left = "100px"
-// el.style.zIndex = "1000"
-// el.innerHTML = "<b>test</b>"
-// mapdiv.append(el);
 
 
 
@@ -75,9 +68,23 @@ createGUIblock(DIVBLOCK=>{
     return DIVBLOCK;
 });
 
+if(location.protocol !== "http:"){
 
+    createGUIblock(DIVBLOCK=>{
 
+        DIVBLOCK.innerHTML = `
+        <input type="button" value="Warning" onclick="toggleGUIblock(this);return;" class="toggleButton">
+        <div class="divBlock" style="max-width: 300px;padding: 3px;margin: 3px;">
+            <p>WARNING: You are using HTTPS site, we can't communicate with TT using HTTPS, you have to switch to HTTP protocol <a href="http://ttmap.online"><span style="color:red">http://ttmap.online</span></a>. If that doesn't work you probably using some HTTPS everywhere addon.</p>
+        </div>
+        `;
+    
+        // toggleGUIblock(DIVBLOCK.children[0])
+    
+        return DIVBLOCK;
+    });
 
+}
 
 
 
@@ -152,17 +159,6 @@ map.on('drag', function(){
 
 var serversSelectionCheckboxes;
 
-// console.log(serversSelectionCheckboxes);
-
-//animation
-// setTimeout(() => {
-//     serversSelection.style.display = "none";
-//     // serversSelection.style.left = -500+"px";
-// }, 1000);
-// setTimeout(() => {
-//     serversSelection.style.display = "block";
-//     // serversSelection.style.left = 0+"px";
-// }, 3000);
 
 
 var players_showBoxes = true;
@@ -229,91 +225,3 @@ function toggleTrailMode(dom){
     currentTrailMode++;
 }
 
-// setInterval(joinServer, 1000);
-
-// setTimeout(joinServer,2000);
-
-// function joinServer(){
-//     cmenu.style.top = window.innerHeight/2 + "px";
-//     cmenu.style.left = 0;
-//     cmenu.style.width = "100%";
-//     cmenu.style.margin = "0 auto !important";
-//     cmenu.innerHTML = `
-//     <span style="text-align:center;padding:100px;margin:0 auto;">
-//     server info
-//     </span>
-//     `;
-//     cmenu.hidden = false;
-// }
-
-
-
-// map.on('zoomend', function() {
-//     console.log(map.getZoom());
-//     // var zoomlevel = map.getZoom();
-//     //     if (zoomlevel  <10){
-//     //         if (map.hasLayer(points)) {
-//     //             map.removeLayer(points);
-//     //         } else {
-//     //             console.log("no point layer active");
-//     //         }
-//     //     }
-//     //     if (zoomlevel >= 10){
-//     //         if (map.hasLayer(points)){
-//     //             console.log("layer already added");
-//     //         } else {
-//     //             map.addLayer(points);
-//     //         }
-//     //     }
-//     // console.log("Current Zoom Level =" + zoomlevel)
-// });
-
-
-// var helloPopup = L.popup().setContent('Hello World!');
-
-// L.easyButton('fa-globe', function(btn, map){
-//     helloPopup.setLatLng(map.getCenter()).openOn(map);
-//     console.log(map.getCenter());
-// }).addTo( map );
-// // =====
-// L.easyButton("X", function(btn, map){
-//     image.remove();
-//     image = L.imageOverlay((hdMap === true ? "https://i.imgur.com/6T9UmkS.jpg" : imglink), bounds).addTo(map);
-
-//     hdMap = !hdMap;
-
-// }).addTo( map );
-
-
-
-
-
-
-// L.easyButton({
-//     states: [{
-//             stateName: 'zoom-to-forest',        // name the state
-//             icon:      'fa-tree',               // and define its properties
-//             title:     'zoom to a forest',      // like its title
-//             onClick: function(btn, map) {       // and its callback
-//                 map.setView([46.25,-121.8],10);
-//                 btn.state('zoom-to-school');    // change state on click!
-//             }
-//         }, {
-//             stateName: 'zoom-to-school',
-//             icon:      'fa-university',
-//             title:     'zoom to a school',
-//             onClick: function(btn, map) {
-//                 map.setView([42.3748204,-71.1161913],16);
-//                 btn.state('zoom-to-forest');
-//             }
-//     }]
-// }).addTo( map );
-
-
-
-// document.addEventListener('contextmenu', function(event) {
-//     cmenu.style.top = event.y + "px";
-//     cmenu.style.left = event.x + "px";
-//     event.preventDefault();
-//     cmenu.hidden = false;
-// }, false);
