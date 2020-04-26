@@ -145,39 +145,3 @@ function generateIcon(vehicle,job){
         popupAnchor: [0, -20]
     });;
 }
-// oldmarkers[i]._icon.style.transform = "rotate(45deg);";
-
-// const carIcon = L.icon({
-//     // iconUrl: mapFolder+"car.png",
-//     iconUrl: iconsLinkList["car"],
-//     iconSize: [40, 40],
-//     iconAnchor: [20, 20],
-//     popupAnchor: [0, -20]
-//     // shadowUrl: 'https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png',
-//     // shadowSize: [68, 95],
-//     // shadowAnchor: [22, 94]
-// });
-
-// function carIconServer(servernumber){
-//     return L.icon({
-//         // iconUrl: mapFolder+"car.png",
-//         iconUrl: iconsLinkList["car"],
-//         iconSize: [40, 40],
-//         iconAnchor: [20, 20],
-//         popupAnchor: [0, -20],
-//         shadowUrl: numbersFolder + servernumber + ".png",
-//         shadowSize: [30, 30],
-//         shadowAnchor: [15, 30]
-//     });
-// }
-
-// function carIconServer (text = "N/A") {
-//     return L.divIcon({
-//         // 🚗
-//         html: `<img src=${iconsLinkList.car} class="myIcon"><div class="myIconTXT">text test tst asd asdg asg asdg </div>`,
-//         iconSize: [40, 40],
-//         iconAnchor: [20, 20],
-//         popupAnchor: [0, -20],
-//         className: ""
-//     });
-// };

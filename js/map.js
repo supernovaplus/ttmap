@@ -60,17 +60,3 @@ map.fitBounds(bounds);
 map.setView([2000,0],-3.5);
 
 
-
-
-// setTimeout(() => {
-//     map.eachLayer(function (layer) { 
-//         console.log(layer);
-//     });
-// }, 1000);
-
-// fetch("./bussnessbonus2.json").then(res=>res.json()).then(res=>{
-//     res[1].forEach(element => {
-//         console.log(element[0])
-//     });
-// })
-
