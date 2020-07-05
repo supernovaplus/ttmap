@@ -89,15 +89,6 @@
       "y": "-597"
     }
   },
-  "garage_18": {
-    "name": "PIA Garage",
-    "type": "Car Garage",
-    "spawns": "Bikes, Cars",
-    "coordinates": {
-      "x": "1070",
-      "y": "6587"
-    }
-  },
   "garage_16": {
     "name": "SSIA Garage",
     "type": "Car Garage",
@@ -132,15 +123,6 @@
     "coordinates": {
       "x": "1011",
       "y": "-3159"
-    }
-  },
-  "garage_17": {
-    "name": "PIA Hangar",
-    "type": "Vehicle Garage",
-    "spawns": "Bikes, Aircraft, Helicopters, Cars",
-    "coordinates": {
-      "x": "1167",
-      "y": "6729"
     }
   },
   "garage_31": {
