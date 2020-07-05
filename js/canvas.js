@@ -6,12 +6,9 @@ const randomColor = (colorNum, colors) => "hsl(" + (colorNum * (360 / (colors < 
 const randomColor2 = () => randomColor(Math.floor(Math.random() * 999), 20);
 var globalMapInfo;
 
-
 function onDrawLayer(mapInfo) {
     redrawTheMap(mapInfo);
 };
-
-
 
 function redrawTheMap(mapInfo){
     if(globalMapInfo === undefined) globalMapInfo = mapInfo;
@@ -41,8 +38,6 @@ function redrawTheMap(mapInfo){
             ctx.fill();
             ctx.arc(newpos.x, newpos.y, .9, 0, 2 * Math.PI);
 
-
-
             ctx.moveTo(oldpos.x,oldpos.y);
             ctx.lineTo(newpos.x,newpos.y);
             ctx.lineWidth = "2.5";
@@ -52,8 +47,6 @@ function redrawTheMap(mapInfo){
             ctx.lineWidth = "2";
             ctx.strokeStyle = playerMarkers[playerid].nova.color;
             ctx.stroke();
-
-
 
             ctx.closePath();
         });

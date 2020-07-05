@@ -9,7 +9,6 @@ const bussnessIcons = {
     "point": `${customEmojiFolder}point22px.png`,
 }
 
-
 function createDataIcon (name){
     return L.icon({
         iconUrl: bussnessIcons[name],
@@ -24,51 +23,74 @@ function createDataIcon (name){
     });
 }
 
-fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
-    for (const key in res) {
-        L.marker([res[key].coordinates.y,res[key].coordinates.x],
-            { icon:  createDataIcon("Business")})
-        .addTo(map)
-        .bindPopup(`<div class="markerHead">Business</div>
-        <b>Name:</b> ${res[key].name}<hr>
-        <b>Price</b>: ${res[key].price}<hr>
-        <b>Perks:</b><br>${res[key].perks.join("<br>")}<hr>
-        <b>Payout:</b> ${res[key].payout}<br>
-        <small>(in 24 hours / 8 stacks)</small>`);
-    }
-})
+const iconsList = [];
+let allowIcons = params.hideicons ? false : true;
+toggleIcons();
 
-fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
-    for (const key in res) {
-        L.marker(
-            [res[key].coordinates.y,res[key].coordinates.x],
-            { icon:  createDataIcon(res[key]["type"]) } 
-        )
-        .addTo(map)
-        .bindPopup(`<div class="markerHead">${res[key].type}</div>
-        <b>Name:</b> ${res[key].name}<hr>
-        <b>Spawns:</b> ${res[key].spawns}`)
+function toggleIcons(){
+    if(!allowIcons){
+        for (let i = 0; i < iconsList.length; i++) {
+            map.removeLayer(iconsList[i]);
+        }
+        iconsList.length = 0;
+    }else{
+        drawIcons();
     }
-})
+    allowIcons = !allowIcons;
+}
 
-fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
-    for (const key in res) {
-        L.marker(
-            [res[key].coordinates.y,res[key].coordinates.x],
-            { icon:  createDataIcon("Self Storage") } 
-        )
-        .addTo(map)
-        .bindPopup(`<div class="markerHead">Self Storage Unit</div>
-        Name: <b>${res[key].name}</b><hr>
-        Fee: <b>${res[key].fee}</b><hr>
-        Capacity: <b>${res[key].capacity}</b>`)
-    }
-})
+function drawIcons(){
+    fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
+        for (const key in res) {
+            const icon = L.marker([res[key].coordinates.y,res[key].coordinates.x],
+                { icon:  createDataIcon("Business")})
+            .bindPopup(`<div class="markerHead">Business</div>
+            <b>Name:</b> ${res[key].name}<hr>
+            <b>Price</b>: ${res[key].price}<hr>
+            <b>Perks:</b><br>${res[key].perks.join("<br>")}<hr>
+            <b>Payout:</b> ${res[key].payout}<br>
+            <small>(in 24 hours / 8 stacks)</small>`);
+
+            iconsList.push(icon);
+            map.addLayer(icon);
+        }
+    })
+    
+    fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
+        for (const key in res) {
+            const icon = L.marker(
+                [res[key].coordinates.y,res[key].coordinates.x],
+                { icon:  createDataIcon(res[key]["type"]) } 
+            )
+            .bindPopup(`<div class="markerHead">${res[key].type}</div>
+            <b>Name:</b> ${res[key].name}<hr>
+            <b>Spawns:</b> ${res[key].spawns}`)
+
+            iconsList.push(icon);
+            map.addLayer(icon);
+        }
+    })
+    
+    fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
+        for (const key in res) {
+            const icon = L.marker(
+                [res[key].coordinates.y,res[key].coordinates.x],
+                { icon:  createDataIcon("Self Storage") } 
+            )
+            .bindPopup(`<div class="markerHead">Self Storage Unit</div>
+            Name: <b>${res[key].name}</b><hr>
+            Fee: <b>${res[key].fee}</b><hr>
+            Capacity: <b>${res[key].capacity}</b>`);
+
+            iconsList.push(icon);
+            map.addLayer(icon);
+        }
+    })
+}
 
 if(params.coords !== false){
     L.marker([params.coords[1],params.coords[0]],{ icon:createDataIcon("point")}).addTo(map)
     .bindTooltip('Location');
-
 
     map.flyTo([params.coords[1],params.coords[0]], -1, {
         animate: true,

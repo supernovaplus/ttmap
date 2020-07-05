@@ -19,7 +19,7 @@ const jobsEmojiList = {
     "delivery_ups": "📦",
     "taxi": "🚕",
 
-    "bat_trucker": `<img src='${customEmojiFolder}bat_tag.png'> `,
+    // "bat_trucker": `<img src='${customEmojiFolder}bat_tag.png'> `,
     "frllc_paramedic": `<img src='${customEmojiFolder}frllc_tag.png'> `,
     "collinsco_cabbie_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
     "collinsco_plane_job": `<img src='${customEmojiFolder}coco_tag.png'> `,
@@ -32,8 +32,6 @@ const jobsEmojiList = {
     "rts_professional": `<img src='${customEmojiFolder}rts_tag.png'> `,
     "pigs_job": `<img src='${customEmojiFolder}pigs_tag.png'> `,
 }
-const debugtag = false;
-const defaultTagNameForDebug = "bat_trucker";
 
 const vehicleIconList = {
     //vehicle class id
@@ -68,15 +66,11 @@ const vehicleIconList = {
     106: emojiFolder+"1F6A8.png",//tow truck //temp beacon
 }
 
-//(.*")(.*)(".*)
-
 const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Sports", "Sports", 
 "Super", "Motorcycles", "Off-Road", "Industrial", "Utility", "Vans", "Cycles", 
-"Boats", "Helicopters", "Planes", "Service", "Emergency", "Military", "Commercial", "Trains"]
-
+"Boats", "Helicopters", "Planes", "Service", "Emergency", "Military", "Commercial", "Trains"];
 
 function generateTag(job){
-    if(debugtag === true)return jobsEmojiList[defaultTagNameForDebug];
     return jobsEmojiList[job] === undefined ? "" : jobsEmojiList[job];
 }
 
