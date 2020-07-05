@@ -1,6 +1,8 @@
 const hud = document.getElementById("hud");
-
-
+var serversSelectionCheckboxes;
+var players_showBoxes = true;
+const tagStyle = cel(["style",{type: "text/css"}]);
+document.head.append(tagStyle);
 
 function createGUIblock(callback){
     map.addControl(new (L.Control.extend({
@@ -12,40 +14,42 @@ function createGUIblock(callback){
     })));
 }
 
-createGUIblock(DIVBLOCK=>{
-    // <div id="server-selector-header" onclick="toggleGUIblock(this);return false;">Server Selection:</div>
+function createServersListBlock(serversList){
 
-    DIVBLOCK.innerHTML=`
-    <input type="button" value="Servers" onclick="toggleGUIblock(this);return;" class="toggleButton">
-    <div class="divBlock">
-
-    ${serversList.map(item=>`
-        <div class="playersonlinerow">
-        <input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${(params["hideplayers"] === true ? "" : "checked") /*if hidden players, remove hecked*/}> 
-        <span>${item[1]}</span> 
-        <span style="text-shadow: none;">${isMobileDevice === false ? `<a href="fivem://connect/${item[0]}" title="Join: ${item[0]}">🎮</a>` : ""}</span>
-        </div>
-    `).join("")}
-
-    <button onclick="servers_checkall();return false;">Check All</button>
-    <br><button onclick="servers_checknone();return false;">Check None<br>(Hide Players)</button>
-    </div>`;
+    createGUIblock(DIVBLOCK=>{
+        // <div id="server-selector-header" onclick="toggleGUIblock(this);return false;">Server Selection:</div>
     
-    toggleGUIblock(DIVBLOCK.children[0])
-
-    serversSelectionCheckboxes = document.getElementsByClassName("servers");
-
-    return DIVBLOCK;
-});
+        DIVBLOCK.innerHTML=`
+        <input type="button" value="Servers" onclick="toggleGUIblock(this);return;" class="toggleButton">
+        <div class="divBlock">
+    
+        ${serversList.map(item=>`
+            <div class="playersonlinerow">
+            <input type="checkbox" class="servers" value="${item[0]}" data-server="${item[1]}" ${(params["hideplayers"] === true ? "" : "checked") /*if hidden players, remove hecked*/}> 
+            <span>${item[1]}</span> 
+            <span style="text-shadow: none;">${isMobileDevice === false ? `<a href="fivem://connect/${item[0]}" title="Join: ${item[0]}">🎮</a>` : ""}</span>
+            </div>
+        `).join("")}
+    
+        <button onclick="servers_checkall();return false;">Check All</button>
+        <br><button onclick="servers_checknone();return false;">Check None<br>(Hide Players)</button>
+        </div>`;
+        
+        toggleGUIblock(DIVBLOCK.children[0])
+        serversSelectionCheckboxes = document.getElementsByClassName("servers");
+    
+        return DIVBLOCK;
+    });
+}
 
 createGUIblock(DIVBLOCK=>{
     DIVBLOCK.innerHTML=`
     <input type="button" value="Map Options" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
-    <button onclick="pauseUnpause(this);return false;">Pause Updating</button>
-    <br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
-    <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>
-    <br><button onclick="toggleTrailMode(this);return false;">Toggle Trail Mode<br>(Snake)</button>
+        <button onclick="toggleIcons(this);return false;">Toggle Icons</button>
+        <br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
+        <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>
+        <br><button onclick="toggleTrailMode(this);return false;">Toggle Trail Mode<br>(Short Snake)</button>
     </div> `;
 
     toggleGUIblock(DIVBLOCK.children[0])
@@ -56,7 +60,7 @@ createGUIblock(DIVBLOCK=>{
 createGUIblock(DIVBLOCK=>{
 
     DIVBLOCK.innerHTML = `
-    <input type="button" value="Players" onclick="toggleGUIblock(this);return;" class="toggleButton">
+    <input type="button" value="Find Player" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
         <input type='text' id="findplayerinputfield" placeholder="enter player's id or name">
         <input type="submit" value="Find" onclick="findplayer(this);return false;">
@@ -86,17 +90,11 @@ if(location.protocol !== "http:"){
 
 }
 
-
-
-
-
-
-
 function toggleGUIblock (el) {
     el.nextElementSibling.style.display = (el.nextElementSibling.style.display === "none" ? "block" : "none");
 }
 
-document.getElementById('findplayerinputfield').onkeypress = function(e){
+document.getElementById('findplayerinputfield').addEventListener("keydown", e => {
     if (!e) e = window.event;
     let keyCode = e.keyCode || e.which;
     if (keyCode === 13){
@@ -105,7 +103,11 @@ document.getElementById('findplayerinputfield').onkeypress = function(e){
     }else{
         // e.target.style.backgroundColor = "white";
     }
-}
+})
+
+// document.getElementById('findplayerinputfield').onkeypress = function(e){
+
+// }
 
 function findplayer(input){
     if(!input.previousSibling.value) return;
@@ -125,7 +127,6 @@ function findplayer(input){
     
 }
 
-
 var copyLinkUrl = "";
 map.on('contextmenu', function(event){
     cmenu.style.top = event.originalEvent.y + "px";
@@ -135,12 +136,14 @@ map.on('contextmenu', function(event){
     cmenu.hidden = false;
 });
 
-
 const copyLinkInputField = document.getElementById("copyLinkInputField");
-const copyLinkCheckbox = document.getElementById("showPlayersCheck");
+const showPlayersCheck = document.getElementById("showPlayersCheck");
+const showIconsCheck = document.getElementById("snowIconsCheck");
 
 function refreshLink(){
-    copyLinkInputField.value = copyLinkCheckbox.checked === true ? copyLinkUrl : copyLinkUrl + "&hideplayers";
+    copyLinkInputField.value = copyLinkUrl + 
+                                (showPlayersCheck.checked === true ? "" : "&hideplayers") + 
+                                (showIconsCheck.checked === true ? "" : "&hideicons");
     return;
 }
 
@@ -154,32 +157,13 @@ map.on('drag', function(){
 
 
 
-
-
-
-var serversSelectionCheckboxes;
-
-
-
-var players_showBoxes = true;
-const customstyle = document.createElement('style');
-customstyle.type = "text/css";
-document.head.append(customstyle);
-
-
 function toggleNameTags(){
-    customstyle.innerHTML = ( players_showBoxes === false ? 
+    tagStyle.innerHTML = ( players_showBoxes === false ? 
         ".leaflet-tooltip-top{display:block};" : 
         ".leaflet-tooltip-top{display:none};" )
 
     players_showBoxes = !players_showBoxes;
 }
-
-function pauseUnpause(button){
-    button.innerText = (mapUpdatingPaused === false ? "🟡 Unpause" : "🟢 Pause");
-    mapUpdatingPaused = !mapUpdatingPaused;
-}
-
 
 function servers_checkall(){
     for (const i of serversSelectionCheckboxes) {
@@ -212,13 +196,13 @@ var currentTrailMode = 0;
 
 function toggleTrailMode(dom){
     if(currentTrailMode === 0){
-        dom.innerText = "Toggle Trail Mode\n(Long)";
+        dom.innerText = "Toggle Trail Mode\n(Long Snake)";
 
     }else if(currentTrailMode === 1){
-        dom.innerText = "Toggle Trail Mode\n(None)";
+        dom.innerText = "Toggle Trail Mode\n(Off)";
 
     }else{
-        dom.innerText = "Toggle Trail Mode\n(Snake)";
+        dom.innerText = "Toggle Trail Mode\n(Short Snake)";
         currentTrailMode = 0;
         return;
     }

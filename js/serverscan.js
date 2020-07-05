@@ -1,13 +1,12 @@
 const playerMarkers = {};
-setInterval(scanServers, 5000);
-scanServers();
-
-// console.log("map",map);
-// setInterval(()=>{
-//     if(globalMapInfo !== undefined) redrawTheMap(globalMapInfo);
-// },2000)
-
-setInterval(scanInactivePlayers, 6000);
+fetch("./data/serversList.json").then(res=>res.json()).then(serversList=>{
+    createServersListBlock(serversList);
+    setInterval(scanServers, 5000);
+    scanServers();
+    setInterval(scanInactivePlayers, 6000);
+}).catch(err=>{
+    console.log(err);
+})
 
 function scanInactivePlayers(skipCheck = false){
     if(mapUpdatingPaused === true || Object.keys(playerMarkers).length === 0) return;
@@ -18,7 +17,6 @@ function scanInactivePlayers(skipCheck = false){
             delete playerMarkers[key];
         }
     }
-
 }
 
 function scanServers(){
@@ -31,22 +29,16 @@ function scanServers(){
     setTimeout(()=>redrawTheMap(globalMapInfo),500)
 }
 
-
 function getServerData(checkbox){
     fetch("http://"+checkbox.value+"/status/map/positions.json").then(res=>res.json()).then(res=>{
-        
-        // el.innerHTML = "";
-        let looptimestamp = Date.now();
+        const timestamp = Date.now();
         for (let i = 0; i < res.players.length; i++) {
-            // if (res.players[i][2] !== isolateID)continue; //todo remove
-
             if(res.players[i][3] === null)continue;
             if(res.players[i][0] === "null"){
                 map.removeLayer(playerMarkers[res.players[i][2]])
                 delete playerMarkers[res.players[i][2]];
                 continue;
             }
-            
 
             if(playerMarkers[res.players[i][2]] === undefined){
                 playerMarkers[res.players[i][2]] = L.marker([
@@ -64,10 +56,9 @@ function getServerData(checkbox){
                     direction: "top"
                 });
 
-
                 playerMarkers[res.players[i][2]].nova = {
                     gameid: res.players[i][0]+"#"+res.players[i][2],
-                    timestamp: looptimestamp,
+                    timestamp,
                     vehicle: res.players[i][4],
                     job: res.players[i][5],
                     positions: [{ lat: res.players[i][3].y, lng: res.players[i][3].x }]
@@ -92,24 +83,16 @@ function getServerData(checkbox){
                     }
                 }
 
-                
-                // console.log("positions length:",playerMarkers[res.players[i][2]].nova.positions.length);
-
-
                 playerMarkers[res.players[i][2]].setLatLng({ lat: res.players[i][3].y, lng: res.players[i][3].x });
-                playerMarkers[res.players[i][2]].nova.timestamp = looptimestamp;
+                playerMarkers[res.players[i][2]].nova.timestamp = timestamp;
                 playerMarkers[res.players[i][2]].bindPopup( parsePlayerInfo(res.players[i], checkbox) )
 
                 if(playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]){
                     playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4],res.players[i][5]) );
                 }
-
-                // console.log(playerMarkers[res.players[i][2]]._tooltip._content)
             }
-
-
-            
         }
+
     }).catch(err=>{
         // console.log(err);
         checkbox.checked = false;
@@ -117,9 +100,9 @@ function getServerData(checkbox){
     });
 }
 
-const parse = true;
-function parsePlayerInfo(data,checkbox){
-    if(parse === false) return JSON.stringify(data);
+const debugparse = true;
+function parsePlayerInfo(data, checkbox){
+    if(debugparse === false) return JSON.stringify(data);
 
     return `<div class="markerHead">Player Info</div>
             <b>Name:</b> ${data[0]}<hr>
