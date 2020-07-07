@@ -39,5 +39,3 @@ var bounds = [[-4642,-6296],[8958,7318]];
 var image = L.imageOverlay(imglink, bounds).addTo(map);
 map.fitBounds(bounds);
 map.setView([2000,0],-3.5);
-
-map.attributionControl.addAttribution("<a href='https://github.com/supernovaplus/'>Created by Nova+</a>")

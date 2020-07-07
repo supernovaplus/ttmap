@@ -13,4 +13,4 @@ also thanks to contributors: heyyeyheman,andern,nikiv3, anyoneelse ?
 Most emojis are designed by OpenMoji (https://openmoji.org/) – the open-source emoji and icon project.
 License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-Map help: Morfik, RC team: Rock and Hike
+Map help: Morfik, Rock and Hike
