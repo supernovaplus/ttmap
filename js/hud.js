@@ -1,4 +1,5 @@
 const hud = document.getElementById("hud");
+const credits = document.getElementById("credits")
 var serversSelectionCheckboxes;
 var players_showBoxes = true;
 const tagStyle = cel(["style",{type: "text/css"}]);
@@ -160,7 +161,7 @@ map.on('drag', function(){
 function toggleNameTags(){
     tagStyle.innerHTML = ( players_showBoxes === false ? 
         ".leaflet-tooltip-top{display:block};" : 
-        ".leaflet-tooltip-top{display:none};" )
+        ".leaflet-tooltip-top{display:none};" );
 
     players_showBoxes = !players_showBoxes;
 }
@@ -187,7 +188,6 @@ function servers_checknone(){
 function toogleImageQuality(dom){
     hdMap = !hdMap;
     dom.innerHTML = (hdMap === false ? "Toggle Map Quality<br>(Low)" : "Toggle Map Quality<br>(Medium)");
-    
     image = L.imageOverlay(hdMap === true ? mapFolder+"map.jpg" : mapFolder+"mobilemap.jpg", bounds).addTo(map);
     // map.fitBounds(bounds);
 }
@@ -209,3 +209,14 @@ function toggleTrailMode(dom){
     currentTrailMode++;
 }
 
+
+fetch("./credits.txt").then(res=>res.text()).then(res=>{
+    credits.appendChild(cel(["p",{innerText: res}]));
+    credits.appendChild(cel(["input",{type:"button",value:"close",onclick:showCredits}]));
+})
+
+function showCredits(){
+    credits.hidden = !credits.hidden;
+}
+
+map.attributionControl.addAttribution(`<a href="#" onclick="showCredits();return;">CREDITS</a>`)

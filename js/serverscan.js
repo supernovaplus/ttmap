@@ -111,5 +111,5 @@ function parsePlayerInfo(data, checkbox){
             <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? 
                             "N/A" : 
                             `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
-            <b>${checkbox.dataset.server}</b> <a href="fivem://connect/${checkbox.value}" title="Join: ${checkbox.value}">JOIN</a>`
+            <b>${checkbox.dataset.server}</b> <a href="fivem://connect/${checkbox.value}" title="Join: ${checkbox.value}">JOIN</a>`;
 }
