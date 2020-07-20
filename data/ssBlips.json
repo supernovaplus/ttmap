@@ -1,110 +1,128 @@
 {
+  "rts_": {
+      "name": "R.T.S. HQ Self Storage",
+      "coordinates": {
+          "y": "-3006",
+          "x": "959"
+      },
+      "fee": "$0",
+      "capacity": "200,000 kg"
+  },
+  "collins_": {
+      "name": "CollinsCo HQ Self Storage",
+      "coordinates": {
+          "y": "-1371",
+          "x": "823"
+      },
+      "fee": "$0",
+      "capacity": "200,000 kg"
+  },
   "tsu_": {
-    "name": "The Secure Unit",
-    "fee": "$200",
-    "capacity": "800,000 kg",
-    "coordinates": {
-      "x": "911",
-      "y": "-1257"
-    }
-  },
-  "pbsf_air": {
-    "name": "Paleto Bay Self Storage",
-    "fee": "$200",
-    "capacity": "600,000 kg",
-    "coordinates": {
-      "x": "-366",
-      "y": "6600"
-    }
-  },
-  "bctp_": {
-    "name": "Blaine County Tractor Parts",
-    "fee": "$50",
-    "capacity": "400,000 kg",
-    "coordinates": {
-      "x": "388",
-      "y": "3586"
-    }
+      "name": "The Secure Unit",
+      "coordinates": {
+          "y": "-1257",
+          "x": "911"
+      },
+      "fee": "$200",
+      "capacity": "1,500,000 kg"
   },
   "fthq_": {
-    "name": "FRLLC HQ Self Storage",
-    "fee": "$0",
-    "capacity": "500,000 kg",
-    "coordinates": {
-      "x": "340",
-      "y": "-562"
-    }
+      "name": "FRLLC HQ Self Storage",
+      "coordinates": {
+          "y": "-562",
+          "x": "340"
+      },
+      "fee": "$0",
+      "capacity": "500,000 kg"
   },
-  "bats_": {
-    "name": "Bay Area Towing HQ Self Storage",
-    "fee": "$0",
-    "capacity": "1,000,000 kg",
-    "coordinates": {
-      "x": "-640",
-      "y": "-1728"
-    }
+  "lc2_": {
+      "name": "Staunton Island Self Storage",
+      "coordinates": {
+          "y": "6938",
+          "x": "-3033"
+      },
+      "fee": "$50",
+      "capacity": "400,000 kg"
+  },
+  "bctp_": {
+      "name": "Blaine County Tractor Parts",
+      "coordinates": {
+          "y": "3586",
+          "x": "388"
+      },
+      "fee": "$50",
+      "capacity": "400,000 kg"
   },
   "gohq_": {
-    "name": "Globe Oil HQ Self Storage",
-    "fee": "$100",
-    "capacity": "450,000 kg",
-    "coordinates": {
-      "x": "2674",
-      "y": "1429"
-    }
+      "name": "Globe Oil HQ Self Storage",
+      "coordinates": {
+          "y": "1429",
+          "x": "2674"
+      },
+      "fee": "$100",
+      "capacity": "450,000 kg"
   },
   "pbsf_land": {
-    "name": "Paleto Bay Self Storage",
-    "fee": "$200",
-    "capacity": "600,000 kg",
-    "coordinates": {
-      "x": "46",
-      "y": "6458"
-    }
-  },
-  "pigs_": {
-    "name": "P.I.G.S. HQ Self Storage",
-    "fee": "$0",
-    "capacity": "200,000 kg",
-    "coordinates": {
-      "x": "950",
-      "y": "-123"
-    }
-  },
-  "rts_": {
-    "name": "R.T.S. HQ Self Storage",
-    "fee": "$0",
-    "capacity": "200,000 kg",
-    "coordinates": {
-      "x": "959",
-      "y": "-3006"
-    }
-  },
-  "pbsf_ocean": {
-    "name": "Paleto Bay Self Storage",
-    "fee": "$200",
-    "capacity": "600,000 kg",
-    "coordinates": {
-      "x": "-270",
-      "y": "6684"
-    }
+      "name": "Paleto Bay Self Storage",
+      "coordinates": {
+          "y": "6458",
+          "x": "46"
+      },
+      "fee": "$200",
+      "capacity": "600,000 kg"
   },
   "bhsl_": {
-    "name": "Big House Storage LSIA",
-    "fee": "$100",
-    "capacity": "2,500,000 kg",
-    "coordinates": {
-      "x": "-513",
-      "y": "-2201"
-    }
+      "name": "Big House Storage LSIA",
+      "coordinates": {
+          "y": "-2201",
+          "x": "-513"
+      },
+      "fee": "$100",
+      "capacity": "2,500,000 kg"
+  },
+  "pigs_": {
+      "name": "P.I.G.S. HQ Self Storage",
+      "coordinates": {
+          "y": "-123",
+          "x": "950"
+      },
+      "fee": "$0",
+      "capacity": "200,000 kg"
+  },
+  "bats_": {
+      "name": "Bay Area Towing HQ Self Storage",
+      "coordinates": {
+          "y": "-1728",
+          "x": "-640"
+      },
+      "fee": "$100",
+      "capacity": "1,000,000 kg"
   },
   "dpss_": {
-    "name": "Del Perro Self Storage",
-    "fee": "$100",
-    "capacity": "800,000 kg",
-    "coordinates": {
-      "x": "-1615",
-      "y": "-822"
-    }
+      "name": "Del Perro Self Storage",
+      "coordinates": {
+          "y": "-822",
+          "x": "-1615"
+      },
+      "fee": "$100",
+      "capacity": "800,000 kg"
+  },
+  "pbsf_air": {
+      "name": "Paleto Bay Self Storage",
+      "coordinates": {
+          "y": "6552",
+          "x": "-456"
+      },
+      "fee": "$200",
+      "capacity": "600,000 kg"
+  },
+  "pbsf_ocean": {
+      "name": "Paleto Bay Self Storage",
+      "coordinates": {
+          "y": "7057",
+          "x": "-38"
+      },
+      "fee": "$200",
+      "capacity": "600,000 kg"
   }
 }
