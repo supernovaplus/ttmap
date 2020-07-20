@@ -48,7 +48,7 @@ function getServerData(checkbox){
                         icon: generateIcon(res.players[i][4],res.players[i][5])
                     })
                 .addTo(map)
-                .bindPopup(parsePlayerInfo(res.players[i],checkbox))
+                .bindPopup(parsePlayerInfo(res.players[i], checkbox))
                 .bindTooltip(generateTag(res.players[i][5]["group"]) + res.players[i][0], {
                     permanent: true,
                     offset: [0, -5],
@@ -65,6 +65,8 @@ function getServerData(checkbox){
                 }
 
             }else{
+
+                //TRAILS
                 if(currentTrailMode !== 2){ 
                     playerMarkers[res.players[i][2]].nova.positions.push({ lat: res.players[i][3].y, lng: res.players[i][3].x });
 
@@ -82,13 +84,20 @@ function getServerData(checkbox){
                         playerMarkers[res.players[i][2]].nova.positions = [];
                     }
                 }
+                //TRAILS END
 
                 playerMarkers[res.players[i][2]].setLatLng({ lat: res.players[i][3].y, lng: res.players[i][3].x });
                 playerMarkers[res.players[i][2]].nova.timestamp = timestamp;
                 playerMarkers[res.players[i][2]].bindPopup( parsePlayerInfo(res.players[i], checkbox) )
 
                 if(playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]){
-                    playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4],res.players[i][5]) );
+                    playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4], res.players[i][5]) );
+                    playerMarkers[res.players[i][2]].nova.vehicle = res.players[i][4];
+                }
+
+                if(playerMarkers[res.players[i][2]].nova.job["name"] !== res.players[i][5]["name"]){
+                    playerMarkers[res.players[i][2]]._tooltip.setContent(generateTag(res.players[i][5]["group"]) + res.players[i][0])
+                    playerMarkers[res.players[i][2]].nova.job = res.players[i][5];
                 }
             }
         }

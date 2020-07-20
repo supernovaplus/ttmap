@@ -18,6 +18,7 @@ const jobsEmojiList = {
     "postop": "✉️",
     "delivery_ups": "📦",
     "taxi": "🚕",
+    "firefighter": "🚒",
 
     // "bat_trucker": `<img src='${customEmojiFolder}bat_tag.png'> `,
     "frllc_paramedic": `<img src='${customEmojiFolder}frllc_tag.png'> `,
@@ -35,24 +36,24 @@ const jobsEmojiList = {
 
 const vehicleIconList = {
     //vehicle class id
-    0: emojiFolder+"E1C2.png", // 0 Compacts
-    1: emojiFolder+"E1C2.png", // 1 Sedans
+    0: emojiFolder+"1F697.png", // 0 Compacts
+    1: emojiFolder+"1F697.png", // 1 Sedans
     2: emojiFolder+"1F699.png", // 2 SUVs
-    3: emojiFolder+"E1C2.png", // 3 Coupes
-    4: emojiFolder+"E1C2.png", // 4 Muscle
-    5: emojiFolder+"E1C2.png",// 5 Sports (old?)
+    3: emojiFolder+"1F697.png", // 3 Coupes
+    4: emojiFolder+"1F697.png", // 4 Muscle
+    5: emojiFolder+"1F697.png",// 5 Sports (old?)
     6: emojiFolder+"1F3CE.png",// 6 Sports
     7: emojiFolder+"1F3CE.png",// 7 Super
     8: emojiFolder+"1F3CD.png",// 8 Motorcycles
     9: emojiFolder+"1F699.png",// 9 Off-Road
-    10: emojiFolder+"E1C2.png",// 10 Industrial
+    10: emojiFolder+"1F697.png",// 10 Industrial
     11: emojiFolder+"1F69A.png",// 11 Utility
     12: emojiFolder+"1F690.png",// 12 Vans
     13: emojiFolder+"1F6B2.png",// 13 Cycles
     14: emojiFolder+"1F6F6.png",// 14 Boats
     15: emojiFolder+"1F681.png",// 15 Helicopters
     16: emojiFolder+"1F6EB.png",// 16 Planes
-    17: emojiFolder+"E1C2.png",// 17 Service
+    17: emojiFolder+"1F697.png",// 17 Service
     18: emojiFolder+"1F693.png", // 18 Emergency
     19: emojiFolder+"1F69B.png", // 19 Military
     20: emojiFolder+"1F69A.png", // 20 Commercial
@@ -64,6 +65,7 @@ const vehicleIconList = {
     104: emojiFolder+"1F69C.png",//tractor
     105: emojiFolder+"1F5D1.png",//trash collector //temp trashcan
     106: emojiFolder+"1F6A8.png",//tow truck //temp beacon
+    107: emojiFolder+"1F692.png",//firetruck
 }
 
 const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Sports", "Sports", 
@@ -89,28 +91,15 @@ function generateIcon(vehicle,job){
             }else{
                 iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
             }
-
-        }else if(vehicle["vehicle_class"] === 11){
-            if(vehicle["vehicle_label"].match(/tractor/gi)){
-                iconlink = vehicleIconList[104];
-
-            }else{
-                iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
-            }
-
-
-        }else if(vehicle["vehicle_class"] === 10){
-            if(vehicle["vehicle_label"].match(/flatbed/gi)){
-                iconlink = vehicleIconList[106];
-
-            }else{
-                iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
-            }
-
+        }else if(vehicle["vehicle_class"] === 18 && vehicle["vehicle_label"] === "FIRETRUK"){
+            iconlink = vehicleIconList[107];
+        }else if(vehicle["vehicle_class"] === 11 && vehicle["vehicle_label"].match(/tractor/gi)){
+            iconlink = vehicleIconList[104];
+        }else if(vehicle["vehicle_class"] === 10 && vehicle["vehicle_label"].match(/flatbed/gi)){
+            iconlink = vehicleIconList[106];
         }else{
             iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
         }
-        
 
     }else if(vehicle["vehicle_type"] === "plane"){
         iconlink = vehicleIconList[16];
@@ -129,7 +118,6 @@ function generateIcon(vehicle,job){
 
     }else{
         iconlink = vehicleIconList[101];//on foot
-        
     }
 
     return L.icon({
