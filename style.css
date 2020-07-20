@@ -221,6 +221,11 @@ small {
     box-shadow: 1px 1px rgba(0, 0, 0, 0.445);
 }
 
+#credits a{
+    color: red !important;
+    margin: 5px;
+}
+
 @media (max-width: 600px) {
     #credits {
       top: 0;

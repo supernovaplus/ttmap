@@ -212,6 +212,9 @@ function toggleTrailMode(dom){
 
 fetch("./credits.txt").then(res=>res.text()).then(res=>{
     credits.appendChild(cel(["p",{innerText: res}]));
+    credits.appendChild(cel(["div",{innerText: "Download map: "},
+            ["a",{href:"https://raw.githubusercontent.com/supernovaplus/ttmap/master/images/maps/map.jpg", innerText:"HD map (4000x4000)", target: "blank"}],
+            ["a",{href:"https://raw.githubusercontent.com/supernovaplus/ttmap/master/images/maps/mobilemap.jpg", innerText:"Mobile map (2000x2000)", target: "blank"}]]));
     credits.appendChild(cel(["input",{type:"button",value:"close",onclick:showCredits}]));
 })
 
@@ -219,4 +222,4 @@ function showCredits(){
     credits.hidden = !credits.hidden;
 }
 
-map.attributionControl.addAttribution(`<a href="#" onclick="showCredits();return;">CREDITS</a>`)
+map.attributionControl.addAttribution(`<a href="#" onclick="showCredits();return;">CREDITS | Download Map</a>`)
