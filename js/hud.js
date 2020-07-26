@@ -33,7 +33,7 @@ function createServersListBlock(serversList){
         `).join("")}
     
         <button onclick="servers_checkall();return false;">Check All</button>
-        <br><button onclick="servers_checknone();return false;">Check None<br>(Hide Players)</button>
+        <br><button onclick="servers_checknone();return false;">Uncheck All<br>(Hide Players)</button>
         </div>`;
         
         toggleGUIblock(DIVBLOCK.children[0])
@@ -47,7 +47,7 @@ createGUIblock(DIVBLOCK=>{
     DIVBLOCK.innerHTML=`
     <input type="button" value="Map Options" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock">
-        <button onclick="toggleIcons(this);return false;">Toggle Icons</button>
+        <button onclick="toggleIcons(this);return false;">Toggle Markers</button>
         <br><button onclick="toggleNameTags();return false;">Toggle Name Tags</button>
         <br><button onclick="toogleImageQuality(this);return false;">Toggle Map Quality<br>(${hdMap === true ? "Medium" : "Low"})</button>
         <br><button onclick="toggleTrailMode(this);return false;">Toggle Trail Mode<br>(Short Snake)</button>
