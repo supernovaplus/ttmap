@@ -96,7 +96,7 @@ createGUIblock(DIVBLOCK=>{
     DIVBLOCK.innerHTML = `
     <input type="button" value="Warning" onclick="toggleGUIblock(this);return;" class="toggleButton">
     <div class="divBlock" style="max-width: 300px;padding: 3px;margin: 3px;">
-        <p>Due to changes to Transport Tycoon positions api, the location data is no longer available.<br>I'll try to adapt the new api key system, in that case you will need to use your own api key, but it has 1000 request limit after that you have to go in-game and 'recharge'.</p>
+        <p>Due to changes in the Transport Tycoon positions api, the location data is no longer available.<br>I'll try to adapt the new api key system, in that case you will need to use your own api key, but it has 1000 request limit after that you have to go in-game and 'recharge'.</p>
     </div>
     `;
 
