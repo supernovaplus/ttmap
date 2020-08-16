@@ -3,7 +3,7 @@ fetch("./data/serversList.json").then(res=>res.json()).then(serversList=>{
     createServersListBlock(serversList);
     setInterval(scanServers, 5000);
     scanServers();
-    setInterval(scanInactivePlayers, 6000);
+    setInterval(scanInactivePlayers, 10000);
 }).catch(err=>{
     console.log(err);
 })
@@ -30,74 +30,84 @@ function scanServers(){
 }
 
 function getServerData(checkbox){
-    fetch("http://"+checkbox.value+"/status/map/positions.json").then(res=>res.json()).then(res=>{
+    // fetch("http://"+checkbox.value+"/status/map/positions.json").then(res=>res.json()).then(res=>{
+    fetch("https://novaplus.herokuapp.com/positions/" + checkbox.value).then(res=>res.json()).then(res=>{
+        if(res.error){
+            checkbox.checked = false;
+            checkbox.disabled = true;
+            return;
+        }
+        if(!res.data) return;
+
         const timestamp = Date.now();
-        for (let i = 0; i < res.players.length; i++) {
-            if(res.players[i][3] === null)continue;
-            if(res.players[i][0] === "null"){
-                map.removeLayer(playerMarkers[res.players[i][2]])
-                delete playerMarkers[res.players[i][2]];
+        const players = res.data.players;
+
+        for (let i = 0; i < players.length; i++) {
+            if(players[i][3] === null)continue;
+            if(players[i][0] === "null"){
+                map.removeLayer(playerMarkers[players[i][2]])
+                delete playerMarkers[players[i][2]];
                 continue;
             }
 
-            if(playerMarkers[res.players[i][2]] === undefined){
-                playerMarkers[res.players[i][2]] = L.marker([
-                        res.players[i][3].y,
-                        res.players[i][3].x,
+            if(playerMarkers[players[i][2]] === undefined){
+                playerMarkers[players[i][2]] = L.marker([
+                        players[i][3].y,
+                        players[i][3].x,
                     ],{
-                        icon: generateIcon(res.players[i][4],res.players[i][5])
+                        icon: generateIcon(players[i][4],players[i][5])
                     })
                 .addTo(map)
-                .bindPopup(parsePlayerInfo(res.players[i], checkbox))
-                .bindTooltip(generateTag(res.players[i][5]["group"]) + res.players[i][0], {
+                .bindPopup(parsePlayerInfo(players[i], checkbox))
+                .bindTooltip(generateTag(players[i][5]["group"]) + players[i][0], {
                     permanent: true,
                     offset: [0, -5],
                     opacity: 0.8,
                     direction: "top"
                 });
 
-                playerMarkers[res.players[i][2]].nova = {
-                    gameid: res.players[i][0]+"#"+res.players[i][2],
+                playerMarkers[players[i][2]].nova = {
+                    gameid: players[i][0]+"#"+players[i][2],
                     timestamp,
-                    vehicle: res.players[i][4],
-                    job: res.players[i][5],
-                    positions: [{ lat: res.players[i][3].y, lng: res.players[i][3].x }]
+                    vehicle: players[i][4],
+                    job: players[i][5],
+                    positions: [{ lat: players[i][3].y, lng: players[i][3].x }]
                 }
 
             }else{
 
                 //TRAILS
                 if(currentTrailMode !== 2){ 
-                    playerMarkers[res.players[i][2]].nova.positions.push({ lat: res.players[i][3].y, lng: res.players[i][3].x });
+                    playerMarkers[players[i][2]].nova.positions.push({ lat: players[i][3].y, lng: players[i][3].x });
 
                     if(currentTrailMode === 0){ //trail mode snake
-                        while (playerMarkers[res.players[i][2]].nova.positions.length > 5){
-                            playerMarkers[res.players[i][2]].nova.positions.shift();
+                        while (playerMarkers[players[i][2]].nova.positions.length > 5){
+                            playerMarkers[players[i][2]].nova.positions.shift();
                         }
                     }else{ //trail mode long
-                        while (playerMarkers[res.players[i][2]].nova.positions.length > 100){
-                            playerMarkers[res.players[i][2]].nova.positions.shift();
+                        while (playerMarkers[players[i][2]].nova.positions.length > 100){
+                            playerMarkers[players[i][2]].nova.positions.shift();
                         }
                     }
                 }else{ //trail mode none
-                    if(playerMarkers[res.players[i][2]].nova.positions.length > 0){
-                        playerMarkers[res.players[i][2]].nova.positions = [];
+                    if(playerMarkers[players[i][2]].nova.positions.length > 0){
+                        playerMarkers[players[i][2]].nova.positions = [];
                     }
                 }
                 //TRAILS END
 
-                playerMarkers[res.players[i][2]].setLatLng({ lat: res.players[i][3].y, lng: res.players[i][3].x });
-                playerMarkers[res.players[i][2]].nova.timestamp = timestamp;
-                playerMarkers[res.players[i][2]].bindPopup( parsePlayerInfo(res.players[i], checkbox) )
+                playerMarkers[players[i][2]].setLatLng({ lat: players[i][3].y, lng: players[i][3].x });
+                playerMarkers[players[i][2]].nova.timestamp = timestamp;
+                playerMarkers[players[i][2]].bindPopup( parsePlayerInfo(players[i], checkbox) )
 
-                if(playerMarkers[res.players[i][2]].nova.vehicle["vehicle_model"] !== res.players[i][4]["vehicle_model"]){
-                    playerMarkers[res.players[i][2]].setIcon( generateIcon(res.players[i][4], res.players[i][5]) );
-                    playerMarkers[res.players[i][2]].nova.vehicle = res.players[i][4];
+                if(playerMarkers[players[i][2]].nova.vehicle["vehicle_model"] !== players[i][4]["vehicle_model"]){
+                    playerMarkers[players[i][2]].setIcon( generateIcon(players[i][4], players[i][5]) );
+                    playerMarkers[players[i][2]].nova.vehicle = players[i][4];
                 }
 
-                if(playerMarkers[res.players[i][2]].nova.job["name"] !== res.players[i][5]["name"]){
-                    playerMarkers[res.players[i][2]]._tooltip.setContent(generateTag(res.players[i][5]["group"]) + res.players[i][0])
-                    playerMarkers[res.players[i][2]].nova.job = res.players[i][5];
+                if(playerMarkers[players[i][2]].nova.job["name"] !== players[i][5]["name"]){
+                    playerMarkers[players[i][2]]._tooltip.setContent(generateTag(players[i][5]["group"]) + players[i][0])
+                    playerMarkers[players[i][2]].nova.job = players[i][5];
                 }
             }
         }
