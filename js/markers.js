@@ -16,10 +16,6 @@ function createDataIcon (name){
         iconAnchor: [11, 11.5],
         popupAnchor: [0, 0],
         className: "dataicon"
-
-        // shadowUrl: '',
-        // shadowSize: [68, 95],
-        // shadowAnchor: [22, 94]
     });
 }
 
@@ -42,7 +38,7 @@ function toggleIcons(){
 function drawIcons(){
     fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
         for (const key in res) {
-            const icon = L.marker([res[key].coordinates.y,res[key].coordinates.x],
+            const icon = L.marker([res[key].coordinates.y, res[key].coordinates.x],
                 { icon:  createDataIcon("Business")})
             .bindPopup(`<div class="markerHead">Business</div>
             <b>Name:</b> ${res[key].name}<hr>
@@ -89,7 +85,7 @@ function drawIcons(){
 }
 
 if(params.coords !== false){
-    L.marker([params.coords[1],params.coords[0]],{ icon:createDataIcon("point")}).addTo(map)
+    L.marker([params.coords[1], params.coords[0]],{icon: createDataIcon("point")}).addTo(map)
     .bindTooltip('Location');
 
     map.flyTo([params.coords[1],params.coords[0]], -1, {
@@ -97,8 +93,3 @@ if(params.coords !== false){
         duration: .5
     });
 }
-
-
-
-
-

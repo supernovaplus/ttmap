@@ -1,9 +1,27 @@
-const hud = document.getElementById("hud");
-const credits = document.getElementById("credits")
+const menuDiv = cel("div", {id: "cmenu", hidden: true}, 
+        ["b", {innerText: "Copy link to this position:"}], 
+        ["br"],
+        ["input", {type: "text", id: "copyLinkInputField", value: ""}],
+
+        ["label", {for: "showPlayersCheck", innerText: "Show players:"}],
+        ["input", {type: "checkbox", id: "showPlayersCheck", onclick: () => refreshLink()}],
+
+        ["label", {for: "showPlayersCheck", innerText: "Show icons:"}],
+        ["input", {type: "checkbox", id: "snowIconsCheck", onclick: () => refreshLink()}],
+);
+document.body.appendChild(menuDiv);
+
+const creditsDiv = cel("div", {id: "credits", hidden: true});
+document.body.appendChild(creditsDiv);
+
+
+
+
 var serversSelectionCheckboxes;
 var players_showBoxes = true;
 const tagStyle = cel(["style",{type: "text/css"}]);
 document.head.append(tagStyle);
+
 
 function createGUIblock(callback){
     map.addControl(new (L.Control.extend({
@@ -91,19 +109,19 @@ if(location.protocol !== "http:"){
 
 }
 
-createGUIblock(DIVBLOCK=>{
+// createGUIblock(DIVBLOCK=>{
 
-    DIVBLOCK.innerHTML = `
-    <input type="button" value="Warning" onclick="toggleGUIblock(this);return;" class="toggleButton">
-    <div class="divBlock" style="max-width: 300px;padding: 3px;margin: 3px;">
-        <p>Due to changes in the Transport Tycoon positions api, the location data is no longer available.<br>I'll try to adapt the new api key system, in that case you will need to use your own api key, but it has 1000 request limit after that you have to go in-game and 'recharge'.</p>
-    </div>
-    `;
+//     DIVBLOCK.innerHTML = `
+//     <input type="button" value="Warning" onclick="toggleGUIblock(this);return;" class="toggleButton">
+//     <div class="divBlock" style="max-width: 300px;padding: 3px;margin: 3px;">
+//         <p>Due to changes in the Transport Tycoon positions api, the location data is no longer available.<br>I'll try to adapt the new api key system, in that case you will need to use your own api key, but it has 1000 request limit after that you have to go in-game and 'recharge'.</p>
+//     </div>
+//     `;
 
-    // toggleGUIblock(DIVBLOCK.children[0])
+//     // toggleGUIblock(DIVBLOCK.children[0])
 
-    return DIVBLOCK;
-});
+//     return DIVBLOCK;
+// });
 
 function toggleGUIblock (el) {
     el.nextElementSibling.style.display = (el.nextElementSibling.style.display === "none" ? "block" : "none");
@@ -144,11 +162,11 @@ function findplayer(input){
 
 var copyLinkUrl = "";
 map.on('contextmenu', function(event){
-    cmenu.style.top = event.originalEvent.y + "px";
-    cmenu.style.left = event.originalEvent.x + "px";
+    menuDiv.style.top = event.originalEvent.y + "px";
+    menuDiv.style.left = event.originalEvent.x + "px";
     copyLinkUrl = `${copyLink}?x=${event.latlng.lng.toFixed(3)}&y=${event.latlng.lat.toFixed(3)}`;
     refreshLink();
-    cmenu.hidden = false;
+    menuDiv.hidden = false;
 });
 
 const copyLinkInputField = document.getElementById("copyLinkInputField");
@@ -157,17 +175,17 @@ const showIconsCheck = document.getElementById("snowIconsCheck");
 
 function refreshLink(){
     copyLinkInputField.value = copyLinkUrl + 
-                                (showPlayersCheck.checked === true ? "" : "&hideplayers") + 
-                                (showIconsCheck.checked === true ? "" : "&hideicons");
+        (showPlayersCheck.checked === true ? "" : "&hideplayers") + 
+        (showIconsCheck.checked === true ? "" : "&hideicons");
     return;
 }
 
 map.on('click', function(){
-    cmenu.hidden = true;
+    menuDiv.hidden = true;
 });
 
 map.on('drag', function(){
-    cmenu.hidden = true;
+    menuDiv.hidden = true;
 });
 
 
