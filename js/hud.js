@@ -14,9 +14,6 @@ document.body.appendChild(menuDiv);
 const creditsDiv = cel("div", {id: "credits", hidden: true});
 document.body.appendChild(creditsDiv);
 
-
-
-
 var serversSelectionCheckboxes;
 var players_showBoxes = true;
 const tagStyle = cel(["style",{type: "text/css"}]);
@@ -188,8 +185,6 @@ map.on('drag', function(){
     menuDiv.hidden = true;
 });
 
-
-
 function toggleNameTags(){
     tagStyle.innerHTML = ( players_showBoxes === false ? 
         ".leaflet-tooltip-top{display:block};" : 
@@ -244,7 +239,7 @@ function toggleTrailMode(dom){
 
 fetch("./credits.txt").then(res=>res.text()).then(res=>{
     credits.appendChild(cel(["p",{innerText: res}]));
-    credits.appendChild(cel(["div",{innerText: "Download map: "},
+    credits.appendChild(cel(["div",{innerText: "Download the map: "},
             ["a",{href:"https://raw.githubusercontent.com/supernovaplus/ttmap/master/images/maps/map.jpg", innerText:"HD map (4000x4000)", target: "blank"}],
             ["a",{href:"https://raw.githubusercontent.com/supernovaplus/ttmap/master/images/maps/mobilemap.jpg", innerText:"Mobile map (2000x2000)", target: "blank"}]]));
     credits.appendChild(cel(["input",{type:"button",value:"close",onclick:showCredits}]));
