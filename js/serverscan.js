@@ -124,11 +124,12 @@ function parsePlayerInfo(data, checkbox){
     if(debugparse === false) return JSON.stringify(data);
 
     return `<div class="markerHead">Player Info</div>
-            <b>Name:</b> ${data[0]}<hr>
-            <b>ID:</b> ${data[2]}<hr>
-            <b>Job:</b> ${data[5].name || "N/A"}<hr>
-            <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? 
-                            "N/A" : 
-                            `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
-            <b>${checkbox.dataset.server}</b> <a href="fivem://connect/${checkbox.value}" title="Join: ${checkbox.value}">JOIN</a>`;
+        <b>Name:</b> ${data[0]}<hr>
+        <b>ID:</b> ${data[2]}<hr>
+        <b>Job:</b> ${data[5].name || "N/A"}<hr>
+        <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
+                        `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
+        ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}
+        
+        <b>${checkbox.dataset.server}</b> <a href="fivem://connect/${checkbox.value}" title="Join: ${checkbox.value}">JOIN</a>`;
 }
