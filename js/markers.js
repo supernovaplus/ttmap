@@ -1,17 +1,6 @@
-const bussnessIcons = {
-    "Business": `${customEmojiFolder}22px-Business_Owned.png`,
-    "Watercraft Garage": `${customEmojiFolder}25px-Boat_Garage.png`,
-    "Helicopter Garage": `${customEmojiFolder}25px-Helicopter_Garage.png`,
-    "Aircraft Garage": `${customEmojiFolder}25px-Aircraft_Garage.png`,
-    "Vehicle Garage": `${customEmojiFolder}25px-Garage.png`,
-    "Car Garage": `${customEmojiFolder}25px-Garage.png`,
-    "Self Storage": `${customEmojiFolder}22px-Self_Storage.png`,
-    "point": `${customEmojiFolder}point22px.png`,
-}
-
-function createDataIcon (name){
+function create_data_marker(name){
     return L.icon({
-        iconUrl: bussnessIcons[name],
+        iconUrl: bussness_icons[name],
         iconSize: [22, 23],
         iconAnchor: [11, 11.5],
         popupAnchor: [0, 0],
@@ -19,27 +8,27 @@ function createDataIcon (name){
     });
 }
 
-const iconsList = [];
-let allowIcons = params.hideicons ? false : true;
-toggleIcons();
+const icons_list = [];
+let allow_icons = params.hideicons ? false : true;
+toggle_icons();
 
-function toggleIcons(){
-    if(!allowIcons){
-        for (let i = 0; i < iconsList.length; i++) {
-            map.removeLayer(iconsList[i]);
+function toggle_icons(){
+    if(!allow_icons){
+        for (let i = 0; i < icons_list.length; i++) {
+            map.removeLayer(icons_list[i]);
         }
-        iconsList.length = 0;
+        icons_list.length = 0;
     }else{
         drawIcons();
     }
-    allowIcons = !allowIcons;
+    allow_icons = !allow_icons;
 }
 
 function drawIcons(){
     fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
         for (const key in res) {
             const icon = L.marker([res[key].coordinates.y, res[key].coordinates.x],
-                { icon:  createDataIcon("Business")})
+                { icon:  create_data_marker("Business")})
             .bindPopup(`<div class="markerHead">Business</div>
             <b>Name:</b> ${res[key].name}<hr>
             <b>Price</b>: ${res[key].price}<hr>
@@ -47,7 +36,7 @@ function drawIcons(){
             <b>Payout:</b> ${res[key].payout}<br>
             <small>(in 24 hours / 8 stacks)</small>`);
 
-            iconsList.push(icon);
+            icons_list.push(icon);
             map.addLayer(icon);
         }
     })
@@ -56,13 +45,13 @@ function drawIcons(){
         for (const key in res) {
             const icon = L.marker(
                 [res[key].coordinates.y,res[key].coordinates.x],
-                { icon:  createDataIcon(res[key]["type"]) } 
+                { icon:  create_data_marker(res[key]["type"]) } 
             )
             .bindPopup(`<div class="markerHead">${res[key].type}</div>
             <b>Name:</b> ${res[key].name}<hr>
             <b>Spawns:</b> ${res[key].spawns}`)
 
-            iconsList.push(icon);
+            icons_list.push(icon);
             map.addLayer(icon);
         }
     })
@@ -71,21 +60,21 @@ function drawIcons(){
         for (const key in res) {
             const icon = L.marker(
                 [res[key].coordinates.y,res[key].coordinates.x],
-                { icon:  createDataIcon("Self Storage") } 
+                { icon:  create_data_marker("Self Storage") } 
             )
             .bindPopup(`<div class="markerHead">Self Storage Unit</div>
             Name: <b>${res[key].name}</b><hr>
             Fee: <b>${res[key].fee}</b><hr>
             Capacity: <b>${res[key].capacity}</b>`);
 
-            iconsList.push(icon);
+            icons_list.push(icon);
             map.addLayer(icon);
         }
     })
 }
 
 if(params.coords !== false){
-    L.marker([params.coords[1], params.coords[0]],{icon: createDataIcon("point")}).addTo(map)
+    L.marker([params.coords[1], params.coords[0]], {icon: create_data_marker("point")}).addTo(map)
     .bindTooltip('Location');
 
     map.flyTo([params.coords[1],params.coords[0]], -1, {
@@ -93,3 +82,4 @@ if(params.coords !== false){
         duration: .5
     });
 }
+

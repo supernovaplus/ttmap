@@ -53,7 +53,7 @@ body, #map{
     border-bottom: 1px solid red;
 }
 
-input[type="button"]{
+.toggleButton{
     outline:none !important;
     background-color: red;
     border: 0 !important;
@@ -62,7 +62,18 @@ input[type="button"]{
     box-shadow: 1px 1px black;
 }
 
-input[type="button"]:hover, button:hover, .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover,.playersonlinerow:hover{background-color:blue !important;color:white;}
+.toggleButton:hover, 
+.btn:not(:disabled):hover, 
+.leaflet-control-zoom-in:hover, 
+.leaflet-control-zoom-out:hover,
+.servercheckbox:hover:not(:disabled){
+    background-color:blue !important;
+    color:white;
+}
+
+.btn:disabled{
+    color: grey;
+}
 
 ::-moz-focus-inner {
     border: 0 !important;
@@ -79,12 +90,12 @@ input[type="button"]:hover, button:hover, .leaflet-control-zoom-in:hover, .leafl
     border-radius: 0 !important;
 }
 
-button{
+.btn{
     width:100%;
     text-align: center;
 }
 
-button, input[type="submit"], #cmenu{
+.btn, input[type="submit"], #cmenu{
     background-color: rgba(255, 255, 255, 0.562);
     border: 1px solid white;
     margin-bottom: 1px;
@@ -129,13 +140,13 @@ b{
     font-weight: bold !important;
 }
 
-.playersonlinerow{
+.servercheckbox{
     display:flex;
     justify-content: space-between;
     margin-right: 3px;
 }
 
-.playersonlinerow > span:nth-child(3){
+.servercheckbox > span:nth-child(3){
     padding-left: 3px;
     color: rgb(0, 217, 255);
 }
@@ -155,7 +166,7 @@ b{
     margin: 0;
 }
 
-#hud,#hud *{
+#hud, #hud *{
     background-color: rgba(0, 225, 255, 0.301);
     margin:0;
     padding:0;
@@ -173,6 +184,7 @@ small {
 .leaflet-left .leaflet-control{
     margin-left: 5px !important;
     margin-top: 2px !important;
+    max-width: 200px;
 }
 
 .divBlock{
@@ -208,7 +220,8 @@ small {
     width: 100px;
 }
 
-.leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated { will-change:auto !important; }
+.leaflet-fade-anim .leaflet-tile,
+.leaflet-zoom-anim .leaflet-zoom-animated { will-change:auto !important; }
 
 #credits{
     padding: 2px 5px;
@@ -231,4 +244,4 @@ small {
       top: 0;
       left: 0;
     }
-  }
+}

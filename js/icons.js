@@ -1,4 +1,4 @@
-const jobsEmojiList = {
+const job_icons = {
     "conductor": "🚂",
     "busdriver": "🚌",
     "cargopilot": "✈️",
@@ -34,7 +34,7 @@ const jobsEmojiList = {
     "pigs_job": `<img src='${customEmojiFolder}pigs_tag.png'> `,
 }
 
-const vehicleIconList = {
+const vehicle_icons = {
     //vehicle class id
     0: emojiFolder+"1F697.png", // 0 Compacts
     1: emojiFolder+"1F697.png", // 1 Sedans
@@ -68,62 +68,69 @@ const vehicleIconList = {
     107: emojiFolder+"1F692.png",//firetruck
 }
 
+const bussness_icons = {
+    "Business": `${customEmojiFolder}22px-Business_Owned.png`,
+    "Watercraft Garage": `${customEmojiFolder}25px-Boat_Garage.png`,
+    "Helicopter Garage": `${customEmojiFolder}25px-Helicopter_Garage.png`,
+    "Aircraft Garage": `${customEmojiFolder}25px-Aircraft_Garage.png`,
+    "Vehicle Garage": `${customEmojiFolder}25px-Garage.png`,
+    "Car Garage": `${customEmojiFolder}25px-Garage.png`,
+    "Self Storage": `${customEmojiFolder}22px-Self_Storage.png`,
+    "point": `${customEmojiFolder}point22px.png`,
+}
+
 const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Sports", "Sports", 
 "Super", "Motorcycles", "Off-Road", "Industrial", "Utility", "Vans", "Cycles", 
 "Boats", "Helicopters", "Planes", "Service", "Emergency", "Military", "Commercial", "Trains"];
 
-function generateTag(job){
-    return jobsEmojiList[job] === undefined ? "" : jobsEmojiList[job];
-}
-
-function generateIcon(vehicle,job){
-    let iconlink = vehicleIconList[0]; //car
+function generate_icon(vehicle, job, size = 40){
+    let iconlink = vehicle_icons[0]; //car
 
     if(vehicle["vehicle_type"] === "land"){
         if(vehicle["vehicle_class"] === 17){
 
             if(vehicle["vehicle_label"].match(/(bus|coach)/gi)){
-                iconlink = vehicleIconList[103];
+                iconlink = vehicle_icons[103];
 
             }else if(vehicle["vehicle_label"] === "TRASH"){
-                iconlink = vehicleIconList[105];
+                iconlink = vehicle_icons[105];
 
             }else{
-                iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
+                iconlink = vehicle_icons[ vehicle["vehicle_class"] ];
             }
         }else if(vehicle["vehicle_class"] === 18 && vehicle["vehicle_label"] === "FIRETRUK"){
-            iconlink = vehicleIconList[107];
+            iconlink = vehicle_icons[107];
         }else if(vehicle["vehicle_class"] === 11 && vehicle["vehicle_label"].match(/tractor/gi)){
-            iconlink = vehicleIconList[104];
+            iconlink = vehicle_icons[104];
         }else if(vehicle["vehicle_class"] === 10 && vehicle["vehicle_label"].match(/flatbed/gi)){
-            iconlink = vehicleIconList[106];
+            iconlink = vehicle_icons[106];
         }else{
-            iconlink = vehicleIconList[ vehicle["vehicle_class"] ];
+            iconlink = vehicle_icons[ vehicle["vehicle_class"] ];
         }
 
     }else if(vehicle["vehicle_type"] === "plane"){
-        iconlink = vehicleIconList[16];
+        iconlink = vehicle_icons[16];
 
     }else if(vehicle["vehicle_type"] === "deluxo"){
-        iconlink = vehicleIconList[102];
+        iconlink = vehicle_icons[102];
 
     }else if(vehicle["vehicle_type"] === "helicopter"){
-        iconlink = vehicleIconList[15];
+        iconlink = vehicle_icons[15];
 
     }else if(vehicle["vehicle_type"] === "train"){
-        iconlink = vehicleIconList[21];
+        iconlink = vehicle_icons[21];
 
     }else if(vehicle["vehicle_type"] === "boat"){
-        iconlink = vehicleIconList[14];
+        iconlink = vehicle_icons[14];
 
     }else{
-        iconlink = vehicleIconList[101];//on foot
+        iconlink = vehicle_icons[101];//on foot
     }
 
     return L.icon({
         iconUrl: iconlink,
-        iconSize: [40, 40],
+        iconSize: [size, size],
         iconAnchor: [20, 20],
         popupAnchor: [0, -20]
-    });;
+    });
 }
