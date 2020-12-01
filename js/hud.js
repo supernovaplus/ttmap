@@ -102,7 +102,7 @@ function create_servers_list_block(){
             }}]
     );
 
-    create_sideblock_item('SERVERS', 
+    create_sideblock_item('Servers', 
         ['div', {id: 'servers'}],
         ['input', {type: 'button', className: 'btn', onclick: (e) => {
             e.target.disabled = true;
@@ -157,7 +157,6 @@ function toggle_markers(key){
 
 function refresh_toggle_markers_buttons(){
     for (const button of document.querySelectorAll(".toggle-markers")) {
-        console.log(button._key)
         if(options.markers[button._key]){
             button.classList.add("selected");
         }else{
