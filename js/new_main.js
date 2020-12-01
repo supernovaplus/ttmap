@@ -66,17 +66,18 @@ const trail_modes = [
 
 const markers_list = {
     "business": {
+        title: 'Business', 
+        link: './images/companyemoji/22px-Business_Owned.png',
+
+        markers: []
+    },
+    "garages": {
         title: 'Garages', 
         link: './images/companyemoji/25px-Aircraft_Garage.png',
         markers: []
     },
-    "garages": {
-        title: 'Business', 
-        link: './images/companyemoji/22px-Business_Owned.png',
-        markers: []
-    },
     "self_storage": {
-        title: 'Self Storage', 
+        title: 'Self Storages', 
         link: './images/companyemoji/22px-Self_Storage.png',
         markers: []
     },
