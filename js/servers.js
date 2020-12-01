@@ -1,34 +1,34 @@
 const nova_servers = {};
 
-fetch("./data/serversList.json").then(res=>res.json()).then(async serversList=>{
-    createServersListBlock(serversList);
+fetch("./data/serversList.json").then(res=>res.json()).then(async servers_list=>{
+    create_servers_list_block(servers_list);
     const servers_div = document.getElementById("servers");
-    for (let i = 0; i < serversList.length; i++) {
+    for (let i = 0; i < servers_list.length; i++) {
 
-        const checkboxBlock = cel(
+        const checkbox_block = cel(
             ['div', {className: 'servercheckbox'}, 
             ['input', {type: 'checkbox', checked: !params["hideplayers"]}],
-            ['span', {innerText: serversList[i][1]}],
-            isMobileDevice === false ? ['a', {href: 'fivem://connect/' + serversList[i][0], title: 'Join: ' + serversList[i][0], innerText: '🎮'}] : []
+            ['span', {innerText: servers_list[i][1]}],
+            is_mobile_device === false ? ['a', assign_hud_hover_event({href: 'fivem://connect/' + servers_list[i][0], _title: 'Join: ' + servers_list[i][0], innerText: '🎮'})] : []
         ]);
 
-        servers_div.appendChild(checkboxBlock);
+        servers_div.appendChild(checkbox_block);
 
-        nova_servers[serversList[i][0]] = {
-            name: serversList[i][1],
-            ip: serversList[i][0],
+        nova_servers[servers_list[i][0]] = {
+            name: servers_list[i][1],
+            ip: servers_list[i][0],
             players: {},
             timestamp: 0,
-            checkbox: checkboxBlock.firstElementChild,
+            checkbox: checkbox_block.firstElementChild,
             disabled: true,
             timeout: null
         };
 
-        nova_servers[serversList[i][0]].checkbox.addEventListener("change", () => {
-            if(nova_servers[serversList[i][0]].disabled){
-                enable_server(nova_servers[serversList[i][0]]);
+        nova_servers[servers_list[i][0]].checkbox.addEventListener("change", () => {
+            if(nova_servers[servers_list[i][0]].disabled){
+                enable_server(nova_servers[servers_list[i][0]]);
             }else{
-                disable_server(nova_servers[serversList[i][0]]);
+                disable_server(nova_servers[servers_list[i][0]]);
             }
         })
     };
@@ -107,8 +107,7 @@ function get_server_data(server){
 
             }else{
                 //TRAILS
-                if(currentTrailMode !== 2){
-
+                if(options.current_trail_index !== 2){//OFF
                     //if player teleported, clear the positions array
                     const lastPos = server.players[player_id].positions[server.players[player_id].positions.length-1];
                     if(lastPos){
@@ -121,7 +120,7 @@ function get_server_data(server){
                     server.players[player_id].positions.push({ lat: players[i][3].y, lng: players[i][3].x });
 
                     //if current trail mode is 0 (short) limit the positions to 5, else its long, limit is 100
-                    while (server.players[player_id].positions.length > (currentTrailMode === 0 ? 5 : 100)){
+                    while (server.players[player_id].positions.length > (options.current_trail_index === 1 ? 5 : 100)){
                         server.players[player_id].positions.shift();
                     }
                 }else{ //if trail mode none, clear positions
@@ -176,7 +175,7 @@ function get_server_data(server){
         }
 
     }).catch(err=>{
-        // console.log(err);
+        console.log(err);
         disable_server(server);
     });
 }
@@ -226,16 +225,14 @@ function server_cleanup(server, force_cleanup = false){
 }
 
 function generate_popup(data, server, color){
-    return `<div class="markerHead" ${color ? `style="background-color: ${color}"` : ""}>Player Info</div>
-        <b>Name:</b> ${data[0]}<hr>
+    return `<div class="popup-header" ${color ? `style="background-color: ${color}"` : ""}>${data[0]}</div>
         <b>ID:</b> ${data[2]}<hr>
-        <b>Color:</b> <div style="backgroud-color: ${color}; width:50px;"></div><hr>
         <b>Job:</b> ${data[5].name || "N/A"}<hr>
         <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
                         `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
         ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}
         
-        <b>${server.name}</b> <a href="fivem://connect/${server.ip}" title="Join: ${server.name}">JOIN</a>`;
+        <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/${server.ip}" title="Join: ${server.name}">JOIN</a>`}`;
 }
 
 function generate_tag(job, player_id){

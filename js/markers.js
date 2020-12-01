@@ -1,4 +1,4 @@
-function create_data_marker(name){
+function create_data_marker_icon(name){
     return L.icon({
         iconUrl: bussness_icons[name],
         iconSize: [22, 23],
@@ -8,73 +8,69 @@ function create_data_marker(name){
     });
 }
 
-const icons_list = [];
-let allow_icons = params.hideicons ? false : true;
-toggle_icons();
+fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
+    for (const key in res) {
+        const marker = L.marker(
+            [res[key].coordinates.y, res[key].coordinates.x],
+            { icon:  create_data_marker_icon("Business") }
+        )
+        .bindPopup(`<div class="popup-header green-bg">${res[key].name}</div>
+        Type: Business<hr>
+        Price: ${res[key].price}<hr>
+        Perks:<br>${res[key].perks.join("<br>")}<hr>
+        Payout: ${res[key].payout}<br>
+        <small>(in 24 hours / 8 stacks)</small>`);
 
-function toggle_icons(){
-    if(!allow_icons){
-        for (let i = 0; i < icons_list.length; i++) {
-            map.removeLayer(icons_list[i]);
+        markers_list.business.markers.push(marker);
+
+        if(options.markers["business"]){
+            map.addLayer(marker);
         }
-        icons_list.length = 0;
-    }else{
-        drawIcons();
     }
-    allow_icons = !allow_icons;
-}
+})
 
-function drawIcons(){
-    fetch("./data/bizBlips.json").then(res=>res.json()).then(res=>{//business markers
-        for (const key in res) {
-            const icon = L.marker([res[key].coordinates.y, res[key].coordinates.x],
-                { icon:  create_data_marker("Business")})
-            .bindPopup(`<div class="markerHead">Business</div>
-            <b>Name:</b> ${res[key].name}<hr>
-            <b>Price</b>: ${res[key].price}<hr>
-            <b>Perks:</b><br>${res[key].perks.join("<br>")}<hr>
-            <b>Payout:</b> ${res[key].payout}<br>
-            <small>(in 24 hours / 8 stacks)</small>`);
-
-            icons_list.push(icon);
-            map.addLayer(icon);
-        }
-    })
     
-    fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
-        for (const key in res) {
-            const icon = L.marker(
-                [res[key].coordinates.y,res[key].coordinates.x],
-                { icon:  create_data_marker(res[key]["type"]) } 
-            )
-            .bindPopup(`<div class="markerHead">${res[key].type}</div>
-            <b>Name:</b> ${res[key].name}<hr>
-            <b>Spawns:</b> ${res[key].spawns}`)
+fetch("./data/garageBlips.json").then(res=>res.json()).then(res=>{
+    for (const key in res) {
+        const marker = L.marker(
+            [res[key].coordinates.y, res[key].coordinates.x],
+            { icon:  create_data_marker_icon(res[key]["type"]) } 
+        )
+        .bindPopup(`<div class="popup-header blue-bg">${res[key].name}</div>
+        Type: ${res[key].type}<hr>
+        Spawns: ${res[key].spawns}`)
 
-            icons_list.push(icon);
-            map.addLayer(icon);
+        marker._name = res[key].name;
+
+        markers_list.garages.markers.push(marker);
+
+        if(options.markers["garages"]){
+            map.addLayer(marker);
         }
-    })
-    
-    fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
-        for (const key in res) {
-            const icon = L.marker(
-                [res[key].coordinates.y,res[key].coordinates.x],
-                { icon:  create_data_marker("Self Storage") } 
-            )
-            .bindPopup(`<div class="markerHead">Self Storage Unit</div>
-            Name: <b>${res[key].name}</b><hr>
-            Fee: <b>${res[key].fee}</b><hr>
-            Capacity: <b>${res[key].capacity}</b>`);
+    }
+})
 
-            icons_list.push(icon);
-            map.addLayer(icon);
+fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
+    for (const key in res) {
+        const marker = L.marker(
+            [res[key].coordinates.y, res[key].coordinates.x],
+            { icon:  create_data_marker_icon("Self Storage") } 
+        )
+        .bindPopup(`<div class="popup-header blue-bg">${res[key].name}</div>
+        Type: Self Storage Unit<hr>
+        Fee: ${res[key].fee}<hr>
+        Capacity: ${res[key].capacity}`);
+
+        markers_list.self_storage.markers.push(marker);
+
+        if(options.markers["self_storage"]){
+            map.addLayer(marker);
         }
-    })
-}
+    }
+})
 
-if(params.coords !== false){
-    L.marker([params.coords[1], params.coords[0]], {icon: create_data_marker("point")}).addTo(map)
+if(params.coords){
+    L.marker([params.coords[1], params.coords[0]], {icon: create_data_marker_icon("point")}).addTo(map)
     .bindTooltip('Location');
 
     map.flyTo([params.coords[1],params.coords[0]], -1, {
@@ -82,4 +78,3 @@ if(params.coords !== false){
         duration: .5
     });
 }
-
