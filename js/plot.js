@@ -22,94 +22,86 @@ function toggle_plot_window () {
     div_custom_plot.style.display = (div_custom_plot.style.display === "none" ? "block" : "none");
 }
 
-plot_text_area.value = `{name = "Lago Zancudo - Great Ocean Hwy", x = -2688.578369, y = 2388.264648, z = 16.036152, h = 351.108612}, -- 🦊PIT.ula🦊 (256912)
-{name = "Lago Zancudo - Great Ocean Hwy", x = -2655.362793, y = 2610.738770, z = 15.996974, h = 353.835052}, -- 🦊PIT.ula🦊 (256912)
-{name = "Lago Zancudo - Great Ocean Hwy", x = -2617.797363, y = 2853.895264, z = 16.012695, h = 351.518250}, -- 🦊PIT.ula🦊 (256912)
-{name = "Lago Zancudo - Great Ocean Hwy", x = -2593.213379, y = 3076.019775, z = 14.913754, h = 351.938629}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2571.822021, y = 3298.326904, z = 12.734577, h = 352.304901}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2497.471680, y = 3545.162109, z = 14.088567, h = 335.847168}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2450.928467, y = 3773.069092, z = 18.627541, h = 342.815460}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2362.552002, y = 3987.892334, z = 25.239511, h = 337.784943}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2257.730469, y = 4227.331543, z = 42.693489, h = 323.982056}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2142.268066, y = 4438.386230, z = 62.947311, h = 282.097534}, -- 🦊PIT.ula🦊 (256912)
-{name = "Raton Canyon - Great Ocean Hwy", x = -1973.886597, y = 4540.046875, z = 56.349384, h = 313.152985}, -- 🦊PIT.ula🦊 (256912)
-{name = "Chiliad Mountain State Wilderness - Great Ocean Hwy", x = -1811.663696, y = 4698.010742, z = 56.338261, h = 313.781097}, -- 🦊PIT.ula🦊 (256912)
-{name = "Chiliad Mountain State Wilderness - Great Ocean Hwy", x = -1609.813110, y = 4877.386719, z = 60.399303, h = 317.652588}, -- 🦊PIT.ula🦊 (256912)
-{name = "Chiliad Mountain State Wilderness - Great Ocean Hwy", x = -1367.362793, y = 5098.894043, z = 60.567616, h = 304.332886}, -- 🦊PIT.ula🦊 (256912)
-{name = "Chiliad Mountain State Wilderness - Great Ocean Hwy", x = -1272.772949, y = 5253.943359, z = 50.647858, h = 293.573364}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Forest - Great Ocean Hwy", x = -1008.527649, y = 5371.156250, z = 41.401752, h = 308.416107}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Forest - Great Ocean Hwy", x = -781.932556, y = 5478.162109, z = 33.583099, h = 301.718719}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Forest - Great Ocean Hwy", x = -567.184082, y = 5676.217773, z = 37.251846, h = 333.132904}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Forest - Great Ocean Hwy", x = -388.630127, y = 5984.482910, z = 30.870747, h = 317.771667}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Paleto Blvd", x = -398.958771, y = 6031.195801, z = 30.737068, h = 45.898460}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Paleto Blvd", x = -399.119751, y = 6131.055176, z = 30.843214, h = 315.256805}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Procopio Dr", x = -399.874817, y = 6186.058105, z = 30.915226, h = 40.175316}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Procopio Dr", x = -372.436768, y = 6298.821777, z = 29.032757, h = 307.630615}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Cascabel Ave", x = -173.182999, y = 6472.367676, z = 29.784460, h = 327.858490}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Procopio Dr", x = 26.241362, y = 6642.865234, z = 30.890581, h = 272.615112}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Procopio Dr", x = 60.101006, y = 6611.289551, z = 30.748781, h = 185.139816}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Paleto Blvd", x = -111.786293, y = 6423.854492, z = 30.677193, h = 136.177689}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Paleto Blvd", x = -255.655701, y = 6285.664063, z = 30.638706, h = 135.049881}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Duluoz Ave", x = -253.159485, y = 6174.468262, z = 30.637167, h = 221.765152}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Great Ocean Hwy", x = -141.803223, y = 6224.694336, z = 30.507458, h = 314.098663}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Great Ocean Hwy", x = 75.141975, y = 6443.142090, z = 30.602621, h = 316.426453}, -- 🦊PIT.ula🦊 (256912)
-{name = "Paleto Bay - Great Ocean Hwy", x = 421.914093, y = 6562.910156, z = 26.531866, h = 266.694153}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - Great Ocean Hwy", x = 788.323303, y = 6494.075195, z = 23.601093, h = 263.484314}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - Great Ocean Hwy", x = 1214.335815, y = 6482.835938, z = 20.191555, h = 270.288177}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - Senora Fwy", x = 1717.164673, y = 6350.412598, z = 33.320015, h = 253.727783}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - Senora Fwy", x = 2050.153320, y = 6078.214844, z = 47.885323, h = 225.616089}, -- 🦊PIT.ula🦊 (256912)
-{name = "Braddock Tunnel - Senora Fwy", x = 2291.097412, y = 5869.928711, z = 47.369049, h = 220.285080}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Gordo - Senora Fwy", x = 2503.054688, y = 5478.050781, z = 43.890396, h = 197.362961}, -- 🦊PIT.ula🦊 (256912)
-{name = "San Chianski Mountain Range - Senora Fwy", x = 2594.236084, y = 5128.610840, z = 44.058956, h = 194.516876}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Union Rd", x = 2397.522705, y = 5162.310547, z = 47.562401, h = 29.644190}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Union Rd", x = 2252.199219, y = 5192.115723, z = 59.619160, h = 69.266579}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Union Rd", x = 1979.776245, y = 5147.138184, z = 43.226318, h = 128.741653}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Grapeseed Main St", x = 1925.305542, y = 5148.246094, z = 43.776154, h = 110.086182}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Grapeseed Main St", x = 1675.042969, y = 4951.978516, z = 41.640503, h = 133.868088}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Grapeseed Ave", x = 1674.779663, y = 4766.368164, z = 41.271530, h = 191.768448}, -- 🦊PIT.ula🦊 (256912)
-{name = "Grapeseed - Grapeseed Main St", x = 1737.461914, y = 4590.886719, z = 39.883705, h = 224.742783}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 1538.592529, y = 4559.662598, z = 50.806614, h = 114.306091}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 1336.550049, y = 4487.055664, z = 59.397392, h = 128.774506}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 1082.470581, y = 4441.342773, z = 59.393433, h = 69.540779}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 816.003296, y = 4495.910156, z = 51.825031, h = 131.359222}, -- 🦊PIT.ula🦊 (256912)
-{name = "Alamo Sea - North Calafia Way", x = 861.767212, y = 4243.215332, z = 49.673370, h = 165.973892}, -- 🦊PIT.ula🦊 (256912)
-{name = "Alamo Sea - North Calafia Way", x = 791.234009, y = 4267.034180, z = 55.732761, h = 81.119438}, -- 🦊PIT.ula🦊 (256912)
-{name = "Alamo Sea - North Calafia Way", x = 519.723083, y = 4265.569336, z = 52.580959, h = 46.618916}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 479.797394, y = 4359.645508, z = 60.575092, h = 65.060043}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 339.070251, y = 4500.460449, z = 61.298492, h = 45.810326}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = 151.309998, y = 4421.085938, z = 74.979996, h = 74.038322}, -- 🦊PIT.ula🦊 (256912)
-{name = "Mount Chiliad - North Calafia Way", x = -43.405426, y = 4419.897461, z = 57.054863, h = 128.701569}, -- 🦊PIT.ula🦊 (256912)
-{name = "Calafia Bridge - North Calafia Way", x = -199.334579, y = 4220.853027, z = 44.024860, h = 116.419571}, -- 🦊PIT.ula🦊 (256912)
-{name = "Raton Canyon - Cassidy Trail", x = -375.730621, y = 4270.736328, z = 47.109898, h = 45.718132}, -- 🦊PIT.ula🦊 (256912)
-{name = "Raton Canyon - Cassidy Trail", x = -509.305603, y = 4360.243164, z = 66.797379, h = 73.879517}, -- 🦊PIT.ula🦊 (256912)
-{name = "Cassidy Creek - Cassidy Trail", x = -739.968872, y = 4415.182129, z = 20.082518, h = 87.909294}, -- 🦊PIT.ula🦊 (256912)
-{name = "Cassidy Creek - Cassidy Trail", x = -858.483765, y = 4400.541016, z = 20.314610, h = 114.081589}, -- 🦊PIT.ula🦊 (256912)
-{name = "Cassidy Creek - Cassidy Trail", x = -1042.587524, y = 4365.050781, z = 11.440428, h = 74.580254}, -- 🦊PIT.ula🦊 (256912)
-{name = "Cassidy Creek - Cassidy Trail", x = -1172.812744, y = 4363.976074, z = 6.728160, h = 87.686310}, -- 🦊PIT.ula🦊 (256912)
-{name = "Cassidy Creek - Cassidy Trail", x = -1552.354248, y = 4324.851563, z = 3.869154, h = 62.819023}, -- 🦊PIT.ula🦊 (256912)
-{name = "Raton Canyon - Cassidy Trail", x = -1747.380249, y = 4459.506348, z = 4.251165, h = 59.958874}, -- 🦊PIT.ula🦊 (256912)
-{name = "Raton Canyon - Cassidy Trail", x = -1847.235107, y = 4502.501465, z = 21.393408, h = 85.499908}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Cassidy Trail", x = -1945.466064, y = 4458.580078, z = 34.275169, h = 92.163315}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2020.607788, y = 4516.974121, z = 27.704853, h = 62.979103}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2179.772461, y = 4511.927246, z = 34.544399, h = 120.088081}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2253.927490, y = 4300.542480, z = 46.423061, h = 200.815765}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2450.597412, y = 3815.655762, z = 21.163534, h = 158.951294}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2478.500000, y = 3672.398926, z = 13.200145, h = 172.750748}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2415.657227, y = 3624.791504, z = 14.283827, h = 217.192001}, -- 🦊PIT.ula🦊 (256912)
-{name = "North Chumash - Great Ocean Hwy", x = -2315.168457, y = 3390.531250, z = 30.196838, h = 229.869904}, -- 🦊PIT.ula🦊 (256912)
-{name = "Fort Zancudo - Great Ocean Hwy", x = -2183.715332, y = 3364.366699, z = 32.443977, h = 265.930786}, -- 🦊PIT.ula🦊 (256912)
-{name = "Fort Zancudo - Fort Zancudo Approach Rd", x = -1920.548584, y = 3240.632568, z = 32.215794, h = 237.842453}, -- 🦊PIT.ula🦊 (256912)
-{name = "Fort Zancudo - Fort Zancudo Approach Rd", x = -1718.985474, y = 3122.978516, z = 32.235943, h = 219.090042}, -- 🦊PIT.ula🦊 (256912)
-{name = "Fort Zancudo - Fort Zancudo Approach Rd", x = -1596.730713, y = 2796.391846, z = 16.179535, h = 221.803085}, -- 🦊PIT.ula🦊 (256912)
-{name = "Fort Zancudo - Fort Zancudo Approach Rd", x = -1344.760986, y = 2573.650635, z = 16.984783, h = 230.161758}, -- 🦊PIT.ula🦊 (256912)
+plot_text_area.value = `{name = "Pacific Ocean - Staunton Blv.", x = -3978.183838, y = 7659.266602, z = 38.394279, h = 181.351700}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3981.919678, y = 7597.948730, z = 33.394222, h = 123.219582}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -4046.786377, y = 7593.560059, z = 33.393345, h = 120.270950}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -4051.289063, y = 7553.834473, z = 33.394070, h = 231.755005}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -4004.465820, y = 7544.490234, z = 30.406565, h = 253.166229}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3919.227051, y = 7504.140137, z = 20.364889, h = 231.804794}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3861.259766, y = 7447.510254, z = 11.822918, h = 214.939819}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3833.932861, y = 7382.464844, z = 4.925377, h = 183.101257}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3830.889160, y = 7308.209961, z = 3.394897, h = 188.015167}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3800.041992, y = 7221.060547, z = 3.396295, h = 208.306717}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3734.105957, y = 7144.279297, z = 3.394439, h = 225.136139}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3659.489258, y = 7085.211914, z = 3.394276, h = 249.569595}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3592.073975, y = 7074.277344, z = 3.393086, h = 269.747192}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3542.537598, y = 7080.052734, z = 3.396075, h = 321.750977}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3533.796875, y = 7131.035645, z = 3.395143, h = 342.148743}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3511.905029, y = 7198.097656, z = 3.393866, h = 355.698151}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3511.563477, y = 7305.681152, z = 3.394713, h = 0.085429}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3512.022705, y = 7373.827637, z = 3.394201, h = 1.616226}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3543.037354, y = 7389.564941, z = 3.394045, h = 89.385582}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3621.015381, y = 7389.723145, z = 3.393283, h = 88.825996}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3658.783936, y = 7385.520508, z = 3.394463, h = 145.729218}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3662.078125, y = 7295.919922, z = 3.376134, h = 179.867920}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3657.910645, y = 7207.941895, z = 3.394323, h = 233.287506}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3584.531494, y = 7205.879883, z = 3.387475, h = 270.480652}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3521.321289, y = 7203.324707, z = 3.395749, h = 231.104706}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3535.350830, y = 7145.935059, z = 3.386250, h = 158.540802}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3545.136719, y = 7085.522461, z = 3.395809, h = 127.970718}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3617.631348, y = 7081.921387, z = 3.394563, h = 80.351189}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3689.605225, y = 7109.577148, z = 3.394380, h = 53.068356}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3763.283936, y = 7180.791992, z = 3.375466, h = 43.973488}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3814.005127, y = 7268.949219, z = 3.393736, h = 20.331621}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3826.870117, y = 7370.934570, z = 3.674413, h = 5.178815}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3841.594482, y = 7428.479004, z = 8.754567, h = 26.515120}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3886.999756, y = 7483.367188, z = 16.406635, h = 45.204376}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3959.993408, y = 7534.782227, z = 25.806099, h = 66.232353}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -4047.690186, y = 7558.483398, z = 33.394714, h = 45.793854}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -4045.026855, y = 7586.353027, z = 33.394207, h = 294.212280}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3979.321045, y = 7591.972656, z = 33.394951, h = 307.897400}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3971.325684, y = 7657.589355, z = 38.329437, h = 0.903006}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3939.570313, y = 7667.053223, z = 42.146702, h = 260.073242}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3844.778320, y = 7655.172363, z = 59.642925, h = 267.916534}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3738.711426, y = 7654.245605, z = 74.567520, h = 272.872986}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3629.257568, y = 7669.737305, z = 77.554794, h = 277.032410}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3534.242188, y = 7661.640625, z = 86.581329, h = 256.480560}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3468.643066, y = 7655.724121, z = 88.259964, h = 275.282043}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3392.798584, y = 7669.090332, z = 78.991585, h = 279.023438}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3369.434814, y = 7658.019043, z = 78.393242, h = 183.923111}, -- Vody (261005)
+{name = "Staunton Island - Staunton Blv.", x = -3395.885498, y = 7587.675293, z = 67.437508, h = 154.699493}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3429.126465, y = 7531.909668, z = 58.429173, h = 97.291389}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3519.277344, y = 7530.918945, z = 67.305336, h = 91.085403}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3606.315186, y = 7530.776367, z = 66.751640, h = 89.717392}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3706.099854, y = 7531.016113, z = 58.379803, h = 87.364159}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3777.975098, y = 7531.657715, z = 53.393101, h = 88.539864}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3853.885254, y = 7530.495605, z = 48.394844, h = 100.503372}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3816.931152, y = 7524.501465, z = 50.692280, h = 269.039063}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3734.442627, y = 7523.871582, z = 55.933434, h = 268.607086}, -- Vody (261005)
+{name = "Shoreside Vale - City Center", x = -3633.379883, y = 7523.856445, z = 64.039619, h = 272.316101}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3565.632568, y = 7522.627441, z = 68.388847, h = 270.641846}, -- Vody (261005)
+{name = "Shoreside Vale - Staunton Blv.", x = -3468.510010, y = 7523.357422, z = 62.245319, h = 266.669250}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3415.661621, y = 7532.113770, z = 58.392017, h = 321.313629}, -- Vody (261005)
+{name = "Staunton Island - Staunton Blv.", x = -3381.417236, y = 7602.285156, z = 70.375748, h = 333.201019}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3361.742432, y = 7659.269043, z = 78.391655, h = 0.280460}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3384.581787, y = 7674.336426, z = 78.565422, h = 94.625214}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3459.176025, y = 7660.537598, z = 87.419044, h = 94.347969}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3546.353516, y = 7668.654785, z = 84.613960, h = 74.597290}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3651.319092, y = 7670.528320, z = 77.578171, h = 101.330177}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3772.196533, y = 7657.994629, z = 70.658607, h = 89.870697}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3941.956543, y = 7672.357422, z = 41.672943, h = 79.568214}, -- Vody (261005)
+{name = "Pacific Ocean - Staunton Blv.", x = -3977.653564, y = 7669.564453, z = 38.392544, h = 177.628738}, -- Vody (261005)
 `;
 
 let custom_plot_line = null;
+let custom_plot_line_joint = null;
 
 function clear_custom_plot_line(){
     if(custom_plot_line){
         map.removeLayer(custom_plot_line);
+        map.removeLayer(custom_plot_line_joint);
         custom_plot_line = null;
+        custom_plot_line_joint = null;
     }
     plot_text_area.value = "";
     div_custom_plot_message.innerText = "";
@@ -127,9 +119,10 @@ function convert_the_plot_coordinates() {
     let last_matched_counter = 0;
     while(inital_string){
         try{
-            let matched = (/\{name = \"([a-zA-Z0-9\- \']+)\", x = (-?[0-9.]+), y = (-?[0-9.]+), z = (-?[0-9.]+), h = ([0-9.]+)\}/gm.exec(inital_string));
+            let matched = (/\{name = \"([\.a-zA-Z0-9\- \']+)\", x = (-?[0-9.]+), y = (-?[0-9.]+), z = (-?[0-9.]+), h = ([0-9.]+)\}/gm.exec(inital_string));
 
             if(matched){
+                // console.log(matched)
                 if(matched[1] && matched[2] && matched[3] && matched[4] && !isNaN(matched[2]) && !isNaN(matched[3]) && !isNaN(matched[4])){
                     converted_data.push({
                         name: matched[1],
@@ -160,14 +153,24 @@ function convert_the_plot_coordinates() {
 
     if(custom_plot_line){
         map.removeLayer(custom_plot_line);
+        map.removeLayer(custom_plot_line_joint);
         custom_plot_line = null;
+        custom_plot_line_joint = null;
     }
 
     if(converted_data.length > 1){
+
         custom_plot_line = L.polyline(converted_data.map( m => [m.y, m.x]), {
             color: "red",
             weight: 2
         }).addTo(map);
+
+        custom_plot_line_joint = L.polyline([ [converted_data[0].y, converted_data[0].x], [converted_data[converted_data.length-1].y, converted_data[converted_data.length-1].x]  ], {
+            color: "pink",
+            weight: 2
+        }).addTo(map);
+
+        
 
         const middle_index = parseInt(converted_data.length * 0.5);
 
