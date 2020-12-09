@@ -8,12 +8,17 @@ const copy_link_url = window.location.protocol + "//" + window.location.host + "
 const params = {
     "hideplayers": new URL(location.href).searchParams.get("hideplayers") === "",
     "hideicons": new URL(location.href).searchParams.get("hideicons") === "",
+    "plot_url": new URL(location.href).searchParams.get("plot_url") || false,
     "coords": (()=>{
         const paramx = new URL(location.href).searchParams.get("x");
         const paramy = new URL(location.href).searchParams.get("y");
         return !paramx || !paramy ? undefined : [paramx, paramy];
     })()
 };
+
+if(params.plot_url){
+    params.hideplayers = true;
+}
 
 const options = {
     current_map_index: is_mobile_device ? 3 : 1,
@@ -68,7 +73,6 @@ const markers_list = {
     "business": {
         title: 'Business', 
         link: './images/companyemoji/22px-Business_Owned.png',
-
         markers: []
     },
     "garages": {
