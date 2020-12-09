@@ -70,8 +70,11 @@ fetch("./data/ssBlips.json").then(res=>res.json()).then(res=>{
 })
 
 if(params.coords){
-    L.marker([params.coords[1], params.coords[0]], {icon: create_data_marker_icon("point")}).addTo(map)
-    .bindTooltip('Location');
+    L.marker(
+        [params.coords[1], params.coords[0]], 
+        {icon: create_data_marker_icon("point")})
+    .bindTooltip('Location')
+    .addTo(map);
 
     map.flyTo([params.coords[1],params.coords[0]], -1, {
         animate: true,
