@@ -89,123 +89,11 @@ function create_sideblock_item(name = 'N/A', ...callback){
     ));
 }
 
-function create_servers_list_block(){
-    //player finder block
-    create_sideblock_item('Find Player', 
-        ['input', {type: 'text', id: 'find-player-input', placeholder: 'Enter player\'s ID or name'}],
-        ['input', {type: 'button', value: 'Find', onclick: (e) => handle_find_player(e.target), onkeydown: (e) => {
-            if(!e) e = window.event;
-            const keyCode = e.keyCode || e.which;
-            if(keyCode === 13){
-                handle_find_player(e.target.nextSibling);
-            }
-            }}]
-    );
-
-    create_sideblock_item('Servers', 
-        ['div', {id: 'servers'}],
-        ['input', {type: 'button', className: 'btn', onclick: (e) => {
-            e.target.disabled = true;
-            setTimeout(() => {
-                e.target.disabled = false;
-            }, 6000);
-            servers_check_all()
-            }, value: 'Check All'}],
-        ['br'],
-        ['input', {type: 'button', className: 'btn', onclick: (e) => {
-            e.target.disabled = true;
-            setTimeout(() => {
-                e.target.disabled = false;
-            }, 6000);
-            servers_uncheck_all()
-            }, value: 'Uncheck All\n(Hide Players)'}]
-        );
-}
-
-create_sideblock_item('Trail Mode', 
-        ...trail_modes.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn trails-btn', _title: trail.title, value: trail.name, onclick: () => toggle_trail_mode(index)})])
-        );
-
 create_sideblock_item('Map Color Mode', 
         ...map_list.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn image-select-btn', value: trail.name, _title: trail.title, onclick: () => toogle_image_quality(index)})] )
         );
 
-create_sideblock_item('Toggle Makers', 
-        ...Object.entries(markers_list).map(data => 
-            ['img', assign_hud_hover_event({className: 'img-btn toggle-markers', src: data[1].link, _key: data[0], _title: data[1].title, _title: data[1].title, onclick: () => toggle_markers(data[0])})]
-        ));
-
 //-------------------------
-refresh_toggle_markers_buttons();
-
-function toggle_markers(key){
-    if(options.markers[key]){
-        markers_list[key].markers.forEach(marker => {
-            map.removeLayer(marker);
-        })
-        options.markers[key] = false;
-    }else{
-        markers_list[key].markers.forEach(marker => {
-            map.addLayer(marker);
-        })
-        options.markers[key] = true;
-    }
-
-    save_options();
-    refresh_toggle_markers_buttons();
-}
-
-function refresh_toggle_markers_buttons(){
-    for (const button of document.querySelectorAll(".toggle-markers")) {
-        if(options.markers[button._key]){
-            button.classList.add("selected");
-        }else{
-            button.classList.remove("selected");
-        }
-    }
-}
-
-//-------------------------
-
-
-function toggle_gui_block(el) {
-    el.target.nextElementSibling.style.display = (el.target.nextElementSibling.style.display === "none" ? "block" : "none");
-}
-
-function handle_find_player(input){
-    if(!input.previousSibling.value) return;
-    const search_for = String(input.previousSibling.value).toLowerCase();
-    let found;
-
-    for (const server_id in nova_servers) {
-        if(found) break;
-        if(!nova_servers[server_id].disabled){
-            for (const player_id in nova_servers[server_id]['players']) {
-                if(String(nova_servers[server_id]['players'][player_id]['gameid']).toLowerCase().includes(search_for)){
-                    found = nova_servers[server_id]['players'][player_id];
-                    break;
-                }
-            }
-        }
-    }
-
-    if(found){
-        input.previousSibling.style.backgroundColor = "lime";
-        
-        map.flyTo(found.marker._latlng, -1, {
-            animate: true,
-            duration: .5
-        });
-        setTimeout(() => {
-            found.marker.openPopup();
-        }, 100);
-
-        // found._popup.openOn(map)
-        return false;
-    }else{
-        input.previousSibling.style.backgroundColor = "red";
-    }
-}
 
 var current_copy_link_url = "";
 map.on('contextmenu', function(e){
@@ -257,29 +145,6 @@ function refresh_image_quality_button(){
         index++;
     }
 }
-
-//----------------------
-refresh_trail_mode();
-
-function toggle_trail_mode(index){
-    options.current_trail_index = index;
-    save_options();
-    refresh_trail_mode();
-}
-
-function refresh_trail_mode(){
-    let index = 0;
-    for (const trail_button of document.querySelectorAll(".trails-btn")) {
-        if(index === options.current_trail_index){
-            trail_button.classList.add("selected");
-        }else{
-            trail_button.classList.remove("selected");
-        }
-        index++;
-    }
-}
-//----------------------
-
 
 fetch("./data/credits.txt").then(res=>res.text()).then(res=>{
     div_credits.appendChild(cel(["p", {innerText: res}]));

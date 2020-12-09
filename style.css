@@ -103,6 +103,25 @@ input[type="button"]{
 
 .selected {
     background-color: red;
+    border-radius: 3px;
+}
+
+.lines-list-item{
+    color: rgb(0, 53, 53);
+    font-size: .8em;
+    text-decoration: underline;
+    letter-spacing: -1px;
+}
+
+ul {
+    margin: 0;
+    padding-left: 15px;
+    list-style-type: square;
+}
+
+li {
+    margin: 0;
+    padding: 0;
 }
 
 /* .leaflet-control-zoom-in, .leaflet-control-zoom-out{
@@ -214,8 +233,6 @@ small {
     box-shadow: 1px 1px rgba(0, 0, 0, 0.445);
     z-index: 99999;
 }
-
-
 
 #credits a{
     color: red;
