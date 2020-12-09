@@ -1,3 +1,39 @@
+//hud
+create_sideblock_item('Toggle Makers', 
+        ...Object.entries(markers_list).map(data => 
+            ['img', assign_hud_hover_event({className: 'img-btn toggle-markers', src: data[1].link, _key: data[0], _title: data[1].title, _title: data[1].title, onclick: () => toggle_markers(data[0])})]
+        ));
+
+//-------------------------
+refresh_toggle_markers_buttons();
+
+function toggle_markers(key){
+    if(options.markers[key]){
+        markers_list[key].markers.forEach(marker => {
+            map.removeLayer(marker);
+        })
+        options.markers[key] = false;
+    }else{
+        markers_list[key].markers.forEach(marker => {
+            map.addLayer(marker);
+        })
+        options.markers[key] = true;
+    }
+
+    save_options();
+    refresh_toggle_markers_buttons();
+}
+
+function refresh_toggle_markers_buttons(){
+    for (const button of document.querySelectorAll(".toggle-markers")) {
+        if(options.markers[button._key]){
+            button.classList.add("selected");
+        }else{
+            button.classList.remove("selected");
+        }
+    }
+}
+
 function create_data_marker_icon(name){
     return L.icon({
         iconUrl: bussness_icons[name],
