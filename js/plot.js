@@ -19,7 +19,7 @@ function toggle_known_routes(){
 }
 
 fetch("https://aca.lt/api_v1/snowplow/list.json").then(res=>res.json()).then(res=>{
-    console.log(res);
+    // console.log(res);
     const lines_div = document.getElementById("custom-lines-list");
     
     lines_div.append(cel(["ul",...res.map(el => ["li",["a", {type: "src", href: "#", innerText: el[0], className: 'lines-list-item', onclick: () => {fetch_known_route(el[1])}}]])]))
@@ -54,14 +54,14 @@ div_plot_textarea.value = ``;
 let custom_plot_line = null;
 let custom_plot_line_joint = null;
 
-function clear_plotline(cleartext = false){
+function clear_plotline(clear_text = false){
     if(custom_plot_line){
         map.removeLayer(custom_plot_line);
         map.removeLayer(custom_plot_line_joint);
         custom_plot_line = null;
         custom_plot_line_joint = null;
     }
-    if(cleartext === true){
+    if(clear_text === true){
         div_plot_textarea.value = "";
         div_custom_plot_message.innerText = "";
     }

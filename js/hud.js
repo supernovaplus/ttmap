@@ -1,5 +1,5 @@
 //right click menu
-const div_menu = cel("div", {id: "copy-menu", hidden: true}, 
+const right_click_menu = cel("div", {id: "copy-menu", hidden: true}, 
     ["b", {innerText: "Copy link to this position:"}], 
     ["br"],
     ["input", {type: "text", id: "copy-link-input-field", value: "", onclick: e =>  e.target.select()}],
@@ -10,7 +10,7 @@ const div_menu = cel("div", {id: "copy-menu", hidden: true},
     ["label", {for: "hideIconsCheck", innerText: "Hide Icons:"}],
     ["input", {type: "checkbox", id: "hideIconsCheck", checked: false, onclick: () => refresh_copy_link()}],
 );
-document.body.appendChild(div_menu);
+document.body.appendChild(right_click_menu);
 
 const div_credits = cel('div', {id: 'credits', hidden: true});
 document.body.appendChild(div_credits);
@@ -97,11 +97,11 @@ create_sideblock_item('Map Color Mode',
 
 var current_copy_link_url = "";
 map.on('contextmenu', function(e){
-    div_menu.style.top = e.originalEvent.y + "px";
-    div_menu.style.left = e.originalEvent.x + "px";
+    right_click_menu.style.top = e.originalEvent.y + "px";
+    right_click_menu.style.left = e.originalEvent.x + "px";
     current_copy_link_url = `${copy_link_url}?x=${e.latlng.lng.toFixed(3)}&y=${e.latlng.lat.toFixed(3)}`;
     refresh_copy_link();
-    div_menu.hidden = false;
+    right_click_menu.hidden = false;
 });
 
 const copy_link_input_field = document.getElementById("copy-link-input-field");
@@ -115,11 +115,11 @@ function refresh_copy_link(){
 }
 
 map.on('click', function(){
-    div_menu.hidden = true;
+    right_click_menu.hidden = true;
 });
 
 map.on('drag', function(){
-    div_menu.hidden = true;
+    right_click_menu.hidden = true;
 });
 
 //----------------------

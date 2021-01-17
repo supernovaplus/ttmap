@@ -179,8 +179,8 @@ function get_server_data(server){
                                 [players[i][3].y, players[i][3].x],
                                 {icon: generate_icon(players[i][4], players[i][5], 40)})
                             .addTo(map)
-                            .bindPopup(generate_popup(players[i], server, color))
-                            .bindTooltip(generate_tag(players[i][5]["group"], gameid), {
+                            .bindPopup( generate_popup(players[i], server, color))
+                            .bindTooltip( generate_job_tag(players[i][5]["group"], gameid), {
                                 permanent: false,
                                 offset: [0, -5],
                                 opacity: 0.8,
@@ -245,7 +245,7 @@ function get_server_data(server){
                 }
 
                 if(server.players[player_id].job["name"] !== players[i][5]["name"]){
-                    server.players[player_id].marker._tooltip.setContent( generate_tag(players[i][5]["group"], server.players[player_id].gameid) )
+                    server.players[player_id].marker._tooltip.setContent( generate_job_tag(players[i][5]["group"], server.players[player_id].gameid) )
                     server.players[player_id].job = players[i][5];
                     refresh_popup = true;
                 }
@@ -319,7 +319,7 @@ function server_cleanup(server, force_cleanup = false){
 function generate_popup(data, server, color){
     return `<div class="popup-header" ${color ? `style="background-color: ${color}"` : ""}>${data[0]}</div>
         <b>ID:</b> ${data[2]}<hr>
-        <b>Job:</b> ${data[5].name || "N/A"}<hr>
+        <b>Job:</b> ${(data[5].name || "N/A") + generate_job_tag(data[5]["group"])}<hr>
         <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
                         `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
         ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}
@@ -327,6 +327,6 @@ function generate_popup(data, server, color){
         <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/${server.ip}" title="Join: ${server.name}">JOIN</a>`}`;
 }
 
-function generate_tag(job, player_id){
-    return job_icons[job] === undefined ? player_id : job_icons[job] + player_id;
+function generate_job_tag(job, player_name_with_id = ""){
+    return job_icons[job] === undefined ? player_name_with_id : job_icons[job] + player_name_with_id;
 }

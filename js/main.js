@@ -1,7 +1,8 @@
 const emoji_folder = "./images/openmoji/";
 // const numbersFolder = "./images/numbers/";
 const map_folder = "./images/maps/";
-const custom_emoji_folder = "./images/companyemoji/";
+const company_emoji_folder = "./images/companyemoji/";
+const custom_emoji_folder = "./images/custom/";
 const is_mobile_device = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 const copy_link_url = window.location.protocol + "//" + window.location.host + "/";
 
