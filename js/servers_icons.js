@@ -89,7 +89,6 @@ function generate_icon(vehicle, job, size = 40){
 
     if(vehicle["vehicle_type"] === "land"){
         if(vehicle["vehicle_class"] === 17){
-
             if(vehicle["vehicle_label"].match(/(bus|coach)/gi)){
                 iconUrl = vehicle_icons[103];
 
@@ -99,6 +98,7 @@ function generate_icon(vehicle, job, size = 40){
             }else{
                 iconUrl = vehicle_icons[ vehicle["vehicle_class"] ];
             }
+
         }else if(vehicle["vehicle_class"] === 18){
             if(vehicle["vehicle_label"] === "FIRETRUK"){
                 iconUrl = vehicle_icons[107];
@@ -107,7 +107,6 @@ function generate_icon(vehicle, job, size = 40){
             }else{
                 iconUrl = vehicle_icons[ vehicle["vehicle_class"] ];
             }
-            
             
         }else if(vehicle["vehicle_class"] === 11 && vehicle["vehicle_label"].match(/tractor/gi)){
             iconUrl = vehicle_icons[104];
