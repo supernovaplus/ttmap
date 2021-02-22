@@ -1,0 +1,595 @@
+{
+    "updated": 1613518929665,
+    "data": [
+        {
+            "name": "Sundale Apartments",
+            "buy_price": 600000,
+            "sell_price": 300000,
+            "position": {
+                "x": -635.665,
+                "y": 44.155,
+                "z": 42.697
+            }
+        },
+        {
+            "name": "Seaside Apartments",
+            "buy_price": 600000,
+            "sell_price": 300000,
+            "position": {
+                "x": -1446.769,
+                "y": -538.531,
+                "z": 34.74
+            }
+        },
+        {
+            "name": "Real Apartments",
+            "buy_price": 600000,
+            "sell_price": 300000,
+            "position": {
+                "x": -270.065,
+                "y": -957.7295,
+                "z": 31.2231
+            }
+        },
+        {
+            "name": "Raleside Apartments",
+            "buy_price": 600000,
+            "sell_price": 300000,
+            "position": {
+                "x": -264.1272,
+                "y": -959.8948,
+                "z": 31.2231
+            }
+        },
+        {
+            "name": "Jinway Apartments",
+            "buy_price": 600000,
+            "sell_price": 300000,
+            "position": {
+                "x": -47.1928,
+                "y": -585.9087,
+                "z": 37.953
+            }
+        },
+        {
+            "name": "Cheap House 01",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 170.3407,
+                "y": -1871.0431,
+                "z": 24.4002
+            }
+        },
+        {
+            "name": "Cheap House 02",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 130.4802,
+                "y": -1853.7473,
+                "z": 25.2348
+            }
+        },
+        {
+            "name": "Cheap House 03",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 53.718,
+                "y": -1873.8395,
+                "z": 22.6304
+            }
+        },
+        {
+            "name": "Cheap House 04",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 495.3255,
+                "y": -1823.2913,
+                "z": 28.8697
+            }
+        },
+        {
+            "name": "Cheap House 05",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 474.6997,
+                "y": -1757.7108,
+                "z": 29.0923
+            }
+        },
+        {
+            "name": "Cheap House 06",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": -46.4066,
+                "y": -1446.0022,
+                "z": 32.4296
+            }
+        },
+        {
+            "name": "Cheap House 07",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 16.901,
+                "y": -1443.9825,
+                "z": 30.9493
+            }
+        },
+        {
+            "name": "Beach House 01",
+            "buy_price": 300000,
+            "sell_price": 150000,
+            "position": {
+                "x": -3100.001,
+                "y": 211.4224,
+                "z": 14.0702
+            }
+        },
+        {
+            "name": "Beach House 02",
+            "buy_price": 300000,
+            "sell_price": 150000,
+            "position": {
+                "x": -3093.7634,
+                "y": 349.4228,
+                "z": 7.5441
+            }
+        },
+        {
+            "name": "Beach House 03",
+            "buy_price": 300000,
+            "sell_price": 150000,
+            "position": {
+                "x": -3088.7712,
+                "y": 392.1972,
+                "z": 11.4509
+            }
+        },
+        {
+            "name": "Beach House 04",
+            "buy_price": 300000,
+            "sell_price": 150000,
+            "position": {
+                "x": -3078.0476,
+                "y": 659.0896,
+                "z": 11.6682
+            }
+        },
+        {
+            "name": "Paleto House 01",
+            "buy_price": 400000,
+            "sell_price": 200000,
+            "position": {
+                "x": -130.5812,
+                "y": 6551.9985,
+                "z": 29.8722
+            }
+        },
+        {
+            "name": "Paleto House 02",
+            "buy_price": 400000,
+            "sell_price": 200000,
+            "position": {
+                "x": -368.1448,
+                "y": 6341.3521,
+                "z": 29.8436
+            }
+        },
+        {
+            "name": "Vinewood House 01",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": 166.9507,
+                "y": 473.7539,
+                "z": 142.5132
+            }
+        },
+        {
+            "name": "Vinewood House 02",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": 80.6819,
+                "y": 485.8953,
+                "z": 148.2016
+            }
+        },
+        {
+            "name": "Vinewood House 03",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": 107.3149,
+                "y": 467.9127,
+                "z": 147.374
+            }
+        },
+        {
+            "name": "Vinewood House 04",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -354.5361,
+                "y": 470.0247,
+                "z": 112.5185
+            }
+        },
+        {
+            "name": "Vinewood House 05",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -355.5788,
+                "y": 459.5234,
+                "z": 116.4674
+            }
+        },
+        {
+            "name": "Vinewood House 06",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -305.2093,
+                "y": 430.9911,
+                "z": 110.4824
+            }
+        },
+        {
+            "name": "Vinewood House 07",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -400.5192,
+                "y": 427.4011,
+                "z": 112.3414
+            }
+        },
+        {
+            "name": "Vinewood House 08",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -678.9081,
+                "y": 511.7714,
+                "z": 113.526
+            }
+        },
+        {
+            "name": "Vinewood House 09",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -718.6392,
+                "y": 448.9383,
+                "z": 106.9091
+            }
+        },
+        {
+            "name": "Vinewood House 10",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -825.099,
+                "y": 423.0525,
+                "z": 92.1144
+            }
+        },
+        {
+            "name": "Vinewood House 11",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -873.0851,
+                "y": 562.5396,
+                "z": 96.6195
+            }
+        },
+        {
+            "name": "Vinewood House 12",
+            "buy_price": 1500000,
+            "sell_price": 750000,
+            "position": {
+                "x": -1673.2825,
+                "y": 386.107,
+                "z": 89.3483
+            }
+        },
+        {
+            "name": "Mansion 01",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -1931.3208,
+                "y": 362.6192,
+                "z": 93.9758
+            }
+        },
+        {
+            "name": "Mansion 02",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -2008.4485,
+                "y": 366.7748,
+                "z": 94.8143
+            }
+        },
+        {
+            "name": "Mansion 03",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -1943.6705,
+                "y": 449.3642,
+                "z": 102.9275
+            }
+        },
+        {
+            "name": "Mansion 04",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -1465.3781,
+                "y": -34.2784,
+                "z": 55.0505
+            }
+        },
+        {
+            "name": "Mansion 05",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -1548.7512,
+                "y": -89.299,
+                "z": 54.9292
+            }
+        },
+        {
+            "name": "Mansion 06",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -929.6403,
+                "y": 18.5899,
+                "z": 47.8655
+            }
+        },
+        {
+            "name": "Mansion 07",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -896.0727,
+                "y": -4.5562,
+                "z": 43.7989
+            }
+        },
+        {
+            "name": "Mansion 08",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -842.0584,
+                "y": -25.2423,
+                "z": 40.3984
+            }
+        },
+        {
+            "name": "Mansion 09",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -830.5112,
+                "y": 115.1367,
+                "z": 56.0256
+            }
+        },
+        {
+            "name": "Mansion 10",
+            "buy_price": 5000000,
+            "sell_price": 2500000,
+            "position": {
+                "x": -998.3592,
+                "y": 158.1413,
+                "z": 62.3188
+            }
+        },
+        {
+            "name": "Mansion 11",
+            "buy_price": 8000000,
+            "sell_price": 4000000,
+            "position": {
+                "x": -113.238,
+                "y": 985.824,
+                "z": 235.754
+            }
+        },
+        {
+            "name": "Mansion 12",
+            "buy_price": 10000000,
+            "sell_price": 5000000,
+            "position": {
+                "x": -2588,
+                "y": 1910.9375,
+                "z": 167.4989
+            }
+        },
+        {
+            "name": "Paleto Bay Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 4.9649,
+                "y": 6840.5942,
+                "z": 15.7862
+            }
+        },
+        {
+            "name": "Mount Gordo Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 3404.5669,
+                "y": 5495.3643,
+                "z": 26.2472
+            }
+        },
+        {
+            "name": "Sandy Shores Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 2775.26,
+                "y": 3913.0574,
+                "z": 45.7869
+            }
+        },
+        {
+            "name": "Grand Senora Desert Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 1281.2705,
+                "y": 2853.0391,
+                "z": 49.3632
+            }
+        },
+        {
+            "name": "Zancudo River Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": -15.8447,
+                "y": 3329.2625,
+                "z": 41.6001
+            }
+        },
+        {
+            "name": "Lago Zancudo Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": -2222.1899,
+                "y": 2419.3877,
+                "z": 12.1502
+            }
+        },
+        {
+            "name": "Route 68 Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 13.4473,
+                "y": 2618.752,
+                "z": 85.9692
+            }
+        },
+        {
+            "name": "Ron Alternates Wind Farm Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 2067.3574,
+                "y": 1755.3452,
+                "z": 104.4831
+            }
+        },
+        {
+            "name": "Land Act Reservoir Facility",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 1882.1716,
+                "y": 279.545,
+                "z": 164.2741
+            }
+        },
+        {
+            "name": "Sandy Shores House 01",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 1662.1782,
+                "y": 3820.5176,
+                "z": 35.4698
+            }
+        },
+        {
+            "name": "Grapeseed House 01",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": 1718.9335,
+                "y": 4677.3916,
+                "z": 43.6558
+            }
+        },
+        {
+            "name": "Great Chaparral House 01",
+            "buy_price": 50000,
+            "sell_price": 25000,
+            "position": {
+                "x": -43.8471,
+                "y": 1960.1241,
+                "z": 190.3533
+            }
+        },
+        {
+            "name": "Bunker 01",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": -3172.5022,
+                "y": 1375.3064,
+                "z": 18.6883
+            }
+        },
+        {
+            "name": "Bunker 02",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 1814.7072,
+                "y": 4706.5884,
+                "z": 41.5385
+            }
+        },
+        {
+            "name": "Bunker 03",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": 2118.5276,
+                "y": 3331.0469,
+                "z": 46.7231
+            }
+        },
+        {
+            "name": "Bunker 04",
+            "buy_price": 50000000,
+            "sell_price": 25000000,
+            "position": {
+                "x": -391.0924,
+                "y": 4354.2354,
+                "z": 57.6749
+            }
+        },
+        {
+            "name": "Ranch 01",
+            "buy_price": 150000,
+            "sell_price": 75000,
+            "position": {
+                "x": 1394.449,
+                "y": 1141.8684,
+                "z": 114.6094
+            }
+        }
+    ]
+}
