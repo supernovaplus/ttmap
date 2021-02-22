@@ -1,16 +1,13 @@
 Created by Nova+ (https://github.com/supernovaplus/)
 
-Location data provided by glitchdetector (https://github.com/glitchdetector)
-
-Leaflet 1.6.0, a JS library for interactive maps. (http://leafletjs.com)
+Leaflet, a JS library for interactive maps. (http://leafletjs.com)
 (c) 2010-2019 Vladimir Agafonkin, (c) 2010-2011 CloudMade
 
-Generic  Canvas Layer for leaflet 0.7 and 1.0-rc, 1.2, 1.3
-copyright Stanislav Sumbera,  2016-2018, sumbera.com , license MIT (https://github.com/Sumbera/gLayers.Leaflet)
-originally created and motivated by L.CanvasOverlay  available here: https://gist.github.com/Sumbera/11114288  
-also thanks to contributors: heyyeyheman,andern,nikiv3, anyoneelse ?
+Leaflet.ContinuousZoom.js - Written by Ilya Zverev, licensed WTFPL (https://github.com/Zverik/Leaflet.LimitZoom)
 
 Most emojis are designed by OpenMoji (https://openmoji.org/) – the open-source emoji and icon project.
 License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
+Data provided by glitchdetector (https://github.com/glitchdetector)
 Map help: Morfik, Rock and Hike
+Liberty City and Aircraft Carrier redrawn by Tim B
