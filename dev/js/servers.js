@@ -87,7 +87,7 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
             }, 6000);
             servers_check_all()
             }, value: 'Check All'}],
-        ['br'],
+        // ['br'],
         ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
             e.target.disabled = true;
             setTimeout(() => {
