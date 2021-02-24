@@ -1,16 +1,18 @@
 //hud
 create_sideblock_item('Custom Plot', 
-        ['input', {type: 'button', className: 'img-btn image-select-btn', value: "Show/Hide", onclick: () => { toggle_plot_window() }}],
+        ['input', {type: 'button', className: 'img-btn image-select-btn btn', value: "Show/Hide", onclick: () => { toggle_plot_window() }}],
             ["div", {id: "plot-input", style:"display:none"}, 
                 ["hr"],
                 ["textarea", {id: "coordinates-input-window", style:"width: 170px", placeholder: "paste the coordinates here"}],
-                ["input", {type:"button", value: "try to plot the route", onclick: () => {
+                ["input", {type:"button", className: "btn img-btn", value: "try to plot the route", onclick: () => {
                     convert_the_plot_coordinates();
                 }}],
-                ["input", {type:"button", value: "clear", onclick: () => { clear_plotline(true); }}],
-                ["p", {id: "custom_plot_message", style: "margin: 0"}],
-                ["input", {id: "known-routes-button",type:"button", value:"show known routes", style:"display:none; background-color:aquamarine", onclick: () => { toggle_known_routes() }}],
-                ["div", {id: "custom-lines-list", style:"display:none; color:black; background-color: aquamarine"}]
+                ["div", 
+                    ["input", {type:"button", value: "clear", className: "btn img-btn", onclick: () => { clear_plotline(true); }}],
+                    ["p", {id: "custom_plot_message", style: "margin: 0"}],
+                    ["input", {id: "known-routes-button", type:"button", value:"show known routes", className: "btn img-btn", style:"display:none; background-color:aquamarine", onclick: () => { toggle_known_routes() }}],
+                    ["div", {id: "custom-lines-list", style:"display:none; color:black; background-color: aquamarine"}]
+                ]
             ]
         );
 const known_routes_block_div = document.getElementById("custom-lines-list");

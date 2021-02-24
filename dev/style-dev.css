@@ -94,6 +94,7 @@ input[type="button"]{
 .leaflet-zoom-anim .leaflet-zoom-animated { will-change: auto; }
 
 .btn:not(:disabled):hover, 
+.img-btn:not(:disabled):not(.selected):hover, 
 .leaflet-control-zoom-in:hover, 
 .leaflet-control-zoom-out:hover,
 .servercheckbox:hover:not(:disabled){
@@ -107,7 +108,13 @@ input[type="button"]{
 
 .selected {
     background-color: red;
-    border-radius: 3px;
+    /* border-radius: 3px; */
+    /* border: 2px solid black !important; */
+    box-shadow: none !important;
+}
+
+.selected:hover {
+    border-color: white !important;
 }
 
 .lines-list-item{
@@ -126,6 +133,11 @@ ul {
 li {
     margin: 0;
     padding: 0;
+}
+
+#custom_plot_message {
+    background-color: white;
+    padding: 5px;
 }
 
 /* .leaflet-control-zoom-in, .leaflet-control-zoom-out{
@@ -151,12 +163,14 @@ li {
     color:black; 
 }
 
-
-
 .img-btn {
     cursor: pointer;
     height: 23px;
     padding: 2px;
+}
+
+.img-btn:not(img){
+    box-shadow: 0 1px black;
 }
 
 .disabled {
@@ -275,6 +289,11 @@ small {
     pointer-events: auto;
 }
 
+#find-player-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .arrow-open {
     background-image: url('./images/arrow_open.gif');
 }
@@ -293,6 +312,15 @@ small {
     margin: 0 auto;
     padding: 2px;
     background-color: rgba(240, 248, 255, 0.774);
+}
+
+.flx {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grow-item{
+    flex-grow: 3;
 }
 
 .block-item {

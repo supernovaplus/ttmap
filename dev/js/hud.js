@@ -84,13 +84,13 @@ function create_sideblock_item(name = 'N/A', ...callback){
     div_sidebar_panel.appendChild(cel(
         ["div", {className: 'block-item'},
             ['span', {className: 'block-item-head', innerText: name}], 
-            ['div', {className: 'block-item-content'}, ...callback]
+            ['div', {className: 'block-item-content flx'}, ...callback]
         ]
     ));
 }
 
 create_sideblock_item('Map Mode', 
-        ...map_list.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn image-select-btn', value: trail.name, _title: trail.title, onclick: () => toogle_image_quality(index)})] )
+        ...map_list.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn image-select-btn grow-item', value: trail.name, _title: trail.title, onclick: () => toogle_image_quality(index)})] )
         );
 
 //-------------------------
