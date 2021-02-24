@@ -64,25 +64,23 @@ function refresh_trail_mode_buttons(){
 fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async servers_list=>{
     //hud
     create_sideblock_item('Trail Mode', 
-    ...trail_modes.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn trails-btn', _title: trail.title, value: trail.name, onclick: () => toggle_trail_mode(index)})])
+    ...trail_modes.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn grow-item trails-btn', _title: trail.title, value: trail.name, onclick: () => toggle_trail_mode(index)})])
     );
 
     refresh_trail_mode_buttons();
 
     create_sideblock_item('Find Player', 
-        ['input', {type: 'text', id: 'find-player-input', placeholder: 'Enter player\'s ID or name'}],
-        ['input', {type: 'button', value: 'Find', onclick: (e) => handle_find_player(e.target), onkeydown: (e) => {
-                if(!e) e = window.event;
-                const keyCode = e.keyCode || e.which;
-                if(keyCode === 13){
-                    handle_find_player(e.target.nextSibling);
-                }
-            }}]
+        ['input', {type: 'text', id: 'find-player-input', placeholder: 'Enter player\'s ID or name', onkeydown: ({keyCode, target}) => {
+            if(keyCode === 13){
+                handle_find_player(target.nextSibling);
+            }
+        }}],
+        ['input', {type: 'button', className: "btn img-btn", value: 'Find', onclick: (e) => handle_find_player(e.target)}]
     );
 
     create_sideblock_item('Servers', 
         ['div', {id: 'servers'}],
-        ['input', {type: 'button', className: 'btn', onclick: (e) => {
+        ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
             e.target.disabled = true;
             setTimeout(() => {
                 e.target.disabled = false;
@@ -90,7 +88,7 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
             servers_check_all()
             }, value: 'Check All'}],
         ['br'],
-        ['input', {type: 'button', className: 'btn', onclick: (e) => {
+        ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
             e.target.disabled = true;
             setTimeout(() => {
                 e.target.disabled = false;
@@ -137,30 +135,34 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
         //if OS is on, only check the os, else scan all the servers
         const first_server_id = Object.keys(nova_servers)[0];
 
-        fetch(`http://${nova_servers[first_server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-            if(res && res.players && res.players.length > 0){
-                enable_server(nova_servers[first_server_id])
-            }else{
+        if(window.location.protocol === "https:"){
+            enable_server(Object.values(nova_servers)[0]);
+        }else{
+            fetch(`http://${nova_servers[first_server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
+                if(res && res.players && res.players.length > 0){
+                    enable_server(nova_servers[first_server_id])
+                }else{
+                    disable_server(nova_servers[first_server_id]);
+                }
+    
+            }).catch(err=>{
                 disable_server(nova_servers[first_server_id]);
-            }
-
-        }).catch(err=>{
-            disable_server(nova_servers[first_server_id]);
-
-            //scan servers via keyless api for disabled servers or servers with 0 player count;
-            for (const server_id in nova_servers) {
-                if(server_id === first_server_id) continue;
-                fetch(`http://${nova_servers[server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-                    if(res && res.players && res.players.length > 0){
-                        enable_server(nova_servers[server_id])
-                    }else{
+    
+                //scan servers via keyless api for disabled servers or servers with 0 player count;
+                for (const server_id in nova_servers) {
+                    if(server_id === first_server_id) continue;
+                    fetch(`http://${nova_servers[server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
+                        if(res && res.players && res.players.length > 0){
+                            enable_server(nova_servers[server_id])
+                        }else{
+                            disable_server(nova_servers[server_id]);
+                        }
+                    }).catch(err=>{
                         disable_server(nova_servers[server_id]);
-                    }
-                }).catch(err=>{
-                    disable_server(nova_servers[server_id]);
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
     }
 }).catch(err=>{
     console.log(err);
@@ -215,7 +217,7 @@ function get_server_data(server){
                         offset: [0, -5],
                         opacity: 0.8,
                         direction: "top"
-                    }).setZIndexOffset(1000);
+                }).setZIndexOffset(1000);
                 
                 if(options.current_trail_index !== 3 && players[i][6] && players[i][6].length > 1){
                     server.players[player_id].positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
@@ -238,6 +240,17 @@ function get_server_data(server){
                     color: server.players[player_id].color,
                     weight: 2
                 }).addTo(map);
+
+                //if trail was clicked, show who clicked
+                server.players[player_id].polyline.on("click", e => {
+                    server.players[player_id].marker.openPopup();
+                    setTimeout(() => {
+                        map.flyTo(server.players[player_id].marker._latlng, 7, {
+                            animate: true,
+                            duration: .5
+                        });
+                    }, 100);
+                })
             }else{
                 //TRAILS
                 if(options.current_trail_index !== 3 && players[i][6] && players[i][6].length > 2){
@@ -356,7 +369,7 @@ function server_cleanup(server, force_cleanup = false){
 function generate_popup(data, server, color){
     return `<div class="popup-header" ${color ? `style="background-color: ${color}"` : ""}>${data[0]}</div>
         <b>ID:</b> ${data[2]}<hr>
-        <b>Job:</b> ${(data[5].name || "N/A") + generate_job_tag(data[5]["group"])}<hr>
+        <b>Job:</b> ${(data[5].name || "N/A") + " " + generate_job_tag(data[5]["group"])}<hr>
         <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
                         `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
         ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}

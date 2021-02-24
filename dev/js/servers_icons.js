@@ -19,6 +19,11 @@ const job_icons = {
     "delivery_ups": "📦",
     "taxi": "🚕",
     "firefighter": "🚒",
+    "quarry": "💎",
+    "metermaid": "🅿️",
+    "aerialfire": "🚒✈️",
+    "dockhandler": "⚓",
+    "delivery_transformer": "⚡",
 
     // "bat_trucker": `<img src='${company_emoji_folder}bat_tag.png'> `,
     "frllc_paramedic": `<img src='${company_emoji_folder}frllc_tag.png'> `,
@@ -26,6 +31,7 @@ const job_icons = {
     "collinsco_plane_job": `<img src='${company_emoji_folder}coco_tag.png'> `,
     "collinsco_train_job": `<img src='${company_emoji_folder}coco_tag.png'> `,
     "collinsco_metro_job": `<img src='${company_emoji_folder}coco_tag.png'> `,
+    "collinsco_boat_job": `<img src='${company_emoji_folder}coco_tag.png'> `,
     "ia_pilot": `<img src='${company_emoji_folder}ia_tag.png'> `,
     "delivery_iaa": `<img src='${company_emoji_folder}ia_tag.png'> `,
     "rts_job": `<img src='${company_emoji_folder}rts_tag.png'> `,
@@ -33,6 +39,18 @@ const job_icons = {
     "rts_professional": `<img src='${company_emoji_folder}rts_tag.png'> `,
     "pigs_job": `<img src='${company_emoji_folder}pigs_tag.png'> `,
 }
+
+/*
+has_trailer: false
+owned_vehicles: Object { car: "ikarus250" }
+trailer: ""
+vehicle_class: 17
+vehicle_label: "IKARUS250"
+vehicle_model: -1042115685
+vehicle_name: "Ikarus 250 Bus"
+vehicle_spawn: "ikarus250"
+vehicle_type: "land"
+*/
 
 const vehicle_icons = {
     //vehicle class id
@@ -50,7 +68,7 @@ const vehicle_icons = {
     11: emoji_folder + "1F69A.png",// 11 Utility
     12: emoji_folder + "1F69A.png",// 12 Vans
     13: emoji_folder + "1F6B2.png",// 13 Cycles
-    14: emoji_folder + "1F6F6.png",// 14 Boats
+    14: custom_emoji_folder + "boat.png",// 14 Boats
     15: emoji_folder + "1F681.png",// 15 Helicopters
     16: emoji_folder + "1F6EB.png",// 16 Planes
     17: emoji_folder + "1F697.png",// 17 Service
@@ -67,6 +85,9 @@ const vehicle_icons = {
     106: custom_emoji_folder + "towtruck.png",//tow truck //temp beacon
     107: emoji_folder + "1F692.png",//firetruck
     108: emoji_folder + "1F691.png",//ambulance
+    109: custom_emoji_folder + "firefighter_airplane.png",//aeral firefighter
+    110: custom_emoji_folder + "excavator.png",//excavator
+    111: emoji_folder + "1F69B.png",//non trailer truck
 }
 
 const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Sports", "Sports", 
@@ -74,52 +95,52 @@ const vehicle_classes = ["Compacts", "Sedans", "SUVs", "Coupes", "Muscle", "Spor
 "Boats", "Helicopters", "Planes", "Service", "Emergency", "Military", "Commercial", "Trains"];
 
 function generate_icon(vehicle, job, size = 40){
-    let iconUrl = vehicle_icons[0]; //car
+    let iconUrl = vehicle_icons[ vehicle["vehicle_class"] ] || vehicle_icons[0]; //car
 
     if(vehicle["vehicle_type"] === "land"){
         if(vehicle["vehicle_class"] === 17){
-            if(vehicle["vehicle_label"].match(/(bus|coach)/gi)){
+            if(/(bus|coach|ikarus)/i.test(vehicle["vehicle_label"])){
                 iconUrl = vehicle_icons[103];
-
             }else if(vehicle["vehicle_label"] === "TRASH"){
                 iconUrl = vehicle_icons[105];
-
-            }else{
-                iconUrl = vehicle_icons[ vehicle["vehicle_class"] ];
             }
 
         }else if(vehicle["vehicle_class"] === 18){
             if(vehicle["vehicle_label"] === "FIRETRUK"){
                 iconUrl = vehicle_icons[107];
-            }else if(vehicle["vehicle_label"] === "emsnspeedo" || vehicle["vehicle_label"] === "AMBULAN"){
+            }else if(/(GRANGER|emsnspeedo|AMBULAN|RETROAMBU)/i.test(vehicle["vehicle_label"])){
                 iconUrl = vehicle_icons[108];
-            }else{
-                iconUrl = vehicle_icons[ vehicle["vehicle_class"] ];
             }
             
-        }else if(vehicle["vehicle_class"] === 11 && vehicle["vehicle_label"].match(/tractor/gi)){
+        }else if(vehicle["vehicle_class"] === 11 && /tractor/i.test(vehicle["vehicle_label"])){
             iconUrl = vehicle_icons[104];
-        }else if(vehicle["vehicle_class"] === 10 && vehicle["vehicle_label"].match(/flatbed/gi)){
-            iconUrl = vehicle_icons[106];
-        }else{
-            iconUrl = vehicle_icons[ vehicle["vehicle_class"] ];
+
+        }else if(vehicle["vehicle_class"] === 10){
+            if(vehicle["vehicle_label"] === "excavator"){
+                iconUrl = vehicle_icons[110];
+            }else if(/flatbed/i.test(vehicle["vehicle_label"])){
+                iconUrl = vehicle_icons[106];
+            }
+            
+        }else if(vehicle["vehicle_class"] === 20 && /mule/i.test(vehicle["vehicle_label"])){
+            iconUrl = vehicle_icons[111];
         }
 
     }else if(vehicle["vehicle_type"] === "plane"){
-        iconUrl = vehicle_icons[16];
+        if(job["group"] === "aerialfire"){
+            iconUrl = vehicle_icons[109];
+        }else{
+            iconUrl = vehicle_icons[16];
+        }
 
     }else if(vehicle["vehicle_type"] === "deluxo"){
         iconUrl = vehicle_icons[102];
-
     }else if(vehicle["vehicle_type"] === "helicopter"){
         iconUrl = vehicle_icons[15];
-
     }else if(vehicle["vehicle_type"] === "train"){
         iconUrl = vehicle_icons[21];
-
     }else if(vehicle["vehicle_type"] === "boat"){
         iconUrl = vehicle_icons[14];
-
     }else{
         iconUrl = vehicle_icons[101];//on foot
     }
