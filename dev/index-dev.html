@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
     <link rel="shortcut icon" href="images/tt_logov2_small.png" type="image/png">
     <title>Transport Tycoon Live Map (FiveM / Grand Theft Auto V Map)</title>
-    <link rel="stylesheet" href="style-dev.css">
+    <link rel="stylesheet" href="css/leaflet@1.7.1.css">
+    <link rel="stylesheet" href="css/style-dev.css">
 </head>
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -22,6 +17,7 @@
       const is_dev_environment = true;
       document.head.querySelector("link[rel='shortcut icon']").href = "../images/tt_logov2_small.png";
     </script>
+    <script src="./js/leaflet@1.7.1.js"></script>
     <script src="./js/Leaflet.ContinuousZoom.js"></script>
     <script src="./js/misc.js"></script>
     <script src="./js/main.js"></script>
@@ -30,6 +26,6 @@
     <script src="./js/servers_icons.js"></script>
     <script src="./js/markers.js"></script>
     <script src="./js/servers.js"></script>
-    <!-- <script src="./js/debug.js"></script> -->
+    <script src="./js/debug.js"></script>
 </body>
 </html>
