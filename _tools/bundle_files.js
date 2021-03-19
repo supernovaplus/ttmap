@@ -18,6 +18,7 @@ const fs = require("fs");
   await new Promise(resolve => {
     // gulp.src(['../dev/js/*.js', '!../dev/js/debug.js'])
     gulp.src([
+      "../dev/js/leaflet@1.7.1.js",
       "../dev/js/Leaflet.ContinuousZoom.js",
       "../dev/js/misc.js",
       "../dev/js/main.js",
@@ -47,7 +48,8 @@ const fs = require("fs");
   const new_css_file_name = `bundle-css-${time_now}.css`;
   await new Promise(resolve => {
     gulp.src([
-      "../dev/style-dev.css"
+      "../dev/css/leaflet@1.7.1.css",
+      "../dev/css/style-dev.css"
     ])
     .pipe(concat(new_css_file_name))
     .pipe(cleancss())
@@ -62,11 +64,13 @@ const fs = require("fs");
   //HTML
 
   const html = fs.readFileSync("../dev/index-dev.html", "utf-8")
-    .replace(`<link rel="stylesheet" href="style-dev.css">`, `<link rel="stylesheet" href="${new_css_file_name}">`)
+    .replace(`<link rel="stylesheet" href="css/leaflet@1.7.1.css">`,"")
+    .replace(`<link rel="stylesheet" href="css/style-dev.css">`, `<link rel="stylesheet" href="${new_css_file_name}">`)
     .replace(/<body[^>]*>((.|[\n\r])*)<\/body>/gm, `<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>const fileUpdatedAt = ${Date.now()}, is_dev_environment = false;</script>
     <script src="${new_js_file_name_minified}"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3414887ce78947639e0939df00482af5"}'></script><!-- End Cloudflare Web Analytics -->
   </body>`);
 
   fs.writeFileSync("../index.html", html);

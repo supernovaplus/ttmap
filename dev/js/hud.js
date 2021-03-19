@@ -73,7 +73,7 @@ const sidebar_toggle = e => {
 const div_sidebar_panel = cel('div', {id: 'sidebar-panel'});
 div_sidebar.appendChild(div_sidebar_panel);
 
-const div_sidebar_arrow = cel('a', {href: '#', id: 'sidebar-arrow', className: 'arrow-close', _title: 'Toggle Sidebar', onclick: sidebar_toggle});
+const div_sidebar_arrow = cel('a', {id: 'sidebar-arrow', className: 'arrow-close', _title: 'Toggle Sidebar', onclick: sidebar_toggle});
 div_sidebar.appendChild(div_sidebar_arrow);
 
 // if(!options.sidebar_open){
