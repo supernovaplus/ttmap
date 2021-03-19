@@ -2,8 +2,10 @@ const fs = require("fs");
 // for photoshop adapting the tiles
 
 // const imagesLocatedAt = "../images/maps/tiles/color/";
-const imagesLocatedAt = "../images/maps/images/"; //must end with "/"
-const moveToFolderAt = "../images/maps/dark-mode-tiles/";
+const imagesLocatedAt = "../images/maps/imagesc/"; //must end with "/"
+const moveToFolderAt = "../images/maps/color-mode-tiles/";
+
+//dark-mode-tiles
 
 const tileSize = 288;
 const suffix = ".jpg";
