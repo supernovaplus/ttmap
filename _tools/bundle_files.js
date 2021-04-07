@@ -23,7 +23,7 @@ const fs = require("fs");
       "../dev/js/misc.js",
       "../dev/js/main.js",
       "../dev/js/hud.js",
-      "../dev/js/plot.js",
+      // "../dev/js/plot.js",
       "../dev/js/servers_icons.js",
       "../dev/js/markers.js",
       "../dev/js/servers.js"

@@ -156,10 +156,10 @@ fetch(base_folder + "data/credits.txt").then(res=>res.text()).then(res=>{
         ["a", {href:"https://supernovaplus.github.io/ttmap/images/maps/mobilemap.jpg", innerText:"COLOR (2304p)", target: "blank"}],
         ["a", {href:"https://supernovaplus.github.io/ttmap/images/maps/mapdarkmobile.jpg", innerText:"DARK (2304p)", target: "blank"}]]));
     div_credits.appendChild(cel(["input",{type:"button", value:"close", onclick: show_credits}]));
-})
+});
 
 function show_credits(){
     div_credits.hidden = !div_credits.hidden;
 }
 
-map.attributionControl.addAttribution(`<a href="#" onclick="show_credits(); return;">CREDITS | Download Map</a>`)
+map.attributionControl._container.prepend(cel(["a", {onclick: show_credits, innerText: "CREDITS | Download Map", className: "cursor"}]), " | ");
