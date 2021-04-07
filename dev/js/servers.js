@@ -80,13 +80,13 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
 
     create_sideblock_item('Servers', 
         ['div', {id: 'servers'}],
-        ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
-            e.target.disabled = true;
-            setTimeout(() => {
-                e.target.disabled = false;
-            }, 6000);
-            servers_check_all()
-            }, value: 'Check All'}],
+        // ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
+        //     e.target.disabled = true;
+        //     setTimeout(() => {
+        //         e.target.disabled = false;
+        //     }, 6000);
+        //     servers_check_all()
+        //     }, value: 'Check All'}],
         // ['br'],
         ['input', {type: 'button', className: 'btn img-btn', onclick: (e) => {
             e.target.disabled = true;
@@ -170,7 +170,7 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
 
 function get_server_data(server){
     if(server.disabled === true) return;
-    fetch("https://novaplus.herokuapp.com/positions/" + server.ip).then(res=>res.json()).then(res => {
+    fetch("https://novaplus-api.herokuapp.com/positions/" + server.ip).then(res=>res.json()).then(res => {
         if(!res.data || res.error || res.data.players.length === 0 || server.disabled === true) {
             console.log(server.name, res.error ? res.error : "no res data / no players / checkbox unmarked");
             disable_server(server);

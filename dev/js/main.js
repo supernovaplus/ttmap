@@ -89,23 +89,21 @@ L.CRS.Kebab = L.extend({}, L.CRS.Simple, {
 const map = L.map('map', {
     renderer: L.canvas(),
     zoomControl: false,
-    zooms: [2,3,4,5,6,7,8,9],
+    // zooms: [2,3,4,5,6,7,8,9],
+    zooms: [2,3,4,5,6,7,8],
     minZoom : 2,
-    maxZoom : 9,
+    maxZoom : 8,
     // zoomSnap: 1,
     fadeAnimation: true,
     zoomAnimation: true,
     crs: L.CRS.Kebab
 }).setView([0,0], 5);
 
-// const tile_folder = window.location.hostname ===  "ttmap.aca.lt" ? "https://ttmap.pages.dev/" : base_folder;
-const tile_folder = base_folder;
-
 const map_list = [
     {
         name: "Color Mode",
         bgcolor: "#0fa8d1",
-        tileLayer: L.tileLayer(tile_folder + "images/maps/color-mode-tiles/{z}_{x}_{y}.jpg",{
+        tileLayer: L.tileLayer(base_folder + "images/maps/color-mode-tiles/{z}_{x}_{y}.jpg",{
             tileSize: 288,
             nativeZooms: [3,4,5,6,7],
             noWrap: true,
@@ -116,7 +114,7 @@ const map_list = [
     { 
         name: "Dark Mode", 
         bgcolor: "#171717",
-        tileLayer: L.tileLayer(tile_folder + "images/maps/dark-mode-tiles/{z}_{x}_{y}.jpg",{
+        tileLayer: L.tileLayer(base_folder + "images/maps/dark-mode-tiles/{z}_{x}_{y}.jpg",{
             tileSize: 288,
             nativeZooms: [3,4,5,6,7],
             noWrap: true,
