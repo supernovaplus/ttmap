@@ -163,3 +163,4 @@ function show_credits(){
 }
 
 map.attributionControl._container.prepend(cel(["a", {onclick: show_credits, innerText: "CREDITS | Download Map", className: "cursor"}]), " | ");
+map.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");

@@ -16,17 +16,17 @@ const fs = require("fs");
   const new_js_file_name = `bundle-js-${time_now}.js`;
   const new_js_file_name_minified = `bundle-js-${time_now}-min.js`;
   await new Promise(resolve => {
-    // gulp.src(['../dev/js/*.js', '!../dev/js/debug.js'])
+    // gulp.src(['../src/js/*.js', '!../src/js/debug.js'])
     gulp.src([
-      "../dev/js/leaflet@1.7.1.js",
-      "../dev/js/Leaflet.ContinuousZoom.js",
-      "../dev/js/misc.js",
-      "../dev/js/main.js",
-      "../dev/js/hud.js",
-      // "../dev/js/plot.js",
-      "../dev/js/servers_icons.js",
-      "../dev/js/markers.js",
-      "../dev/js/servers.js"
+      "../src/js/leaflet@1.7.1.js",
+      "../src/js/Leaflet.ContinuousZoom.js",
+      "../src/js/misc.js",
+      "../src/js/main.js",
+      "../src/js/hud.js",
+      // "../src/js/plot.js",
+      "../src/js/servers_icons.js",
+      "../src/js/markers.js",
+      "../src/js/servers.js"
     ])
     // .pipe(sourcemaps.init())
     .pipe(concat(new_js_file_name))
@@ -48,8 +48,8 @@ const fs = require("fs");
   const new_css_file_name = `bundle-css-${time_now}.css`;
   await new Promise(resolve => {
     gulp.src([
-      "../dev/css/leaflet@1.7.1.css",
-      "../dev/css/style-dev.css"
+      "../src/css/leaflet@1.7.1.css",
+      "../src/css/style.css"
     ])
     .pipe(concat(new_css_file_name))
     .pipe(cleancss())
@@ -63,9 +63,9 @@ const fs = require("fs");
 
   //HTML
 
-  const html = fs.readFileSync("../dev/index-dev.html", "utf-8")
+  const html = fs.readFileSync("../src/index.html", "utf-8")
     .replace(`<link rel="stylesheet" href="css/leaflet@1.7.1.css">`,"")
-    .replace(`<link rel="stylesheet" href="css/style-dev.css">`, `<link rel="stylesheet" href="${new_css_file_name}">`)
+    .replace(`<link rel="stylesheet" href="css/style.css">`, `<link rel="stylesheet" href="${new_css_file_name}">`)
     .replace(/<body[^>]*>((.|[\n\r])*)<\/body>/gm, `<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>const fileUpdatedAt = ${Date.now()}, is_dev_environment = false;</script>

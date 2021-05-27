@@ -139,7 +139,6 @@ fetch(base_folder + "data/houses.json").then(res=>res.json()).then(res=>{
 
         static_markers_list.houses.markers.push(marker);
         if(options.markers["houses"]) map.addLayer(marker);
-
     });
 });
 

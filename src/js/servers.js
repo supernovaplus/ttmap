@@ -2,7 +2,7 @@ const nova_servers = {};
 
 const trail_modes = [
     { name: "LONG",     title: "1000 points length",    value: 1000},
-    { name: "MEDIUM",    title: "500 points length",     value: 500},
+    { name: "MEDIUM",   title: "500 points length",     value: 500},
     { name: "SHORT",    title: "100 points length",     value: 100},
     { name: "NONE",     title: "0 points length",       value: 0}
 ];
@@ -61,7 +61,7 @@ function refresh_trail_mode_buttons(){
     }
 }
 
-fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async servers_list=>{
+fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async servers_list => {
     //hud
     create_sideblock_item('Trail Mode', 
     ...trail_modes.map((trail, index) => ['input', assign_hud_hover_event({type: 'button', className: 'img-btn grow-item trails-btn', _title: trail.title, value: trail.name, onclick: () => toggle_trail_mode(index)})])
@@ -100,21 +100,22 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
     //hud end
 
     const servers_div = document.getElementById("servers");
+
     for (let i = 0; i < servers_list.length; i++) {
 
         const checkbox_block = cel(
             ['div', {className: 'servercheckbox'}, 
             // ['input', {type: 'checkbox', checked: !params["hideplayers"]}],
             ['input', {type: 'checkbox', checked: false}],
-            ['span', {innerText: servers_list[i][1]}],
-            is_mobile_device === false ? ['a', assign_hud_hover_event({href: 'fivem://connect/' + servers_list[i][0], _title: 'Join: ' + servers_list[i][0], innerText: '🎮'})] : []
+            ['span', {innerText: servers_list[i][0]}],
+            is_mobile_device === false ? ['a', assign_hud_hover_event({href: 'fivem://connect/cfx.re/join/' + servers_list[i][1], _title: 'Join: ' + servers_list[i][1], innerText: '🎮'})] : []
         ]);
 
         servers_div.appendChild(checkbox_block);
 
-        nova_servers[servers_list[i][0]] = {
-            name: servers_list[i][1],
-            ip: servers_list[i][0],
+        nova_servers[servers_list[i][1]] = {
+            name: servers_list[i][0],
+            endpoint: servers_list[i][1],
             players: {},
             timestamp: 0,
             checkbox: checkbox_block.firstElementChild,
@@ -122,47 +123,49 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
             timeout: null
         };
 
-        nova_servers[servers_list[i][0]].checkbox.addEventListener("change", () => {
-            if(nova_servers[servers_list[i][0]].disabled){
-                enable_server(nova_servers[servers_list[i][0]]);
+        nova_servers[servers_list[i][1]].checkbox.addEventListener("change", () => {
+            if(nova_servers[servers_list[i][1]].disabled){
+                enable_server(nova_servers[servers_list[i][1]]);
             }else{
-                disable_server(nova_servers[servers_list[i][0]]);
+                disable_server(nova_servers[servers_list[i][1]]);
             }
         })
     };
 
     if(!params["hideplayers"]){
         //if OS is on, only check the os, else scan all the servers
-        const first_server_id = Object.keys(nova_servers)[0];
+        // const first_server_id = Object.keys(nova_servers)[0];
 
-        if(window.location.protocol === "https:"){
-            enable_server(Object.values(nova_servers)[0]);
-        }else{
-            fetch(`http://${nova_servers[first_server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-                if(res && res.players && res.players.length > 0){
-                    enable_server(nova_servers[first_server_id])
-                }else{
-                    disable_server(nova_servers[first_server_id]);
-                }
+        enable_server(Object.values(nova_servers)[0]);
+
+        // if(window.location.protocol === "https:"){
+        //     enable_server(Object.values(nova_servers)[0]);
+        // }else{
+        //     fetch(`http://${nova_servers[first_server_id].endpoint}/status/widget/players.json`).then(res=>res.json()).then(res=>{
+        //         if(res && res.players && res.players.length > 0){
+        //             enable_server(nova_servers[first_server_id])
+        //         }else{
+        //             disable_server(nova_servers[first_server_id]);
+        //         }
     
-            }).catch(err=>{
-                disable_server(nova_servers[first_server_id]);
+        //     }).catch(err=>{
+        //         disable_server(nova_servers[first_server_id]);
     
-                //scan servers via keyless api for disabled servers or servers with 0 player count;
-                for (const server_id in nova_servers) {
-                    if(server_id === first_server_id) continue;
-                    fetch(`http://${nova_servers[server_id].ip}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-                        if(res && res.players && res.players.length > 0){
-                            enable_server(nova_servers[server_id])
-                        }else{
-                            disable_server(nova_servers[server_id]);
-                        }
-                    }).catch(err=>{
-                        disable_server(nova_servers[server_id]);
-                    });
-                }
-            });
-        }
+        //         //scan servers via keyless api for disabled servers or servers with 0 player count;
+        //         // for (const server_id in nova_servers) {
+        //         //     if(server_id === first_server_id) continue;
+        //         //     fetch(`http://${nova_servers[server_id].endpoint}/status/widget/players.json`).then(res=>res.json()).then(res=>{
+        //         //         if(res && res.players && res.players.length > 0){
+        //         //             enable_server(nova_servers[server_id])
+        //         //         }else{
+        //         //             disable_server(nova_servers[server_id]);
+        //         //         }
+        //         //     }).catch(err=>{
+        //         //         disable_server(nova_servers[server_id]);
+        //         //     });
+        //         // }
+        //     });
+        // }
     }
 }).catch(err=>{
     console.log(err);
@@ -170,7 +173,8 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
 
 function get_server_data(server){
     if(server.disabled === true) return;
-    fetch("https://novaplus-api.herokuapp.com/positions/" + server.ip).then(res=>res.json()).then(res => {
+    // fetch("http://localhost:5000/positions/" + server.endpoint).then(res=>res.json()).then(res => {
+    fetch("https://novaplus-api.herokuapp.com/positions/" + server.endpoint).then(res=>res.json()).then(res => {
         if(!res.data || res.error || res.data.players.length === 0 || server.disabled === true) {
             console.log(server.name, res.error ? res.error : "no res data / no players / checkbox unmarked");
             disable_server(server);
@@ -374,7 +378,7 @@ function generate_popup(data, server, color){
                         `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
         ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}
         
-        <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/${server.ip}" title="Join: ${server.name}">JOIN</a>`}`;
+        <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/cfx.re/join/${server.endpoint}" title="Join: ${server.name}">JOIN</a>`}`;
 }
 
 function generate_job_tag(job, player_name_and_id = ""){
