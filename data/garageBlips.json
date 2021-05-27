@@ -119,8 +119,8 @@
   "garage_19": {
       "name": "SSIA Garage",
       "coordinates": {
-          "y": "3650",
-          "x": "628"
+          "y": "3698",
+          "x": "1198"
       },
       "type": "Car Garage",
       "spawns": "Bikes, Cars, Bicycles"
@@ -236,8 +236,8 @@
   "garage_18": {
       "name": "SSIA Hangar",
       "coordinates": {
-          "y": "3787",
-          "x": "1070"
+          "y": "3736.5",
+          "x": "1230"
       },
       "type": "Aircraft Garage",
       "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
