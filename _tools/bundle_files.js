@@ -70,7 +70,6 @@ const fs = require("fs");
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>const fileUpdatedAt = ${Date.now()}, is_dev_environment = false;</script>
     <script src="${new_js_file_name_minified}"></script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3414887ce78947639e0939df00482af5"}'></script><!-- End Cloudflare Web Analytics -->
   </body>`);
 
   fs.writeFileSync("../index.html", html);

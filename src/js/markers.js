@@ -45,12 +45,12 @@ refresh_toggle_markers_buttons();
 function toggle_markers(key){
     if(options.markers[key]){
         static_markers_list[key].markers.forEach(marker => {
-            map.removeLayer(marker);
+            window.mainMap.removeLayer(marker);
         })
         options.markers[key] = false;
     }else{
         static_markers_list[key].markers.forEach(marker => {
-            map.addLayer(marker);
+            window.mainMap.addLayer(marker);
         })
         options.markers[key] = true;
     }
@@ -92,7 +92,7 @@ fetch(base_folder + "data/bizBlips.json").then(res=>res.json()).then(res=>{//bus
         <small>(in 24 hours / 8 stacks)</small>`);
 
         static_markers_list.business.markers.push(marker);
-        if(options.markers["business"]) map.addLayer(marker);
+        if(options.markers["business"]) window.mainMap.addLayer(marker);
     };
 });
 
@@ -108,7 +108,7 @@ fetch(base_folder + "data/garageBlips.json").then(res=>res.json()).then(res=>{
 
         marker._name = res[key].name;
         static_markers_list.garages.markers.push(marker);
-        if(options.markers["garages"]) map.addLayer(marker);
+        if(options.markers["garages"]) window.mainMap.addLayer(marker);
     };
 });
 
@@ -123,7 +123,7 @@ fetch(base_folder + "data/ssBlips.json").then(res=>res.json()).then(res=>{
         Capacity: ${res[key].capacity}`);
 
         static_markers_list.self_storage.markers.push(marker);
-        if(options.markers["self_storage"]) map.addLayer(marker);
+        if(options.markers["self_storage"]) window.mainMap.addLayer(marker);
     };
 });
 
@@ -138,7 +138,7 @@ fetch(base_folder + "data/houses.json").then(res=>res.json()).then(res=>{
         Sell Price: $${Number(house.sell_price).toLocaleString()}`);
 
         static_markers_list.houses.markers.push(marker);
-        if(options.markers["houses"]) map.addLayer(marker);
+        if(options.markers["houses"]) window.mainMap.addLayer(marker);
     });
 });
 
@@ -147,9 +147,9 @@ if(params.coords){
         params.coords, 
         {icon: create_data_marker_icon("Custom Point")})
     .bindTooltip('Location')
-    .addTo(map);
+    .addTo(window.mainMap);
 
-    map.flyTo(params.coords, 6, {
+    window.mainMap.flyTo(params.coords, 6, {
         animate: true,
         duration: .5
     });

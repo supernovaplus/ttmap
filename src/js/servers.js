@@ -27,7 +27,7 @@ function handle_find_player(input){
     if(found){
         input.previousSibling.style.backgroundColor = "lime";
         
-        map.flyTo(found.marker._latlng, 7, {
+        window.mainMap.flyTo(found.marker._latlng, 7, {
             animate: true,
             duration: .5
         });
@@ -192,7 +192,7 @@ function get_server_data(server){
 
             if(players[i][0] === "null"){
                 if(server.players[player_id] !== undefined){
-                    map.removeLayer(server.players[player_id].marker)
+                    window.mainMap.removeLayer(server.players[player_id].marker)
                     delete server.players[player_id];
                 }
                 continue;
@@ -214,7 +214,7 @@ function get_server_data(server){
                 server.players[player_id].marker = L.marker(
                         [players[i][3].x, players[i][3].y],
                         {icon: generate_icon(players[i][4], players[i][5], 40)})
-                    .addTo(map)
+                    .addTo(window.mainMap)
                     .bindPopup( generate_popup(players[i], server, server.players[player_id].color))
                     .bindTooltip( generate_job_tag(players[i][5]["group"], server.players[player_id].gameid), {
                         permanent: false,
@@ -243,13 +243,13 @@ function get_server_data(server){
                 server.players[player_id].polyline = L.polyline(server.players[player_id].positions_cache, {
                     color: server.players[player_id].color,
                     weight: 2
-                }).addTo(map);
+                }).addTo(window.mainMap);
 
                 //if trail was clicked, show who clicked
                 server.players[player_id].polyline.on("click", e => {
                     server.players[player_id].marker.openPopup();
                     setTimeout(() => {
-                        map.flyTo(server.players[player_id].marker._latlng, 7, {
+                        window.mainMap.flyTo(server.players[player_id].marker._latlng, 7, {
                             animate: true,
                             duration: .5
                         });
@@ -363,8 +363,8 @@ function servers_uncheck_all(){
 function server_cleanup(server, force_cleanup = false){
     for(const player_id in server.players){ //clean up players that left
         if(force_cleanup || server.players[player_id].timestamp < Date.now() - 49000){
-            map.removeLayer(server.players[player_id].marker)
-            if(server.players[player_id].polyline) map.removeLayer(server.players[player_id].polyline);
+            window.mainMap.removeLayer(server.players[player_id].marker)
+            if(server.players[player_id].polyline) window.mainMap.removeLayer(server.players[player_id].polyline);
             delete server.players[player_id];
         }
     }

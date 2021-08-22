@@ -1,6 +1,4 @@
-
 const base_folder = is_dev_environment ? "../" : "./";
-
 const emoji_folder = base_folder + "images/openmoji/";
 const map_folder = base_folder + "images/maps/";
 const company_emoji_folder = base_folder + "images/companyemoji/";
@@ -83,10 +81,11 @@ L.CRS.Kebab = L.extend({}, L.CRS.Simple, {
       0.005175, //scale-x
       34.38, //shift-x
       -0.005173, //scale-y
-      46.79355), //shift-y
+      46.79355 //shift-y
+    ),
 });
 
-const map = L.map('map', {
+window.mainMap = L.map('map', {
     renderer: L.canvas(),
     zoomControl: false,
     // zooms: [2,3,4,5,6,7,8,9],
@@ -126,4 +125,4 @@ const map_list = [
 
 L.control.zoom({
     position: 'topright'
-}).addTo(map);
+}).addTo(window.mainMap);
