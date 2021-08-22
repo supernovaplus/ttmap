@@ -22,6 +22,8 @@ if(localStorage.getItem("ttmap_options_1")){
     localStorage.removeItem("ttmap_options_1");
 }
 
+window.lastCoords = [0, 0]; //for tt remote
+
 // if(params.plot_url){
 //     params.hideplayers = true;
 // }
