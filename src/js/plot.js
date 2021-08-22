@@ -59,8 +59,8 @@ let custom_plot_line_joint = null;
 
 function clear_plotline(clear_text = false){
     if(custom_plot_line){
-        map.removeLayer(custom_plot_line);
-        map.removeLayer(custom_plot_line_joint);
+        window.mainMap.removeLayer(custom_plot_line);
+        window.mainMap.removeLayer(custom_plot_line_joint);
         custom_plot_line = null;
         custom_plot_line_joint = null;
     }
@@ -121,7 +121,7 @@ function convert_the_plot_coordinates() {
         custom_plot_line = L.polyline(converted_data.map( m => [m.x, m.y]), {
             color: "red",
             weight: 2
-        }).addTo(map);
+        }).addTo(window.mainMap);
 
         custom_plot_line_joint = L.polyline([ 
             [converted_data[0].x, converted_data[0].y], 
@@ -129,11 +129,11 @@ function convert_the_plot_coordinates() {
         ], {
             color: "pink",
             weight: 2
-        }).addTo(map);
+        }).addTo(window.mainMap);
 
         const middle_index = parseInt(converted_data.length * 0.5);
 
-        map.flyTo([converted_data[middle_index].x,converted_data[middle_index].y], 5, {
+        window.mainMap.flyTo([converted_data[middle_index].x,converted_data[middle_index].y], 5, {
             animate: true,
             duration: .5
         });

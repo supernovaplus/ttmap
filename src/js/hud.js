@@ -96,7 +96,7 @@ create_sideblock_item('Map Mode',
 //-------------------------
 
 let current_copy_link_url = "";
-map.on('contextmenu', function(e){
+window.mainMap.on('contextmenu', function(e){
     div_right_click_menu.style.top = e.originalEvent.y + "px";
     div_right_click_menu.style.left = e.originalEvent.x + "px";
     current_copy_link_url = `${copy_link_url}?x=${e.latlng.lat.toFixed(1)}&y=${e.latlng.lng.toFixed(1)}`;
@@ -114,11 +114,11 @@ function refresh_copy_link(){
         (hide_icons_checkbox.checked === true ? "&hideicons" : "");
 }
 
-map.on('click', function(){
+window.mainMap.on('click', function(){
     div_right_click_menu.hidden = true;
 });
 
-map.on('drag', function(){
+window.mainMap.on('drag', function(){
     div_right_click_menu.hidden = true;
 });
 
@@ -127,10 +127,10 @@ toogle_image_quality(options.current_map_index, true);
 
 function toogle_image_quality(index, force = false){
     if(!force && index === options.current_map_index) return;
-    if(currentTileLayer) map.removeLayer(currentTileLayer);
+    if(currentTileLayer) window.mainMap.removeLayer(currentTileLayer);
     options.current_map_index = index;
     currentTileLayer = map_list[index].tileLayer;
-    currentTileLayer.addTo(map);
+    currentTileLayer.addTo(window.mainMap);
     div_map.style.backgroundColor = map_list[index].bgcolor;
     save_options();
     refresh_image_quality_button();
@@ -162,5 +162,5 @@ function show_credits(){
     div_credits.hidden = !div_credits.hidden;
 }
 
-map.attributionControl._container.prepend(cel(["a", {onclick: show_credits, innerText: "CREDITS | Download Map", className: "cursor"}]), " | ");
-map.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");
+window.mainMap.attributionControl._container.prepend(cel(["a", {onclick: show_credits, innerText: "CREDITS | Download Map", className: "cursor"}]), " | ");
+window.mainMap.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");
