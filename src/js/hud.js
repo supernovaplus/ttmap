@@ -102,6 +102,8 @@ window.mainMap.on('contextmenu', function(e){
     current_copy_link_url = `${copy_link_url}?x=${e.latlng.lat.toFixed(1)}&y=${e.latlng.lng.toFixed(1)}`;
     refresh_copy_link();
     div_right_click_menu.hidden = false;
+    
+    window.lastCoords = [Number(e.latlng.lat.toFixed(1)), Number(e.latlng.lng.toFixed(1))]; //for tt remote
 });
 
 const copy_link_input_field = document.getElementById("copy-link-input-field");
