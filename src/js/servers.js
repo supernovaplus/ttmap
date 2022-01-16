@@ -1,10 +1,11 @@
 const nova_servers = {};
 
 const trail_modes = [
-    { name: "LONG",     title: "1000 points length",    value: 1000},
-    { name: "MEDIUM",   title: "500 points length",     value: 500},
-    { name: "SHORT",    title: "100 points length",     value: 100},
-    { name: "NONE",     title: "0 points length",       value: 0}
+    { name: "EXTREME",          title: "10000 points length",   value: 10000},
+    { name: "LONG",             title: "1000 points length",    value: 1000},
+    { name: "MEDIUM",           title: "500 points length",     value: 500},
+    { name: "SHORT",            title: "100 points length",     value: 100},
+    { name: "NONE (disable)",   title: "0 points length",       value: 0}
 ];
 
 function handle_find_player(input){
@@ -167,17 +168,29 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
         //     });
         // }
     }
-}).catch(err=>{
+}).catch(err => {
     console.log(err);
 })
+
+function continue_scanning(server){
+    if(!server.timeout){
+        server.timeout = setTimeout(() => {
+            get_server_data(server);
+            server.timeout = null;
+        }, 6000);
+    }
+}
 
 function get_server_data(server){
     if(server.disabled === true) return;
     // fetch("http://localhost:5000/positions/" + server.endpoint).then(res=>res.json()).then(res => {
-    fetch("https://novaplus-api.herokuapp.com/positions/" + server.endpoint).then(res=>res.json()).then(res => {
+    fetch("https://novaplus-api.herokuapp.com/positions/" + server.endpoint)
+    .then(res => res.json())
+    .then(res => {
         if(!res.data || res.error || res.data.players.length === 0 || server.disabled === true) {
             console.log(server.name, res.error ? res.error : "no res data / no players / checkbox unmarked");
-            disable_server(server);
+            // disable_server(server);
+            continue_scanning(server);
             return;
         }
 
@@ -312,17 +325,12 @@ function get_server_data(server){
         }
 
         server_cleanup(server);
+        continue_scanning(server);
 
-        if(!server.timeout){
-            server.timeout = setTimeout(() => {
-                get_server_data(server);
-                server.timeout = null;
-            }, 6000);
-        }
-
-    }).catch(err=>{
+    }).catch(err => {
         console.log(err);
-        disable_server(server);
+        // disable_server(server);
+        continue_scanning(server);
     });
 }
 

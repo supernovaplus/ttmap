@@ -313,6 +313,10 @@ small {
     box-sizing: border-box;
 }
 
+#servers {
+    width: 100%;
+}
+
 .arrow-open {
     background-image: url('./images/arrow_open.gif');
 }
