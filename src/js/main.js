@@ -31,7 +31,8 @@ window.lastCoords = [0, 0]; //for tt remote
 const options = {
     current_map_index: 1,
     sidebar_open: true,
-    current_trail_index: is_mobile_device ? 3 : 2,
+    current_trail_index: 3,
+    // current_trail_index: is_mobile_device ? 3 : 2,
     timestamp: 0,
 
     markers: {

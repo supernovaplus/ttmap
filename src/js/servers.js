@@ -8,6 +8,8 @@ const trail_modes = [
     { name: "NONE (disable)",   title: "0 points length",       value: 0}
 ];
 
+const last_trail_index = trail_modes.length - 1;
+
 function handle_find_player(input){
     if(!input.previousSibling.value) return;
     const search_for = String(input.previousSibling.value).toLowerCase();
@@ -236,7 +238,7 @@ function get_server_data(server){
                         direction: "top"
                 }).setZIndexOffset(1000);
                 
-                if(options.current_trail_index !== 3 && players[i][6] && players[i][6].length > 1){
+                if(options.current_trail_index !== last_trail_index && players[i][6] && players[i][6].length > 1){
                     server.players[player_id].positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
 
                     //reset the trail if distance between points is too long
@@ -270,7 +272,7 @@ function get_server_data(server){
                 })
             }else{
                 //TRAILS
-                if(options.current_trail_index !== 3 && players[i][6] && players[i][6].length > 2){
+                if(options.current_trail_index !== last_trail_index && players[i][6] && players[i][6].length > 2){
                     // players[i][6].forEach(newpos => {
                     //     if(newpos[0] > server.players[player_id].positions_cache_last_index){
                     //         server.players[player_id].positions_cache.push([newpos[1], newpos[2]]);
