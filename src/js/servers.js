@@ -139,7 +139,7 @@ fetch(base_folder + "data/serversList.json").then(res=>res.json()).then(async se
         //if OS is on, only check the os, else scan all the servers
         // const first_server_id = Object.keys(nova_servers)[0];
 
-        enable_server(Object.values(nova_servers)[1]);
+        enable_server(Object.values(nova_servers)[0]);
 
         // if(window.location.protocol === "https:"){
         //     enable_server(Object.values(nova_servers)[0]);
