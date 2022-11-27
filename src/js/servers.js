@@ -186,7 +186,7 @@ function continue_scanning(server){
 function get_server_data(server){
     if(server.disabled === true) return;
     // fetch("http://localhost:5000/positions/" + server.endpoint).then(res=>res.json()).then(res => {
-    fetch("https://novaplus-api.herokuapp.com/positions/" + server.endpoint)
+    fetch("https://d.ttstats.eu/positions/" + server.endpoint)
     .then(res => res.json())
     .then(res => {
         if(!res.data || res.error || res.data.players.length === 0 || server.disabled === true) {
