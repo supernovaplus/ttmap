@@ -4,11 +4,14 @@ const div_right_click_menu = cel("div", {id: "copy-menu", hidden: true},
     ["br"],
     ["input", {type: "text", id: "copy-link-input-field", value: "", onclick: e =>  e.target.select()}],
 
-    ["label", {for: "hidePlayersCheck", innerText: "Hide Players:"}],
+    ["label", {for: "hidePlayersCheck", innerText: "Hide Players"}],
     ["input", {type: "checkbox", id: "hidePlayersCheck", checked: true, onclick: () => refresh_copy_link()}],
 
-    ["label", {for: "hideIconsCheck", innerText: "Hide Icons:"}],
+    ["label", {for: "hideIconsCheck", innerText: "| Hide Icons"}],
     ["input", {type: "checkbox", id: "hideIconsCheck", checked: false, onclick: () => refresh_copy_link()}],
+
+    ["label", {for: "showEXPMap", innerText: "| EXP Map"}],
+    ["input", {type: "checkbox", id: "showEXPMap", checked: false, onclick: () => refresh_copy_link()}],
 );
 document.body.appendChild(div_right_click_menu);
 
@@ -109,10 +112,12 @@ window.mainMap.on('contextmenu', function(e){
 const copy_link_input_field = document.getElementById("copy-link-input-field");
 const hide_players_checkbox = document.getElementById("hidePlayersCheck");
 const hide_icons_checkbox = document.getElementById("hideIconsCheck");
+const show_exp_map = document.getElementById("showEXPMap");
 
 function refresh_copy_link(){
     copy_link_input_field.value = current_copy_link_url + 
         (hide_players_checkbox.checked === true ? "&hideplayers" : "") + 
+        (showEXPMap.checked === true ? "&expmap" : "") + 
         (hide_icons_checkbox.checked === true ? "&hideicons" : "");
 }
 
@@ -152,7 +157,8 @@ function refresh_image_quality_button(){
 
 fetch(base_folder + "data/credits.txt").then(res=>res.text()).then(res=>{
     div_credits.appendChild(cel(["p", {innerText: res}]));
-    div_credits.appendChild(cel(["div", {innerText: "Download the map: "},
+    div_credits.appendChild(cel(["a", {href:"https://forms.gle/8HJyRxN2MWKr1vBP7", innerText: '> Feedback form'}]));
+    div_credits.appendChild(cel(["div", {innerText: "> Download the map: "},
         ["a", {href:"https://supernovaplus.github.io/ttmap/images/maps/map.jpg", innerText:"COLOR (4608p)", target: "blank"}],
         ["a", {href:"https://supernovaplus.github.io/ttmap/images/maps/mapdark.jpg", innerText:"DARK (4608p)", target: "blank"}],
         ["a", {href:"https://supernovaplus.github.io/ttmap/images/maps/mobilemap.jpg", innerText:"COLOR (2304p)", target: "blank"}],
@@ -165,4 +171,4 @@ function show_credits(){
 }
 
 window.mainMap.attributionControl._container.prepend(cel(["a", {onclick: show_credits, innerText: "CREDITS | Download Map", className: "cursor"}]), " | ");
-window.mainMap.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");
+// window.mainMap.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");

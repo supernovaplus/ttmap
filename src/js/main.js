@@ -10,6 +10,7 @@ let copy_link_url = window.location.protocol + "//" + window.location.host + "/"
 const params = {
     "hideplayers": new URL(location.href).searchParams.get("hideplayers") === "",
     "hideicons": new URL(location.href).searchParams.get("hideicons") === "",
+    "expmap": new URL(location.href).searchParams.get("expmap") === "",
     //"plot_url": new URL(location.href).searchParams.get("plot_url") || false,
     "coords": (()=>{
         const paramx = new URL(location.href).searchParams.get("x");
@@ -35,11 +36,12 @@ const options = {
     // current_trail_index: is_mobile_device ? 3 : 2,
     timestamp: 0,
 
-    markers: {
+    markers: { //marker defaults
         "business": true,
         "garages": true,
         "self_storage": true,
-        "houses" : true
+        "houses": true,
+        "expmap": false
     }
 };
 
@@ -59,6 +61,10 @@ try{
             for (const key in options.markers) {
                 options.markers[key] = false;
             }
+        }
+
+        if(params.expmap){
+            options.markers["expmap"] = true;
         }
     }
     save_options();

@@ -21,15 +21,15 @@ function toggle_known_routes(){
     known_routes_block_div.style.display = known_routes_block_div.style.display === "none" ? "block" : "none";
 }
 
-fetch("https://aca.lt/api_v1/snowplow/list.json").then(res=>res.json()).then(res=>{
-    // console.log(res);
-    const lines_div = document.getElementById("custom-lines-list");
+// fetch("https://aca.lt/api_v1/snowplow/list.json").then(res=>res.json()).then(res=>{
+//     // console.log(res);
+//     const lines_div = document.getElementById("custom-lines-list");
     
-    lines_div.append(cel(["ul",...res.map(el => ["li",["a", {type: "src", href: "#", innerText: el[0], className: 'lines-list-item', onclick: () => {fetch_known_route(el[1])}}]])]))
+//     lines_div.append(cel(["ul",...res.map(el => ["li",["a", {type: "src", href: "#", innerText: el[0], className: 'lines-list-item', onclick: () => {fetch_known_route(el[1])}}]])]))
 
-    document.getElementById("known-routes-button").style.display = "block";
+//     document.getElementById("known-routes-button").style.display = "block";
 
-}).catch(err=>console.log(err));
+// }).catch(err=>console.log(err));
 
 function fetch_known_route(filename){
     fetch("https://aca.lt/api_v1/snowplow/" + filename).then(res=>res.text()).then(res=>{
