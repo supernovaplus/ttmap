@@ -15,13 +15,18 @@ body, #map{
     text-align: center;
 }
 
-.leaflet-popup-content a {
+.leaflet-popup-content .join-btn {
     color:white;
     background-color:red;
     padding: 2px;
-    margin: 2px;
+    margin: 0 2px;
     box-shadow: 1px 1px black;
     text-shadow: 1px 1px 3px black;
+    display: inline-block;
+}
+
+.car-img-link {
+    color: rgb(184, 184, 184) !important;
 }
 
 .leaflet-popup-content a:hover {
@@ -168,6 +173,7 @@ li {
 
 .img-btn {
     height: 23px;
+    min-width: 22px;
     padding: 2px;
 }
 
@@ -349,6 +355,11 @@ small {
 .block-item {
     padding: 2px;
     pointer-events: auto;
+}
+
+.veh-img {
+    width: 100%;
+    display: block;
 }
 
 @media (max-width: 600px) {

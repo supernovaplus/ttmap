@@ -381,14 +381,17 @@ function server_cleanup(server, force_cleanup = false){
 }
 
 function generate_popup(data, server, color){
+    const spawn_label = data[4]["vehicle_label"] === "NULL" ? "" : String(data[4]["vehicle_label"]).toLowerCase().replace(/ /g,"_");
+
     return `<div class="popup-header" ${color ? `style="background-color: ${color}"` : ""}>${data[0]}</div>
         <b>ID:</b> ${data[2]}<hr>
         <b>Job:</b> ${(data[5].name || "N/A") + " " + generate_job_tag(data[5]["group"])}<hr>
-        <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
-                        `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}<hr>
         ${data[4]["vehicle_type"] === "plane" || data[4]["vehicle_type"] === "helicopter" ? `<b>Height</b>: ${parseInt(data[3]['z'])}<hr>` : ''}
-        
-        <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/cfx.re/join/${server.endpoint}" title="Join: ${server.name}">JOIN</a>`}`;
+        <b>Vehicle</b>: ${(data[4]["vehicle_label"] === "NULL"? "N/A" : 
+                        `${data[4]["vehicle_name"]} (${vehicle_classes[data[4]["vehicle_class"]]})`)}
+        ${data[4]["vehicle_label"] === "NULL"? "" : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" class="veh-img" alt="[no vehicle image found]"/></a>`}
+        <hr>
+        <b>${server.name}</b> ${is_mobile_device ? "" : `<a href="fivem://connect/cfx.re/join/${server.endpoint}" title="Join: ${server.name}" class="join-btn">JOIN</a>`}`;
 }
 
 function generate_job_tag(job, player_name_and_id = ""){

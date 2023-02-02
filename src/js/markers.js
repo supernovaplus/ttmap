@@ -7,6 +7,7 @@ const business_icons = {
     "Car Garage": `${company_emoji_folder}25px-Garage.png`,
     "Self Storage": `${company_emoji_folder}22px-Self_Storage.png`,
     "House": `${company_emoji_folder}22px-House.png`,
+    "Exp": `${company_emoji_folder}22px-exp.png`,
     "Custom Point": `${company_emoji_folder}point22px.png`,
 }
 
@@ -29,6 +30,11 @@ const static_markers_list = {
     "houses": {
         title: 'Houses', 
         image: business_icons["House"],
+        markers: []
+    },
+    "expmap": {
+        title: 'EXP Pickup Locations', 
+        image: business_icons["Exp"],
         markers: []
     },
 }
@@ -139,6 +145,16 @@ fetch(base_folder + "data/houses.json").then(res=>res.json()).then(res=>{
 
         static_markers_list.houses.markers.push(marker);
         if(options.markers["houses"]) window.mainMap.addLayer(marker);
+    });
+});
+
+fetch(base_folder + "data/expmap.json").then(res=>res.json()).then(data => {
+    data.forEach(([x, y, z, str, dis]) => {
+        const marker = L.circle([x, y], {radius: 5, color: 'red', fill: false})
+            .bindPopup(`<div class="popup-header" style="background-color: orange;">EXP Pickup</div>${str} | ${dis}`);
+
+        static_markers_list.expmap.markers.push(marker);
+        if(options.markers["expmap"]) window.mainMap.addLayer(marker);
     });
 });
 
