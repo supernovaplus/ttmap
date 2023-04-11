@@ -1,8 +1,8 @@
-/*
-    Cache-Control: public, max-age=60
-
 /data/*
     Cache-Control: public, max-age=1800
 
 /images/*
     Cache-Control: public, max-age=1800
+
+/*
+    Cache-Control: public, max-age=60
