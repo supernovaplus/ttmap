@@ -1,14 +1,2 @@
-/data/*
+/*
     Cache-Control: public, max-age=1800
-
-/images/*
-    Cache-Control: public, max-age=1800
-
-/*.css
-    Cache-Control: public, max-age=60
-
-/*.js
-    Cache-Control: public, max-age=60
-
-/*.html
-    Cache-Control: public, max-age=60
