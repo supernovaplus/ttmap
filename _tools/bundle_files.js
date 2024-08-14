@@ -20,6 +20,7 @@ const fs = require("fs");
     gulp.src([
       "../src/js/leaflet@1.7.1.js",
       "../src/js/Leaflet.ContinuousZoom.js",
+      "../src/js/leaflet.motion.min.js",
       "../src/js/misc.js",
       "../src/js/main.js",
       "../src/js/hud.js",

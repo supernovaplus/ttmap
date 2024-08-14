@@ -4,6 +4,7 @@ Leaflet, a JS library for interactive maps. (http://leafletjs.com)
 (c) 2010-2019 Vladimir Agafonkin, (c) 2010-2011 CloudMade
 
 Leaflet.ContinuousZoom.js - Written by Ilya Zverev, licensed WTFPL (https://github.com/Zverik/Leaflet.LimitZoom)
+leaflet.motion - Written by Igor Vladyka, licensed MIT (https://github.com/Igor-Vladyka/leaflet.motion)
 
 Most emojis are designed by OpenMoji (https://openmoji.org/) – the open-source emoji and icon project.
 License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
