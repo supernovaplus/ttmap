@@ -212,9 +212,11 @@ function get_server_data(server){
                 }
                 continue;
             }
-
-            if(server.players[player_id] === undefined){
-                server.players[player_id] = {
+            
+            const playerInfo = server.players[player_id];
+            
+            if(playerInfo === undefined){
+                playerInfo = {
                     marker: null,
                     polyline: null,
                     gameid: players[i][0] + "#" + player_id,
@@ -226,12 +228,12 @@ function get_server_data(server){
                     color: randomColor2()
                 }
 
-                server.players[player_id].marker = L.marker(
+                playerInfo.marker = L.marker(
                         [players[i][3].x, players[i][3].y],
                         {icon: generate_icon(players[i][4], players[i][5], 40)})
                     .addTo(window.mainMap)
-                    .bindPopup( generate_popup(players[i], server, server.players[player_id].color))
-                    .bindTooltip( generate_job_tag(players[i][5]["group"], server.players[player_id].gameid), {
+                    .bindPopup( generate_popup(players[i], server, playerInfo.color))
+                    .bindTooltip( generate_job_tag(players[i][5]["group"], playerInfo.gameid), {
                         permanent: false,
                         offset: [0, -5],
                         opacity: 0.8,
@@ -239,7 +241,7 @@ function get_server_data(server){
                 }).setZIndexOffset(1000);
                 
                 if(options.current_trail_index !== last_trail_index && players[i][6] && players[i][6].length > 1){
-                    server.players[player_id].positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
+                    playerInfo.positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
 
                     //reset the trail if distance between points is too long
                     for(let j = 0; j < players[i][6].length; j++){
@@ -247,24 +249,24 @@ function get_server_data(server){
                         const _nextPos = players[i][6][j+1];
                         
                         if(_nextPos && getDistance([_currentPos[1], _currentPos[2]], [_nextPos[1], _nextPos[2]]) > 200){
-                            server.players[player_id].positions_cache.length = 0;
+                            playerInfo.positions_cache.length = 0;
                         }else{
-                            server.players[player_id].positions_cache.push([_currentPos[1], _currentPos[2]]);
+                            playerInfo.positions_cache.push([_currentPos[1], _currentPos[2]]);
                         }
                     }
-                    // server.players[player_id].positions_cache = players[i][6].map(arr => [arr[1], arr[2]]);
+                    // playerInfo.positions_cache = players[i][6].map(arr => [arr[1], arr[2]]);
                 }
             
-                server.players[player_id].polyline = L.polyline(server.players[player_id].positions_cache, {
-                    color: server.players[player_id].color,
+                playerInfo.polyline = L.polyline(playerInfo.positions_cache, {
+                    color: playerInfo.color,
                     weight: 2
                 }).addTo(window.mainMap);
 
                 //if trail was clicked, show who clicked
-                server.players[player_id].polyline.on("click", e => {
-                    server.players[player_id].marker.openPopup();
+                playerInfo.polyline.on("click", e => {
+                    playerInfo.marker.openPopup();
                     setTimeout(() => {
-                        window.mainMap.flyTo(server.players[player_id].marker._latlng, 7, {
+                        window.mainMap.flyTo(playerInfo.marker._latlng, 7, {
                             animate: true,
                             duration: .5
                         });
@@ -274,54 +276,54 @@ function get_server_data(server){
                 //TRAILS
                 if(options.current_trail_index !== last_trail_index && players[i][6] && players[i][6].length > 2){
                     // players[i][6].forEach(newpos => {
-                    //     if(newpos[0] > server.players[player_id].positions_cache_last_index){
-                    //         server.players[player_id].positions_cache.push([newpos[1], newpos[2]]);
+                    //     if(newpos[0] > playerInfo.positions_cache_last_index){
+                    //         playerInfo.positions_cache.push([newpos[1], newpos[2]]);
                     //     }
                     // })
 
                     //reset the trail if distance between points is too long
                     for(let j = 0; j < players[i][6].length; j++){
-                        if(players[i][6][j][0] <= server.players[player_id].positions_cache_last_index) continue;
+                        if(players[i][6][j][0] <= playerInfo.positions_cache_last_index) continue;
                         const _currentPos = players[i][6][j];
                         const _nextPos = players[i][6][j+1];
 
                         if(_nextPos && getDistance([_currentPos[1], _currentPos[2]], [_nextPos[1], _nextPos[2]]) > 200){
-                            server.players[player_id].positions_cache.length = 0;
+                            playerInfo.positions_cache.length = 0;
                         }else{
-                            server.players[player_id].positions_cache.push([_currentPos[1], _currentPos[2]]);
+                            playerInfo.positions_cache.push([_currentPos[1], _currentPos[2]]);
                         }
                     }
 
-                    server.players[player_id].positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
+                    playerInfo.positions_cache_last_index = players[i][6][players[i][6].length - 1][0];
                 }
 
-                while(server.players[player_id].positions_cache.length > trail_modes[options.current_trail_index].value){
-                    server.players[player_id].positions_cache.shift();
+                while(playerInfo.positions_cache.length > trail_modes[options.current_trail_index].value){
+                    playerInfo.positions_cache.shift();
                 }
 
-                server.players[player_id].polyline.setLatLngs(server.players[player_id].positions_cache);
-                server.players[player_id].timestamp = timestamp;
+                playerInfo.polyline.setLatLngs(playerInfo.positions_cache);
+                playerInfo.timestamp = timestamp;
 
                 // MARKER POSITION
-                server.players[player_id].marker.setLatLng({ lat: players[i][3].x, lng: players[i][3].y });
+                playerInfo.marker.setLatLng({ lat: players[i][3].x, lng: players[i][3].y });
 
                 // POPUP UPDATE
                 let refresh_popup = false;
 
-                if(server.players[player_id].vehicle["vehicle_model"] !== players[i][4]["vehicle_model"]){
-                    server.players[player_id].marker.setIcon( generate_icon(players[i][4], players[i][5]) );
-                    server.players[player_id].vehicle = players[i][4];
+                if(playerInfo.vehicle["vehicle_model"] !== players[i][4]["vehicle_model"]){
+                    playerInfo.marker.setIcon( generate_icon(players[i][4], players[i][5]) );
+                    playerInfo.vehicle = players[i][4];
                     refresh_popup = true;
                 }
 
-                if(server.players[player_id].job["name"] !== players[i][5]["name"]){
-                    server.players[player_id].marker._tooltip.setContent( generate_job_tag(players[i][5]["group"], server.players[player_id].gameid) )
-                    server.players[player_id].job = players[i][5];
+                if(playerInfo.job["name"] !== players[i][5]["name"]){
+                    playerInfo.marker._tooltip.setContent( generate_job_tag(players[i][5]["group"], playerInfo.gameid) )
+                    playerInfo.job = players[i][5];
                     refresh_popup = true;
                 }
 
                 if(refresh_popup || players[i][4]["vehicle_type"] === "plane" || players[i][4]["vehicle_type"] === "helicopter"){
-                    server.players[player_id].marker.setPopupContent( generate_popup(players[i], server, server.players[player_id].color) );
+                    playerInfo.marker.setPopupContent( generate_popup(players[i], server, playerInfo.color) );
                 }
             }
         }
