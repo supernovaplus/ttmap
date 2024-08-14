@@ -264,11 +264,12 @@ function get_server_data(server) {
 			const players = res.data.players;
 
 			for (let i = 0; i < players.length; i++) {
-				if (players[i][3] === null) continue;
+				const currentPlayer = players[i];
+				if (currentPlayer[3] === null) continue;
 
-				const player_id = players[i][2];
+				const player_id = currentPlayer[2];
 
-				if (players[i][0] === "null") {
+				if (currentPlayer[0] === "null") {
 					if (server.players[player_id] !== undefined) {
 						window.mainMap.removeLayer(server.players[player_id].marker);
 						delete server.players[player_id];
@@ -282,22 +283,25 @@ function get_server_data(server) {
 					playerInfo = {
 						marker: null,
 						polyline: null,
-						gameid: players[i][0] + "#" + player_id,
+						gameid: currentPlayer[0] + "#" + player_id,
 						timestamp,
-						vehicle: players[i][4],
-						job: players[i][5],
+						vehicle: currentPlayer[4],
+						job: currentPlayer[5],
 						positions_cache: [],
 						positions_cache_last_index: 0,
 						color: randomColor2(),
 					};
 
-					playerInfo.marker = L.marker([players[i][3].x, players[i][3].y], {
-						icon: generate_icon(players[i][4], players[i][5], 40),
-					})
+					playerInfo.marker = L.marker(
+						[currentPlayer[3].x, currentPlayer[3].y],
+						{
+							icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
+						}
+					)
 						.addTo(window.mainMap)
-						.bindPopup(generate_popup(players[i], server, playerInfo.color))
+						.bindPopup(generate_popup(currentPlayer, server, playerInfo.color))
 						.bindTooltip(
-							generate_job_tag(players[i][5]["group"], playerInfo.gameid),
+							generate_job_tag(currentPlayer[5]["group"], playerInfo.gameid),
 							{
 								permanent: false,
 								offset: [0, -5],
@@ -309,16 +313,16 @@ function get_server_data(server) {
 
 					if (
 						options.current_trail_index !== last_trail_index &&
-						players[i][6] &&
-						players[i][6].length > 1
+						currentPlayer[6] &&
+						currentPlayer[6].length > 1
 					) {
 						playerInfo.positions_cache_last_index =
-							players[i][6][players[i][6].length - 1][0];
+							currentPlayer[6][currentPlayer[6].length - 1][0];
 
 						//reset the trail if distance between points is too long
-						for (let j = 0; j < players[i][6].length; j++) {
-							const _currentPos = players[i][6][j];
-							const _nextPos = players[i][6][j + 1];
+						for (let j = 0; j < currentPlayer[6].length; j++) {
+							const _currentPos = currentPlayer[6][j];
+							const _nextPos = currentPlayer[6][j + 1];
 
 							if (
 								_nextPos &&
@@ -335,7 +339,7 @@ function get_server_data(server) {
 								]);
 							}
 						}
-						// playerInfo.positions_cache = players[i][6].map(arr => [arr[1], arr[2]]);
+						// playerInfo.positions_cache = currentPlayer[6].map(arr => [arr[1], arr[2]]);
 					}
 
 					playerInfo.polyline = L.polyline(playerInfo.positions_cache, {
@@ -357,21 +361,23 @@ function get_server_data(server) {
 					//TRAILS
 					if (
 						options.current_trail_index !== last_trail_index &&
-						players[i][6] &&
-						players[i][6].length > 2
+						currentPlayer[6] &&
+						currentPlayer[6].length > 2
 					) {
-						// players[i][6].forEach(newpos => {
+						// currentPlayer[6].forEach(newpos => {
 						//     if(newpos[0] > playerInfo.positions_cache_last_index){
 						//         playerInfo.positions_cache.push([newpos[1], newpos[2]]);
 						//     }
 						// })
 
 						//reset the trail if distance between points is too long
-						for (let j = 0; j < players[i][6].length; j++) {
-							if (players[i][6][j][0] <= playerInfo.positions_cache_last_index)
+						for (let j = 0; j < currentPlayer[6].length; j++) {
+							if (
+								currentPlayer[6][j][0] <= playerInfo.positions_cache_last_index
+							)
 								continue;
-							const _currentPos = players[i][6][j];
-							const _nextPos = players[i][6][j + 1];
+							const _currentPos = currentPlayer[6][j];
+							const _nextPos = currentPlayer[6][j + 1];
 
 							if (
 								_nextPos &&
@@ -390,7 +396,7 @@ function get_server_data(server) {
 						}
 
 						playerInfo.positions_cache_last_index =
-							players[i][6][players[i][6].length - 1][0];
+							currentPlayer[6][currentPlayer[6].length - 1][0];
 					}
 
 					while (
@@ -405,8 +411,8 @@ function get_server_data(server) {
 
 					// MARKER POSITION
 					playerInfo.marker.setLatLng({
-						lat: players[i][3].x,
-						lng: players[i][3].y,
+						lat: currentPlayer[3].x,
+						lng: currentPlayer[3].y,
 					});
 
 					// POPUP UPDATE
@@ -414,27 +420,27 @@ function get_server_data(server) {
 
 					if (
 						playerInfo.vehicle["vehicle_model"] !==
-						players[i][4]["vehicle_model"]
+						currentPlayer[4]["vehicle_model"]
 					) {
 						playerInfo.marker.setIcon(
-							generate_icon(players[i][4], players[i][5])
+							generate_icon(currentPlayer[4], currentPlayer[5])
 						);
-						playerInfo.vehicle = players[i][4];
+						playerInfo.vehicle = currentPlayer[4];
 						refresh_popup = true;
 					}
 
-					if (playerInfo.job["name"] !== players[i][5]["name"]) {
+					if (playerInfo.job["name"] !== currentPlayer[5]["name"]) {
 						playerInfo.marker._tooltip.setContent(
-							generate_job_tag(players[i][5]["group"], playerInfo.gameid)
+							generate_job_tag(currentPlayer[5]["group"], playerInfo.gameid)
 						);
-						playerInfo.job = players[i][5];
+						playerInfo.job = currentPlayer[5];
 						refresh_popup = true;
 					}
 
 					if (
 						refresh_popup ||
-						players[i][4]["vehicle_type"] === "plane" ||
-						players[i][4]["vehicle_type"] === "helicopter"
+						currentPlayer[4]["vehicle_type"] === "plane" ||
+						currentPlayer[4]["vehicle_type"] === "helicopter"
 					) {
 						playerInfo.marker.setPopupContent(
 							generate_popup(players[i], server, playerInfo.color)
