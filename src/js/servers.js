@@ -264,6 +264,21 @@ function get_server_data(server) {
 			const players = res.data.players;
 
 			for (let i = 0; i < players.length; i++) {
+				/**
+				 * 0: Username
+				 *
+				 * 1: srcId
+				 *
+				 * 2: VRP ID
+				 *
+				 * 3: Positions in {x, y, z, h}
+				 *
+				 * 4: Vehicle in {vehicle_type, vehicle_label, vehicle_name, has_trailer, vehicle_spawn, trailer, }
+				 *
+				 * 5: Job in {name, group}
+				 *
+				 * 6: Position History in [[incremental index, x, y, z, h], ...]
+				 */
 				const currentPlayer = players[i];
 				if (currentPlayer[3] === null) continue;
 
