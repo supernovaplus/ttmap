@@ -2,17 +2,17 @@
 // Written by Ilya Zverev, licensed WTFPL
 
 L.TileLayer.mergeOptions({
-	nativeZooms: [] // array of integers
+	nativeZooms: [], // array of integers
 });
 
 L.TileLayer.addInitHook(function () {
 	const opt = this.options,
-	    zooms = opt.nativeZooms;
-	if( zooms && zooms.length > 0 ) {
-		let minZoom = 100, i;
+		zooms = opt.nativeZooms;
+	if (zooms && zooms.length > 0) {
+		let minZoom = 100,
+			i;
 		for (i = 0; i < zooms.length; i++)
-			if (zooms[i] < minZoom)
-				minZoom = zooms[i];
+			if (zooms[i] < minZoom) minZoom = zooms[i];
 		opt.minZoom = Math.max(opt.minZoom, minZoom - 1);
 	}
 });
@@ -20,19 +20,20 @@ L.TileLayer.addInitHook(function () {
 L.TileLayer.include({
 	getTileSize: function () {
 		const map = this._map,
-		tileSize = L.GridLayer.prototype.getTileSize.call(this),
-		zoom = this._tileZoom + this.options.zoomOffset,
-		nativeZoom = this._mapNativeZoom(zoom);
+			tileSize = L.GridLayer.prototype.getTileSize.call(this),
+			zoom = this._tileZoom + this.options.zoomOffset,
+			nativeZoom = this._mapNativeZoom(zoom);
 
-		return nativeZoom == zoom ? tileSize :
-			tileSize.divideBy(map.getZoomScale(nativeZoom, zoom)).round();
+		return nativeZoom == zoom
+			? tileSize
+			: tileSize.divideBy(map.getZoomScale(nativeZoom, zoom)).round();
 	},
 
 	_getZoomForUrl: function () {
 		let zoom = this._tileZoom,
-		maxZoom = this.options.maxZoom,
-		zoomReverse = this.options.zoomReverse,
-		zoomOffset = this.options.zoomOffset;
+			maxZoom = this.options.maxZoom,
+			zoomReverse = this.options.zoomReverse,
+			zoomOffset = this.options.zoomOffset;
 
 		if (zoomReverse) {
 			zoom = maxZoom - zoom;
@@ -45,16 +46,16 @@ L.TileLayer.include({
 
 	_mapNativeZoom: function (zoom) {
 		let zooms = this.options.nativeZooms,
-		minNativeZoom = this.options.minNativeZoom,
-		maxNativeZoom = this.options.maxNativeZoom;
+			minNativeZoom = this.options.minNativeZoom,
+			maxNativeZoom = this.options.maxNativeZoom;
 
 		if (zooms && zooms.length > 0) {
-			let prevZoom = -1, minZoom = 100, i;
+			let prevZoom = -1,
+				minZoom = 100,
+				i;
 			for (i = 0; i < zooms.length; i++) {
-				if( zooms[i] <= zoom && zooms[i] > prevZoom )
-					prevZoom = zooms[i];
-				if( zooms[i] < minZoom )
-					minZoom = zooms[i];
+				if (zooms[i] <= zoom && zooms[i] > prevZoom) prevZoom = zooms[i];
+				if (zooms[i] < minZoom) minZoom = zooms[i];
 			}
 			zoom = prevZoom < 0 ? minZoom : prevZoom;
 		} else if (maxNativeZoom !== null && zoom > maxNativeZoom) {
@@ -63,5 +64,5 @@ L.TileLayer.include({
 			zoom = minNativeZoom;
 		}
 		return zoom;
-	}
+	},
 });
