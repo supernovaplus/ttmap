@@ -292,12 +292,10 @@ function get_server_data(server) {
 					continue;
 				}
 
-				const playerInfo = server.players[player_id];
-
-				if (playerInfo === undefined) {
-					playerInfo = {
+				// New player
+				if (server.players[player_id] === undefined) {
+					server.players[player_id] = {
 						marker: null,
-						polyline: null,
 						gameid: currentPlayer[0] + "#" + player_id,
 						timestamp,
 						vehicle: currentPlayer[4],
@@ -306,17 +304,25 @@ function get_server_data(server) {
 						positions_cache_last_index: 0,
 						color: randomColor2(),
 					};
-
-					playerInfo.marker = L.marker(
+					server.players[player_id].marker = L.marker(
 						[currentPlayer[3].x, currentPlayer[3].y],
 						{
 							icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
 						}
 					)
 						.addTo(window.mainMap)
-						.bindPopup(generate_popup(currentPlayer, server, playerInfo.color))
+						.bindPopup(
+							generate_popup(
+								currentPlayer,
+								server,
+								server.players[player_id].color
+							)
+						)
 						.bindTooltip(
-							generate_job_tag(currentPlayer[5]["group"], playerInfo.gameid),
+							generate_job_tag(
+								currentPlayer[5]["group"],
+								server.players[player_id].gameid
+							),
 							{
 								permanent: false,
 								offset: [0, -5],
@@ -325,107 +331,13 @@ function get_server_data(server) {
 							}
 						)
 						.setZIndexOffset(1000);
-
-					if (
-						options.current_trail_index !== last_trail_index &&
-						currentPlayer[6] &&
-						currentPlayer[6].length > 1
-					) {
-						playerInfo.positions_cache_last_index =
-							currentPlayer[6][currentPlayer[6].length - 1][0];
-
-						//reset the trail if distance between points is too long
-						for (let j = 0; j < currentPlayer[6].length; j++) {
-							const _currentPos = currentPlayer[6][j];
-							const _nextPos = currentPlayer[6][j + 1];
-
-							if (
-								_nextPos &&
-								getDistance(
-									[_currentPos[1], _currentPos[2]],
-									[_nextPos[1], _nextPos[2]]
-								) > 200
-							) {
-								playerInfo.positions_cache.length = 0;
-							} else {
-								playerInfo.positions_cache.push([
-									_currentPos[1],
-									_currentPos[2],
-								]);
-							}
-						}
-						// playerInfo.positions_cache = currentPlayer[6].map(arr => [arr[1], arr[2]]);
-					}
-
-					playerInfo.polyline = L.polyline(playerInfo.positions_cache, {
-						color: playerInfo.color,
-						weight: 2,
-					}).addTo(window.mainMap);
-
-					//if trail was clicked, show who clicked
-					playerInfo.polyline.on("click", (e) => {
-						playerInfo.marker.openPopup();
-						setTimeout(() => {
-							window.mainMap.flyTo(playerInfo.marker._latlng, 7, {
-								animate: true,
-								duration: 0.5,
-							});
-						}, 100);
-					});
 				} else {
-					//TRAILS
-					if (
-						options.current_trail_index !== last_trail_index &&
-						currentPlayer[6] &&
-						currentPlayer[6].length > 2
-					) {
-						// currentPlayer[6].forEach(newpos => {
-						//     if(newpos[0] > playerInfo.positions_cache_last_index){
-						//         playerInfo.positions_cache.push([newpos[1], newpos[2]]);
-						//     }
-						// })
+					// Existing player
 
-						//reset the trail if distance between points is too long
-						for (let j = 0; j < currentPlayer[6].length; j++) {
-							if (
-								currentPlayer[6][j][0] <= playerInfo.positions_cache_last_index
-							)
-								continue;
-							const _currentPos = currentPlayer[6][j];
-							const _nextPos = currentPlayer[6][j + 1];
-
-							if (
-								_nextPos &&
-								getDistance(
-									[_currentPos[1], _currentPos[2]],
-									[_nextPos[1], _nextPos[2]]
-								) > 200
-							) {
-								playerInfo.positions_cache.length = 0;
-							} else {
-								playerInfo.positions_cache.push([
-									_currentPos[1],
-									_currentPos[2],
-								]);
-							}
-						}
-
-						playerInfo.positions_cache_last_index =
-							currentPlayer[6][currentPlayer[6].length - 1][0];
-					}
-
-					while (
-						playerInfo.positions_cache.length >
-						trail_modes[options.current_trail_index].value
-					) {
-						playerInfo.positions_cache.shift();
-					}
-
-					playerInfo.polyline.setLatLngs(playerInfo.positions_cache);
-					playerInfo.timestamp = timestamp;
+					server.players[player_id].timestamp = timestamp;
 
 					// MARKER POSITION
-					playerInfo.marker.setLatLng({
+					server.players[player_id].marker.setLatLng({
 						lat: currentPlayer[3].x,
 						lng: currentPlayer[3].y,
 					});
@@ -434,21 +346,26 @@ function get_server_data(server) {
 					let refresh_popup = false;
 
 					if (
-						playerInfo.vehicle["vehicle_model"] !==
+						server.players[player_id].vehicle["vehicle_model"] !==
 						currentPlayer[4]["vehicle_model"]
 					) {
-						playerInfo.marker.setIcon(
+						server.players[player_id].marker.setIcon(
 							generate_icon(currentPlayer[4], currentPlayer[5])
 						);
-						playerInfo.vehicle = currentPlayer[4];
+						server.players[player_id].vehicle = currentPlayer[4];
 						refresh_popup = true;
 					}
 
-					if (playerInfo.job["name"] !== currentPlayer[5]["name"]) {
-						playerInfo.marker._tooltip.setContent(
-							generate_job_tag(currentPlayer[5]["group"], playerInfo.gameid)
+					if (
+						server.players[player_id].job["name"] !== currentPlayer[5]["name"]
+					) {
+						server.players[player_id].marker._tooltip.setContent(
+							generate_job_tag(
+								currentPlayer[5]["group"],
+								server.players[player_id].gameid
+							)
 						);
-						playerInfo.job = currentPlayer[5];
+						server.players[player_id].job = currentPlayer[5];
 						refresh_popup = true;
 					}
 
@@ -457,8 +374,12 @@ function get_server_data(server) {
 						currentPlayer[4]["vehicle_type"] === "plane" ||
 						currentPlayer[4]["vehicle_type"] === "helicopter"
 					) {
-						playerInfo.marker.setPopupContent(
-							generate_popup(players[i], server, playerInfo.color)
+						server.players[player_id].marker.setPopupContent(
+							generate_popup(
+								players[i],
+								server,
+								server.players[player_id].color
+							)
 						);
 					}
 				}
@@ -516,8 +437,6 @@ function server_cleanup(server, force_cleanup = false) {
 			server.players[player_id].timestamp < Date.now() - 49000
 		) {
 			window.mainMap.removeLayer(server.players[player_id].marker);
-			if (server.players[player_id].polyline)
-				window.mainMap.removeLayer(server.players[player_id].polyline);
 			delete server.players[player_id];
 		}
 	}
