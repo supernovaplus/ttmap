@@ -310,6 +310,7 @@ function get_server_data(server) {
 						color: randomColor2(),
 						prevAnimation: null,
 						prevLines: [],
+						lastPos: null,
 					};
 				} else {
 					// Existing player
@@ -326,20 +327,49 @@ function get_server_data(server) {
 
 				const posHist = currentPlayer[6];
 				if (posHist && posHist.length) {
-					const posRoute = [];
-					for (let i = 0; i < posHist.length; i++) {
-						const currentPost = posHist[i];
-						if (currentPost[0] < server.players[player_id].positions_last_index)
-							continue;
-						posRoute.push({
-							lat: currentPost[1],
-							lng: currentPost[2],
-						});
+					let posRoute = [];
+
+					if (server.players[player_id].prevLines.length > 0) {
+						for (let i = 0; i < posHist.length; i++) {
+							const currentPost = posHist[i];
+							if (
+								currentPost[0] < server.players[player_id].positions_last_index
+							)
+								continue;
+							posRoute.push({
+								lat: currentPost[1],
+								lng: currentPost[2],
+							});
+						}
 					}
+
+					if (
+						server.players[player_id].lastPos &&
+						server.players[player_id].lastPos.x === currentPlayer[3].x &&
+						server.players[player_id].lastPos.y === currentPlayer[3].y &&
+						server.players[player_id].lastPos.z === currentPlayer[3].z &&
+						server.players[player_id].lastPos.h === currentPlayer[3].h
+					) {
+						continue;
+					}
+
+					server.players[player_id].lastPos = {
+						x: currentPlayer[3].x,
+						y: currentPlayer[3].y,
+						z: currentPlayer[3].z,
+						h: currentPlayer[3].h,
+					};
+
 					server.players[player_id].positions_last_index =
 						posHist[posHist.length - 1][0];
-					posRoute.push({ lat: currentPlayer[3].x, lng: currentPlayer[3].y });
 
+					posRoute = posRoute.concat(
+						new Array(posRoute.length > 0 ? 1 : 2).fill({
+							lat: currentPlayer[3].x,
+							lng: currentPlayer[3].y,
+						})
+					);
+					console.log(posRoute);
 					const posPolyline = L.motion
 						.polyline(
 							posRoute,
