@@ -367,14 +367,14 @@ function get_server_data(server) {
 								offset: [
 									-Math.cos(
 										(Math.PI * (currentPlayer[3].h + 90)) / 180
-									).toFixed(5) * 100,
+									).toFixed(5) * 150,
 									currentPlayer[3].h <= 45 || currentPlayer[3].h >= 315 // when going northish, popup far below icon
 										? currentPlayer[4]["vehicle_label"] === "NULL"
 											? 200
 											: 300 // TODO: AND flip the popup arrow
 										: Math.sin(
 												(Math.PI * (currentPlayer[3].h + 90)) / 180
-										  ).toFixed(5) * 100,
+										  ).toFixed(5) * 75,
 								],
 							}
 						);

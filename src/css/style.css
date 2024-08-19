@@ -69,6 +69,11 @@ input[type="button"]{
     text-shadow: 1px 1px 2px black, 1px 1px 2px black, 1px 1px 2px black;
 }
 
+.leaflet-popup-tip {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+
 .blue-white{
     background-color: white;
 }
