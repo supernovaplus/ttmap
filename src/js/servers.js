@@ -429,13 +429,25 @@ function get_server_data(server) {
 								currentPlayer,
 								server,
 								server.players[player_id].color
-							)
+							),
+							{} // TODO: open to the side opposite of the player's heading or movement direction
 						);
-					const last_anim = server.players[player_id]?.prevAnimation;
 
+					const last_anim = server.players[player_id]?.prevAnimation;
+					// console.log(posPolyline);
 					server.players[player_id].prevAnimation = posPolyline.motionStart();
 
 					if (last_anim) {
+						if (last_anim.isPopupOpen()) {
+							last_anim.closePopup();
+							posPolyline.openPopup();
+						}
+						if (last_anim.isTooltipOpen()) {
+							last_anim.closeTooltip();
+							posPolyline.openTooltip();
+						}
+						// console.log(last_anim);
+
 						last_anim.motionStop();
 					}
 				}
