@@ -1,14 +1,15 @@
 const nova_servers = {};
 
 const trail_modes = [
-	{ name: "EXTREME", title: "10000 points length", value: 10000 },
-	{ name: "LONG", title: "1000 points length", value: 1000 },
-	{ name: "MEDIUM", title: "500 points length", value: 500 },
-	{ name: "SHORT", title: "100 points length", value: 100 },
-	{ name: "NONE (disable)", title: "0 points length", value: 0 },
+	// Trails values represent number of updates to keep
+	{ name: "Infinite", title: "Forever", value: Infinity },
+	{ name: "MASSIVE", title: "3 Hours", value: 1800 },
+	{ name: "EXTREME", title: "1 Hour", value: 600 },
+	{ name: "LONG", title: "30 Minutes", value: 300 },
+	{ name: "MEDIUM", title: "15 Minutes", value: 150 },
+	{ name: "SHORT", title: "5 Minutes", value: 50 },
+	{ name: "NONE", title: "No Trail", value: 0 },
 ];
-
-const last_trail_index = trail_modes.length - 1;
 
 function handle_find_player(input) {
 	if (!input.previousSibling.value) return;
@@ -54,6 +55,10 @@ function toggle_trail_mode(index) {
 	options.current_trail_index = index;
 	save_options();
 	refresh_trail_mode_buttons();
+}
+
+function get_trail_value() {
+	return trail_modes[options.current_trail_index].value;
 }
 
 function refresh_trail_mode_buttons() {
@@ -303,6 +308,7 @@ function get_server_data(server) {
 						positions_last_index: 0,
 						color: randomColor2(),
 						prevAnimation: null,
+						prevLines: [],
 					};
 				} else {
 					// Existing player
@@ -337,7 +343,10 @@ function get_server_data(server) {
 						.polyline(
 							posRoute,
 							{
-								color: server.players[player_id].color, // "hsla(0, 0%, 0%, 0)" for invisible
+								color:
+									get_trail_value() == 0
+										? "hsla(0, 0%, 0%, 0)" // invisible
+										: server.players[player_id].color,
 								smoothFactor: 0.3,
 							},
 							{},
@@ -379,9 +388,11 @@ function get_server_data(server) {
 							}
 						);
 
+					// console.log(posPolyline.removeFrom(window.mainMap));
 					const last_anim = server.players[player_id]?.prevAnimation;
 					// console.log(posPolyline);
 					server.players[player_id].prevAnimation = posPolyline.motionStart();
+					server.players[player_id].prevLines.push(posPolyline);
 
 					if (last_anim) {
 						if (last_anim.isPopupOpen()) {
@@ -395,6 +406,15 @@ function get_server_data(server) {
 						// console.log(last_anim);
 
 						last_anim.motionStop();
+					}
+					if (
+						server.players[player_id].prevLines.length - 1 >
+						get_trail_value()
+					) {
+						server.players[player_id].prevLines
+							.shift()
+							.motionStop()
+							.removeFrom(window.mainMap);
 					}
 				}
 			}
