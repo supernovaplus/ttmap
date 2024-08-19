@@ -403,7 +403,10 @@ function get_server_data(server) {
 					const posPolyline = L.motion
 						.polyline(
 							posRoute,
-							{ color: server.players[player_id].color },
+							{
+								color: server.players[player_id].color, // "hsla(0, 0%, 0%, 0)" for invisible
+								smoothFactor: 0.3,
+							},
 							{},
 							{
 								icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
@@ -412,15 +415,27 @@ function get_server_data(server) {
 							}
 						)
 						.motionDuration(6250);
+					posPolyline
+						.addTo(window.mainMap)
+						.bindTooltip(
+							generate_job_tag(
+								currentPlayer[5]["group"],
+								server.players[player_id].gameid
+							),
+							{ sticky: true }
+						)
+						.bindPopup(
+							generate_popup(
+								currentPlayer,
+								server,
+								server.players[player_id].color
+							)
+						);
 					const last_anim = server.players[player_id]?.prevAnimation;
 
-					server.players[player_id].prevAnimation = L.motion
-						.seq([posPolyline])
-						.addTo(window.mainMap)
-						.motionStart();
+					server.players[player_id].prevAnimation = posPolyline.motionStart();
 
 					if (last_anim) {
-						// last_anim?.getMarkers()?.[0]?.[0]?._removeIcon();
 						last_anim.motionStop();
 					}
 				}
