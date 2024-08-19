@@ -188,7 +188,7 @@ fetch(base_folder + "data/serversList.json")
 				}
 			);
 		}
-
+		console.log(nova_servers);
 		if (!params["hideplayers"]) {
 			//if OS is on, only check the os, else scan all the servers
 			// const first_server_id = Object.keys(nova_servers)[0];
@@ -300,47 +300,46 @@ function get_server_data(server) {
 						timestamp,
 						vehicle: currentPlayer[4],
 						job: currentPlayer[5],
-						positions_cache: [],
 						positions_cache_last_index: 0,
 						color: randomColor2(),
 					};
-					server.players[player_id].marker = L.marker(
-						[currentPlayer[3].x, currentPlayer[3].y],
-						{
-							icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
-						}
-					)
-						.addTo(window.mainMap)
-						.bindPopup(
-							generate_popup(
-								currentPlayer,
-								server,
-								server.players[player_id].color
-							)
-						)
-						.bindTooltip(
-							generate_job_tag(
-								currentPlayer[5]["group"],
-								server.players[player_id].gameid
-							),
-							{
-								permanent: false,
-								offset: [0, -5],
-								opacity: 0.8,
-								direction: "top",
-							}
-						)
-						.setZIndexOffset(1000);
+					// server.players[player_id].marker = L.marker(
+					// 	[currentPlayer[3].x, currentPlayer[3].y],
+					// 	{
+					// 		icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
+					// 	}
+					// )
+					// 	.addTo(window.mainMap)
+					// 	.bindPopup(
+					// 		generate_popup(
+					// 			currentPlayer,
+					// 			server,
+					// 			server.players[player_id].color
+					// 		)
+					// 	)
+					// 	.bindTooltip(
+					// 		generate_job_tag(
+					// 			currentPlayer[5]["group"],
+					// 			server.players[player_id].gameid
+					// 		),
+					// 		{
+					// 			permanent: false,
+					// 			offset: [0, -5],
+					// 			opacity: 0.8,
+					// 			direction: "top",
+					// 		}
+					// 	)
+					// 	.setZIndexOffset(1000);
 				} else {
 					// Existing player
 
 					server.players[player_id].timestamp = timestamp;
 
 					// MARKER POSITION
-					server.players[player_id].marker.setLatLng({
-						lat: currentPlayer[3].x,
-						lng: currentPlayer[3].y,
-					});
+					// server.players[player_id].marker.setLatLng({
+					// 	lat: currentPlayer[3].x,
+					// 	lng: currentPlayer[3].y,
+					// });
 
 					// POPUP UPDATE
 					let refresh_popup = false;
@@ -349,9 +348,9 @@ function get_server_data(server) {
 						server.players[player_id].vehicle["vehicle_model"] !==
 						currentPlayer[4]["vehicle_model"]
 					) {
-						server.players[player_id].marker.setIcon(
-							generate_icon(currentPlayer[4], currentPlayer[5])
-						);
+						// server.players[player_id].marker.setIcon(
+						// 	generate_icon(currentPlayer[4], currentPlayer[5])
+						// );
 						server.players[player_id].vehicle = currentPlayer[4];
 						refresh_popup = true;
 					}
@@ -359,14 +358,14 @@ function get_server_data(server) {
 					if (
 						server.players[player_id].job["name"] !== currentPlayer[5]["name"]
 					) {
-						server.players[player_id].marker._tooltip.setContent(
-							generate_job_tag(
-								currentPlayer[5]["group"],
-								server.players[player_id].gameid
-							)
-						);
-						server.players[player_id].job = currentPlayer[5];
-						refresh_popup = true;
+						// server.players[player_id].marker._tooltip.setContent(
+						// 	generate_job_tag(
+						// 		currentPlayer[5]["group"],
+						// 		server.players[player_id].gameid
+						// 	)
+						// );
+						// server.players[player_id].job = currentPlayer[5];
+						// refresh_popup = true;
 					}
 
 					if (
@@ -374,14 +373,51 @@ function get_server_data(server) {
 						currentPlayer[4]["vehicle_type"] === "plane" ||
 						currentPlayer[4]["vehicle_type"] === "helicopter"
 					) {
-						server.players[player_id].marker.setPopupContent(
-							generate_popup(
-								players[i],
-								server,
-								server.players[player_id].color
-							)
-						);
+						// server.players[player_id].marker.setPopupContent(
+						// 	generate_popup(
+						// 		players[i],
+						// 		server,
+						// 		server.players[player_id].color
+						// 	)
+						// );
 					}
+				}
+
+				const posHist = currentPlayer[6];
+				if (posHist && posHist.length) {
+					const posRoute = [];
+					for (let i = 0; i < posHist.length; i++) {
+						const currentPost = posHist[i];
+						if (
+							currentPost[0] <
+							server.players[player_id].positions_cache_last_index
+						)
+							continue;
+						posRoute.push({
+							lat: currentPost[1],
+							lng: currentPost[2],
+						});
+					}
+					server.players[player_id].positions_cache_last_index =
+						posHist[posHist.length - 1][0];
+					posRoute.push({ lat: currentPlayer[3].x, lng: currentPlayer[3].y });
+
+					const posPolyline = L.motion
+						.polyline(
+							posRoute,
+							{ color: server.players[player_id].color },
+							{},
+							{
+								icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
+								removeOnEnd: true,
+								// showMarker: true,
+							}
+						)
+						.motionDuration(6000);
+
+					const seqGroup = L.motion.seq([posPolyline]).addTo(window.mainMap);
+
+					seqGroup.motionStart();
 				}
 			}
 
