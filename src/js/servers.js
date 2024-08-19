@@ -304,83 +304,16 @@ function get_server_data(server) {
 						color: randomColor2(),
 						prevAnimation: null,
 					};
-					// server.players[player_id].marker = L.marker(
-					// 	[currentPlayer[3].x, currentPlayer[3].y],
-					// 	{
-					// 		icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
-					// 	}
-					// )
-					// 	.addTo(window.mainMap)
-					// 	.bindPopup(
-					// 		generate_popup(
-					// 			currentPlayer,
-					// 			server,
-					// 			server.players[player_id].color
-					// 		)
-					// 	)
-					// 	.bindTooltip(
-					// 		generate_job_tag(
-					// 			currentPlayer[5]["group"],
-					// 			server.players[player_id].gameid
-					// 		),
-					// 		{
-					// 			permanent: false,
-					// 			offset: [0, -5],
-					// 			opacity: 0.8,
-					// 			direction: "top",
-					// 		}
-					// 	)
-					// 	.setZIndexOffset(1000);
 				} else {
 					// Existing player
 
 					server.players[player_id].timestamp = timestamp;
 
-					// MARKER POSITION
-					// server.players[player_id].marker.setLatLng({
-					// 	lat: currentPlayer[3].x,
-					// 	lng: currentPlayer[3].y,
-					// });
-
-					// POPUP UPDATE
-					let refresh_popup = false;
-
 					if (
 						server.players[player_id].vehicle["vehicle_model"] !==
 						currentPlayer[4]["vehicle_model"]
 					) {
-						// server.players[player_id].marker.setIcon(
-						// 	generate_icon(currentPlayer[4], currentPlayer[5])
-						// );
 						server.players[player_id].vehicle = currentPlayer[4];
-						refresh_popup = true;
-					}
-
-					if (
-						server.players[player_id].job["name"] !== currentPlayer[5]["name"]
-					) {
-						// server.players[player_id].marker._tooltip.setContent(
-						// 	generate_job_tag(
-						// 		currentPlayer[5]["group"],
-						// 		server.players[player_id].gameid
-						// 	)
-						// );
-						// server.players[player_id].job = currentPlayer[5];
-						// refresh_popup = true;
-					}
-
-					if (
-						refresh_popup ||
-						currentPlayer[4]["vehicle_type"] === "plane" ||
-						currentPlayer[4]["vehicle_type"] === "helicopter"
-					) {
-						// server.players[player_id].marker.setPopupContent(
-						// 	generate_popup(
-						// 		players[i],
-						// 		server,
-						// 		server.players[player_id].color
-						// 	)
-						// );
 					}
 				}
 
