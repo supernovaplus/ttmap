@@ -7,7 +7,7 @@ const trail_modes = [
 	{ name: "EXTREME", title: "1 Hour", value: 600 },
 	{ name: "LONG", title: "30 Minutes", value: 300 },
 	{ name: "MEDIUM", title: "15 Minutes", value: 150 },
-	{ name: "SHORT", title: "5 Minutes", value: 5 },
+	{ name: "SHORT", title: "5 Minutes", value: 50 },
 	{ name: "TINY", title: "1 Minute", value: 10 },
 	{ name: "NONE", title: "No Trail", value: 0 },
 ];
