@@ -188,7 +188,7 @@ fetch(base_folder + "data/serversList.json")
 				}
 			);
 		}
-		console.log(nova_servers);
+
 		if (!params["hideplayers"]) {
 			//if OS is on, only check the os, else scan all the servers
 			// const first_server_id = Object.keys(nova_servers)[0];
@@ -300,8 +300,9 @@ function get_server_data(server) {
 						timestamp,
 						vehicle: currentPlayer[4],
 						job: currentPlayer[5],
-						positions_cache_last_index: 0,
+						positions_last_index: 0,
 						color: randomColor2(),
+						prevAnimation: null,
 					};
 					// server.players[player_id].marker = L.marker(
 					// 	[currentPlayer[3].x, currentPlayer[3].y],
@@ -388,17 +389,14 @@ function get_server_data(server) {
 					const posRoute = [];
 					for (let i = 0; i < posHist.length; i++) {
 						const currentPost = posHist[i];
-						if (
-							currentPost[0] <
-							server.players[player_id].positions_cache_last_index
-						)
+						if (currentPost[0] < server.players[player_id].positions_last_index)
 							continue;
 						posRoute.push({
 							lat: currentPost[1],
 							lng: currentPost[2],
 						});
 					}
-					server.players[player_id].positions_cache_last_index =
+					server.players[player_id].positions_last_index =
 						posHist[posHist.length - 1][0];
 					posRoute.push({ lat: currentPlayer[3].x, lng: currentPlayer[3].y });
 
@@ -409,15 +407,22 @@ function get_server_data(server) {
 							{},
 							{
 								icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
-								removeOnEnd: true,
+								removeOnEnd: false,
 								// showMarker: true,
 							}
 						)
-						.motionDuration(6000);
+						.motionDuration(6250);
+					const last_anim = server.players[player_id]?.prevAnimation;
 
-					const seqGroup = L.motion.seq([posPolyline]).addTo(window.mainMap);
+					server.players[player_id].prevAnimation = L.motion
+						.seq([posPolyline])
+						.addTo(window.mainMap)
+						.motionStart();
 
-					seqGroup.motionStart();
+					if (last_anim) {
+						// last_anim?.getMarkers()?.[0]?.[0]?._removeIcon();
+						last_anim.motionStop();
+					}
 				}
 			}
 
