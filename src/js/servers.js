@@ -325,18 +325,6 @@ function get_server_data(server) {
 
 				const posHist = currentPlayer[6];
 				if (posHist && posHist.length) {
-					let posRoute = [];
-
-					for (let i = 0; i < posHist.length; i++) {
-						const currentPost = posHist[i];
-						if (currentPost[0] < server.players[player_id].positions_last_index)
-							continue;
-						posRoute.push({
-							lat: currentPost[1],
-							lng: currentPost[2],
-						});
-					}
-
 					if (
 						server.players[player_id].lastPos &&
 						server.players[player_id].lastPos.x === currentPlayer[3].x &&
@@ -347,21 +335,11 @@ function get_server_data(server) {
 						continue;
 					}
 
-					server.players[player_id].lastPos = {
-						x: currentPlayer[3].x,
-						y: currentPlayer[3].y,
-						z: currentPlayer[3].z,
-						h: currentPlayer[3].h,
-					};
-
-					server.players[player_id].positions_last_index =
-						posHist[posHist.length - 1][0];
-
-					posRoute = posRoute.concat(
-						new Array(posRoute.length > 0 ? 1 : 2).fill({
-							lat: currentPlayer[3].x,
-							lng: currentPlayer[3].y,
-						})
+					const posRoute = generateRoute(
+						posHist,
+						server,
+						currentPlayer,
+						player_id
 					);
 
 					const popupOffset = get_offset_from_heading(
@@ -370,71 +348,16 @@ function get_server_data(server) {
 						currentPlayer[4]["vehicle_label"] === "NULL" ? 90 : 130
 					);
 
-					const posPolyline = L.motion
-						.polyline(
-							posRoute,
-							{
-								color:
-									get_trail_value() == 0
-										? "hsla(0, 0%, 0%, 0)" // invisible
-										: server.players[player_id].color,
-								smoothFactor: 0.3,
-							},
-							{},
-							{
-								icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
-								removeOnEnd: false,
-								// showMarker: true,
-							}
-						)
-						.motionDuration(6250);
-					posPolyline
-						.addTo(window.mainMap)
-						.bindTooltip(
-							generate_job_tag(
-								currentPlayer[5]["group"],
-								server.players[player_id].gameid
-							),
-							{ sticky: true }
-						)
-						.bindPopup(
-							generate_popup(
-								currentPlayer,
-								server,
-								server.players[player_id].color,
-								popupOffset[0]
-							),
-							{
-								offset: popupOffset,
-							}
-						);
+					const posPolyline = generatePolyline(
+						posRoute,
+						server,
+						currentPlayer,
+						player_id,
+						popupOffset
+					);
 
 					const last_anim = server.players[player_id]?.prevAnimation;
-
-					server.players[player_id].prevAnimation = posPolyline.motionStart();
-					server.players[player_id].prevLines.push(posPolyline);
-
-					if (last_anim) {
-						if (last_anim.isPopupOpen()) {
-							last_anim.closePopup();
-							posPolyline.openPopup();
-						}
-						if (last_anim.isTooltipOpen()) {
-							last_anim.closeTooltip();
-							posPolyline.openTooltip();
-						}
-
-						last_anim.motionStop();
-					}
-					while (
-						server.players[player_id].prevLines.length - 1 >
-						get_trail_value()
-					) {
-						server.players[player_id].prevLines
-							.shift()
-							.motionStop()
-							.removeFrom(window.mainMap);
-					}
+					transitionAnimation(server, player_id, posPolyline, last_anim);
 				}
 			}
 
@@ -446,6 +369,109 @@ function get_server_data(server) {
 			// disable_server(server);
 			continue_scanning(server);
 		});
+}
+
+function generateRoute(posHist, server, currentPlayer, player_id) {
+	let posRoute = [];
+	for (let i = 0; i < posHist.length; i++) {
+		const currentPost = posHist[i];
+		if (currentPost[0] < server.players[player_id].positions_last_index)
+			continue;
+		posRoute.push({
+			lat: currentPost[1],
+			lng: currentPost[2],
+		});
+	}
+
+	server.players[player_id].lastPos = {
+		x: currentPlayer[3].x,
+		y: currentPlayer[3].y,
+		z: currentPlayer[3].z,
+		h: currentPlayer[3].h,
+	};
+
+	server.players[player_id].positions_last_index =
+		posHist[posHist.length - 1][0];
+
+	posRoute = posRoute.concat(
+		new Array(posRoute.length > 0 ? 1 : 2).fill({
+			lat: currentPlayer[3].x,
+			lng: currentPlayer[3].y,
+		})
+	);
+
+	return posRoute;
+}
+
+function generatePolyline(
+	posRoute,
+	server,
+	currentPlayer,
+	player_id,
+	popupOffset
+) {
+	return L.motion
+		.polyline(
+			posRoute,
+			{
+				color:
+					get_trail_value() == 0
+						? "hsla(0, 0%, 0%, 0)" // invisible
+						: server.players[player_id].color,
+				smoothFactor: 0.3,
+			},
+			{},
+			{
+				icon: generate_icon(currentPlayer[4], currentPlayer[5], 40),
+				removeOnEnd: false,
+				// showMarker: true,
+			}
+		)
+		.motionDuration(6250)
+		.addTo(window.mainMap)
+		.bindTooltip(
+			generate_job_tag(
+				currentPlayer[5]["group"],
+				server.players[player_id].gameid
+			),
+			{ sticky: true }
+		)
+		.bindPopup(
+			generate_popup(
+				currentPlayer,
+				server,
+				server.players[player_id].color,
+				popupOffset[0]
+			),
+			{
+				offset: popupOffset,
+			}
+		);
+}
+
+function transitionAnimation(server, player_id, posPolyline, last_anim) {
+	server.players[player_id].prevAnimation = posPolyline.motionStart();
+	server.players[player_id].prevLines.push(posPolyline);
+
+	if (last_anim) {
+		if (last_anim.isPopupOpen()) {
+			last_anim.closePopup();
+			posPolyline.openPopup();
+		}
+		if (last_anim.isTooltipOpen()) {
+			last_anim.closeTooltip();
+			posPolyline.openTooltip();
+		}
+
+		last_anim.motionStop();
+	}
+
+	while (server.players[player_id].prevLines.length - 1 > get_trail_value()) {
+		server.players[player_id].prevLines
+			.shift()
+			.motionStop()
+			.removeFrom(window.mainMap);
+	}
 }
 
 function disable_server(server) {
