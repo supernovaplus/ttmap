@@ -369,7 +369,7 @@ function get_server_data(server) {
 							lng: currentPlayer[3].y,
 						})
 					);
-					console.log(posRoute);
+
 					const posPolyline = L.motion
 						.polyline(
 							posRoute,
@@ -404,24 +404,16 @@ function get_server_data(server) {
 								server.players[player_id].color
 							),
 							{
-								offset: [
-									-Math.cos(
-										(Math.PI * (currentPlayer[3].h + 90)) / 180
-									).toFixed(5) * 150,
-									currentPlayer[3].h <= 45 || currentPlayer[3].h >= 315 // when going northish, popup far below icon
-										? currentPlayer[4]["vehicle_label"] === "NULL"
-											? 200
-											: 300 // TODO: AND flip the popup arrow
-										: Math.sin(
-												(Math.PI * (currentPlayer[3].h + 90)) / 180
-										  ).toFixed(5) * 75,
-								],
+								offset: get_offset_from_heading(
+									currentPlayer[3].h,
+									150,
+									currentPlayer[4]["vehicle_label"] === "NULL" ? 90 : 130
+								),
 							}
 						);
 
-					// console.log(posPolyline.removeFrom(window.mainMap));
 					const last_anim = server.players[player_id]?.prevAnimation;
-					// console.log(posPolyline);
+
 					server.players[player_id].prevAnimation = posPolyline.motionStart();
 					server.players[player_id].prevLines.push(posPolyline);
 
@@ -434,7 +426,6 @@ function get_server_data(server) {
 							last_anim.closeTooltip();
 							posPolyline.openTooltip();
 						}
-						// console.log(last_anim);
 
 						last_anim.motionStop();
 					}
@@ -526,13 +517,14 @@ function generate_popup(data, server, color) {
 						? `<b>Height</b>: ${parseInt(data[3]["z"])}<hr>`
 						: ""
 				}
+        <div class="popup-vehicle-label">
         <b>Vehicle</b>: ${
 					data[4]["vehicle_label"] === "NULL"
 						? "N/A"
 						: `${data[4]["vehicle_name"]} (${
 								vehicle_classes[data[4]["vehicle_class"]]
 						  })`
-				}
+				}</div>
         ${
 					data[4]["vehicle_label"] === "NULL"
 						? ""
@@ -550,4 +542,18 @@ function generate_job_tag(job, player_name_and_id = "") {
 	return job_icons[job] === undefined
 		? player_name_and_id
 		: job_icons[job] + player_name_and_id;
+}
+
+function get_offset_from_heading(heading, offsetx, offsety) {
+	const x = Math.cos(((heading + 90) * Math.PI) / 180);
+	const y = Math.sin(((heading + 90) * Math.PI) / 180);
+	// when player moving very north or south, popup closer in x axis
+	const aoffsetx = Math.abs(y) > 0.5 ? offsetx * 0.9 : offsetx;
+
+	if (x < 0) {
+		// offset to the left
+		return [aoffsetx, offsety];
+	}
+	// to the right
+	return [-aoffsetx, offsety];
 }

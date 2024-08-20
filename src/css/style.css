@@ -363,8 +363,15 @@ small {
 }
 
 .veh-img {
-    width: 100%;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 11rem;
     display: block;
+}
+
+.popup-vehicle-label {
+  max-width: 11rem;
 }
 
 @media (max-width: 600px) {
