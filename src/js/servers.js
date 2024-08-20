@@ -329,18 +329,14 @@ function get_server_data(server) {
 				if (posHist && posHist.length) {
 					let posRoute = [];
 
-					if (server.players[player_id].prevLines.length > 0) {
-						for (let i = 0; i < posHist.length; i++) {
-							const currentPost = posHist[i];
-							if (
-								currentPost[0] < server.players[player_id].positions_last_index
-							)
-								continue;
-							posRoute.push({
-								lat: currentPost[1],
-								lng: currentPost[2],
-							});
-						}
+					for (let i = 0; i < posHist.length; i++) {
+						const currentPost = posHist[i];
+						if (currentPost[0] < server.players[player_id].positions_last_index)
+							continue;
+						posRoute.push({
+							lat: currentPost[1],
+							lng: currentPost[2],
+						});
 					}
 
 					if (
@@ -368,6 +364,12 @@ function get_server_data(server) {
 							lat: currentPlayer[3].x,
 							lng: currentPlayer[3].y,
 						})
+					);
+
+					const popupOffset = get_offset_from_heading(
+						currentPlayer[3].h,
+						150,
+						currentPlayer[4]["vehicle_label"] === "NULL" ? 90 : 130
 					);
 
 					const posPolyline = L.motion
@@ -401,14 +403,11 @@ function get_server_data(server) {
 							generate_popup(
 								currentPlayer,
 								server,
-								server.players[player_id].color
+								server.players[player_id].color,
+								popupOffset[0]
 							),
 							{
-								offset: get_offset_from_heading(
-									currentPlayer[3].h,
-									150,
-									currentPlayer[4]["vehicle_label"] === "NULL" ? 90 : 130
-								),
+								offset: popupOffset,
 							}
 						);
 
@@ -498,13 +497,14 @@ function server_cleanup(server, force_cleanup = false) {
 	}
 }
 
-function generate_popup(data, server, color) {
+function generate_popup(data, server, color, xoffset) {
 	const spawn_label =
 		data[4]["vehicle_label"] === "NULL"
 			? ""
 			: String(data[4]["vehicle_label"]).toLowerCase().replace(/ /g, "_");
 
-	return `<div class="popup-header" ${
+	return ` ${get_directional_arrow(xoffset, color)}
+  <div class="popup-header" ${
 		color ? `style="background-color: ${color}"` : ""
 	}>${data[0]}</div>
         <b>ID:</b> ${data[2]}<hr>
@@ -556,4 +556,16 @@ function get_offset_from_heading(heading, offsetx, offsety) {
 	}
 	// to the right
 	return [-aoffsetx, offsety];
+}
+
+function get_directional_arrow(xoffset, color) {
+	return `<span class="${
+		xoffset < 0
+			? "popup-directional-arrow-right"
+			: "popup-directional-arrow-left"
+	}" style="${
+		xoffset < 0
+			? `border-left: 10px solid ${color}`
+			: `border-right: 10px solid ${color}`
+	}"></span>`;
 }
