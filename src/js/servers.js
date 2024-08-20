@@ -292,8 +292,7 @@ function get_server_data(server) {
 
 				if (currentPlayer[0] === "null") {
 					if (server.players[player_id] !== undefined) {
-						window.mainMap.removeLayer(server.players[player_id].marker);
-						delete server.players[player_id];
+						clean_player(server, player_id);
 					}
 					continue;
 				}
@@ -301,7 +300,6 @@ function get_server_data(server) {
 				// New player
 				if (server.players[player_id] === undefined) {
 					server.players[player_id] = {
-						marker: null,
 						gameid: currentPlayer[0] + "#" + player_id,
 						timestamp,
 						vehicle: currentPlayer[4],
@@ -489,12 +487,21 @@ function server_cleanup(server, force_cleanup = false) {
 		//clean up players that left
 		if (
 			force_cleanup ||
-			server.players[player_id].timestamp < Date.now() - 49000
+			server.players[player_id].timestamp < Date.now() - 60000
 		) {
-			window.mainMap.removeLayer(server.players[player_id].marker);
-			delete server.players[player_id];
+			clean_player(server, player_id);
 		}
 	}
+}
+
+function clean_player(server, player_id) {
+	while (server.players[player_id].prevLines.length > 0) {
+		server.players[player_id].prevLines
+			.shift()
+			.motionStop()
+			.removeFrom(window.mainMap);
+	}
+	delete server.players[player_id];
 }
 
 function generate_popup(data, server, color, xoffset) {
