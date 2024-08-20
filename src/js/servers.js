@@ -559,13 +559,9 @@ function get_offset_from_heading(heading, offsetx, offsety) {
 }
 
 function get_directional_arrow(xoffset, color) {
-	return `<span class="${
+	return `<span class="popup-directional-arrow" style="${
 		xoffset < 0
-			? "popup-directional-arrow-right"
-			: "popup-directional-arrow-left"
-	}" style="${
-		xoffset < 0
-			? `border-left: 10px solid ${color}`
-			: `border-right: 10px solid ${color}`
+			? `border-left: 10px solid ${color}; right: -10px;`
+			: `border-right: 10px solid ${color}; left: -10px;`
 	}"></span>`;
 }

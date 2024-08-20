@@ -374,24 +374,12 @@ small {
   max-width: 11rem;
 }
 
-.popup-directional-arrow-left {
+.popup-directional-arrow {
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.popup-directional-arrow-right {
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    position: absolute;
-    right: -10px;
     top: 50%;
     transform: translateY(-50%);
 }
