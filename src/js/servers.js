@@ -548,7 +548,7 @@ function get_offset_from_heading(heading, offsetx, offsety) {
 	const x = Math.cos(((heading + 90) * Math.PI) / 180);
 	const y = Math.sin(((heading + 90) * Math.PI) / 180);
 	// when player moving very north or south, popup closer in x axis
-	const aoffsetx = Math.abs(y) > 0.5 ? offsetx * 0.9 : offsetx;
+	const aoffsetx = Math.abs(y) > 0.5 ? offsetx * 0.85 : offsetx;
 
 	if (x < 0) {
 		// offset to the left
