@@ -165,7 +165,7 @@ if(params.coords){
     .bindTooltip('Location')
     .addTo(window.mainMap);
 
-    window.mainMap.flyTo(params.coords, 6, {
+    window.mainMap.flyTo(params.coords, params.zoomLevel || 6, {
         animate: true,
         duration: .5
     });

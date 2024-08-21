@@ -4,23 +4,38 @@ const map_folder = base_folder + "images/maps/";
 const company_emoji_folder = base_folder + "images/companyemoji/";
 const custom_emoji_folder = base_folder + "images/custom/";
 
-const is_mobile_device = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-let copy_link_url = window.location.protocol + "//" + window.location.host + "/";
+const is_mobile_device =
+  typeof window.orientation !== "undefined" ||
+  navigator.userAgent.indexOf("IEMobile") !== -1;
+let copy_link_url =
+  window.location.protocol + "//" + window.location.host + "/";
 
-const params = {
-    "hideplayers": new URL(location.href).searchParams.get("hideplayers") === "",
-    "hideicons": new URL(location.href).searchParams.get("hideicons") === "",
-    "expmap": new URL(location.href).searchParams.get("expmap") === "",
-    //"plot_url": new URL(location.href).searchParams.get("plot_url") || false,
-    "coords": (()=>{
-        const paramx = new URL(location.href).searchParams.get("x");
-        const paramy = new URL(location.href).searchParams.get("y");
-        return !paramx || !paramy ? undefined : [paramx, paramy];
-    })()
+const searchParams = new URL(location.href).searchParams;
+
+const validateZoomLevelParam = (zoom) => {
+  if(zoom === null || isNaN(zoom)) return null; 
+  zoom = parseInt(zoom);
+  return zoom >= 2 && zoom <= 8 ? zoom : null;
 };
 
-if(localStorage.getItem("ttmap_options_1")){
-    localStorage.removeItem("ttmap_options_1");
+const params = {
+  hideplayers: searchParams.get("hideplayers") === "",
+  hideicons: searchParams.get("hideicons") === "",
+  expmap: searchParams.get("expmap") === "",
+  //"plot_url": searchParams.get("plot_url") || false,
+  coords: (() => {
+    const paramx = searchParams.get("x");
+    const paramy = searchParams.get("y");
+    return !paramx || !paramy ? undefined : [paramx, paramy];
+  })(),
+  zoomLevel: validateZoomLevelParam(searchParams.get("zoom")),
+};
+console.log(params.zoomLevel);
+
+console.log(params);
+
+if (localStorage.getItem("ttmap_options_1")) {
+  localStorage.removeItem("ttmap_options_1");
 }
 
 window.lastCoords = [0, 0]; //for tt remote
@@ -30,108 +45,136 @@ window.lastCoords = [0, 0]; //for tt remote
 // }
 
 const options = {
-    current_map_index: 1,
-    sidebar_open: true,
-    current_trail_index: 3,
-    // current_trail_index: is_mobile_device ? 3 : 2,
-    timestamp: 0,
+  current_map_index: 1,
+  sidebar_open: true,
+  current_trail_index: 3,
+  // current_trail_index: is_mobile_device ? 3 : 2,
+  timestamp: 0,
 
-    markers: { //marker defaults
-        "business": true,
-        "garages": true,
-        "self_storage": true,
-        "houses": true,
-        "expmap": false
-    }
+  markers: {
+    //marker defaults
+    business: true,
+    garages: true,
+    self_storage: true,
+    houses: true,
+    expmap: false,
+  },
 };
 
 let currentTileLayer = null;
 
 const save_options = () => {
-    options.timestamp = Date.now();
-    localStorage.setItem("ttmap_options_2", JSON.stringify(options));
+  options.timestamp = Date.now();
+  localStorage.setItem("ttmap_options_2", JSON.stringify(options));
 };
 
-try{
-    const options_from_storage =  localStorage.getItem("ttmap_options_2");
-    if(options_from_storage){
-        Object.assign(options, JSON.parse(options_from_storage));
+try {
+  const options_from_storage = localStorage.getItem("ttmap_options_2");
+  if (options_from_storage) {
+    Object.assign(options, JSON.parse(options_from_storage));
 
-        if(params.hideicons){
-            for (const key in options.markers) {
-                options.markers[key] = false;
-            }
-        }
-
-        if(params.expmap){
-            options.markers["expmap"] = true;
-        }
+    if (params.hideicons) {
+      for (const key in options.markers) {
+        options.markers[key] = false;
+      }
     }
-    save_options();
-}catch(err){
-    console.error(err);
-};
 
-const div_map = cel("div", {id: "map"});
+    if (params.expmap) {
+      options.markers["expmap"] = true;
+    }
+  }
+  save_options();
+} catch (err) {
+  console.error(err);
+}
+
+const div_map = cel("div", { id: "map" });
 document.body.appendChild(div_map);
 
 div_map.style.height = window.innerHeight + "px";
 window.onresize = () => {
-    div_map.style.height = window.innerHeight + "px";
+  div_map.style.height = window.innerHeight + "px";
 };
 
 L.CRS.Kebab = L.extend({}, L.CRS.Simple, {
-    projection: {
-        project: latlng => new L.Point(latlng.lat, latlng.lng), //reverse lat/lng for easier passing of x/y
-        unproject: point => new L.LatLng(point.x, point.y),
-        bounds: new L.Bounds([-180, -90], [180, 90])
-    },
-    transformation: new L.Transformation(
-      0.005175, //scale-x
-      34.38, //shift-x
-      -0.005173, //scale-y
-      46.79355 //shift-y
-    ),
+  projection: {
+    project: (latlng) => new L.Point(latlng.lat, latlng.lng), //reverse lat/lng for easier passing of x/y
+    unproject: (point) => new L.LatLng(point.x, point.y),
+    bounds: new L.Bounds([-180, -90], [180, 90]),
+  },
+  //shift to x=0 y=0 position, then use scale
+  transformation: new L.Transformation(
+    0.005175, //scale-x
+    38.1, //shift-x
+    -0.00519, //scale-y
+    47.24 //shift-y
+
+    // 0.005165, //scale-x
+    // 38.1, //shift-x
+    // -0.00519, //scale-y
+    // 47.24 //shift-y
+
+    // 0.005115, //scale-x
+    // 37.635, //shift-x
+    // -0.0051075, //scale-y
+    // 46.658 //shift-y
+
+    // 0.005113, //scale-x
+    // 37.645, //shift-x
+    // -0.0051055, //scale-y
+    // 46.655 //shift-y
+  ),
 });
 
-window.mainMap = L.map('map', {
-    renderer: L.canvas(),
-    zoomControl: false,
-    // zooms: [2,3,4,5,6,7,8,9],
-    zooms: [2,3,4,5,6,7,8],
-    minZoom : 2,
-    maxZoom : 8,
-    // zoomSnap: 1,
-    fadeAnimation: true,
-    zoomAnimation: true,
-    crs: L.CRS.Kebab
-}).setView([0,0], 5);
+window.mainMap = L.map("map", {
+  renderer: L.canvas(),
+  zoomControl: false,
+  // zooms: [2,3,4,5,6,7,8,9],
+  zooms: [2, 3, 4, 5, 6, 7, 8, 10],
+  minZoom: 2,
+  maxZoom: 10,
+  // zoomSnap: 1,
+  fadeAnimation: false,
+  zoomAnimation: false,
+  crs: L.CRS.Kebab,
+  // zoomSnap: 0.25,
+  // zoomDelta: 1,
+  // wheelPxPerZoomLevel: 60
+}).setView([0, 0], 5);
 
 const map_list = [
-    {
-        name: "Color Mode",
-        bgcolor: "#0fa8d1",
-        tileLayer: L.tileLayer(base_folder + "images/maps/color-mode-tiles/{z}_{x}_{y}.jpg",{
-            tileSize: 288,
-            nativeZooms: [3,4,5,6,7],
-            noWrap: true,
-            bounds: [{ lat: -6566, lng: -4735 }, { lat: 7166, lng: 8906 }],
-            reuseTiles : true
-        })
-    },
-    { 
-        name: "Dark Mode", 
-        bgcolor: "#171717",
-        tileLayer: L.tileLayer(base_folder + "images/maps/dark-mode-tiles/{z}_{x}_{y}.jpg",{
-            tileSize: 288,
-            nativeZooms: [3,4,5,6,7],
-            noWrap: true,
-            bounds: [{ lat: -6566, lng: -4735 }, { lat: 7166, lng: 8906 }],
-            reuseTiles : true
-        })
-    },
+  {
+    name: "Color Mode",
+    bgcolor: "#0fa8d1",
+    tileLayer: L.tileLayer(
+      base_folder + "images/maps/dev-tiles/{z}_files/0/{x}_{y}.jpeg",
+      {
+        tileSize: 320,
+        nativeZooms: [3, 4, 5, 6, 7],
+        noWrap: true,
+        bounds: [
+          { lat: -6566, lng: -6735 },
+          { lat: 7166, lng: 8906 },
+        ],
+        reuseTiles: true,
+      }
+    ),
+  },
+  // {
+  //     name: "Dark Mode",
+  //     bgcolor: "#171717",
+  //     tileLayer: L.tileLayer(base_folder + "images/maps/dark-mode-tiles/{z}_{x}_{y}.jpg",{
+  //         tileSize: 288,
+  //         nativeZooms: [3,4,5,6,7],
+  //         noWrap: true,
+  //         bounds: [{ lat: -6566, lng: -4735 }, { lat: 7166, lng: 8906 }],
+  //         reuseTiles : true
+  //     })
+  // },
 ];
 
-L.control.zoom({
-    position: 'topright'
-}).addTo(window.mainMap);
+L.control
+  .zoom({
+    position: "topright",
+  })
+  .addTo(window.mainMap);
