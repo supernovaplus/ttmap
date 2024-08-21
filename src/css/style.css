@@ -69,6 +69,11 @@ input[type="button"]{
     text-shadow: 1px 1px 2px black, 1px 1px 2px black, 1px 1px 2px black;
 }
 
+.leaflet-popup-tip {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+
 .blue-white{
     background-color: white;
 }
@@ -358,8 +363,25 @@ small {
 }
 
 .veh-img {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 99%;
+    max-height: 8rem;
     display: block;
+}
+
+.popup-vehicle-label {
+  max-width: 11rem;
+}
+
+.popup-directional-arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media (max-width: 600px) {
