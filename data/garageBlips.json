@@ -1,524 +1,394 @@
 {
   "garage_7": {
-      "name": "Parking Garage",
-      "coordinates": {
-          "y": "-366",
-          "x": "-1212"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Parking Garage",
+    "coordinates": {
+      "y": "-366",
+      "x": "-1212"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_32": {
-      "name": "SA Logistics HQ",
-      "coordinates": {
-          "y": "-2172",
-          "x": "-1080"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "SA Logistics HQ",
+    "coordinates": {
+      "y": "-2172",
+      "x": "-1080"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_14": {
-      "name": "Paleto Airport Hangar",
-      "coordinates": {
-          "y": "6732",
-          "x": "-211"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "Paleto Airport Hangar",
+    "coordinates": {
+      "y": "6732",
+      "x": "-211"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_20": {
-      "name": "SCA Hangar",
-      "coordinates": {
-          "y": "3102",
-          "x": "5785"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "SCA Hangar",
+    "coordinates": {
+      "y": "3102",
+      "x": "5785"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_29": {
-      "name": "Rockwell T.S. HQ Roof",
-      "coordinates": {
-          "y": "-605",
-          "x": "-146"
-      },
-      "type": "Helicopter Garage",
-      "spawns": "Helicopters"
+    "name": "Rockwell T.S. HQ Roof",
+    "coordinates": {
+      "y": "-605",
+      "x": "-146"
+    },
+    "type": "Helicopter Garage",
+    "spawns": "Helicopters"
   },
   "garage_21": {
-      "name": "CIA Hangar",
-      "coordinates": {
-          "y": "413",
-          "x": "-4690"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "CIA Hangar",
+    "coordinates": {
+      "y": "413",
+      "x": "-4690"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_2": {
-      "name": "LSIA Main Gate #1",
-      "coordinates": {
-          "y": "-2532",
-          "x": "-1184"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Aircraft, Helicopters"
+    "name": "LSIA Main Gate #1",
+    "coordinates": {
+      "y": "-2532",
+      "x": "-1184"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Aircraft, Helicopters"
   },
   "garage_28": {
-      "name": "Rockwell T.S. HQ",
-      "coordinates": {
-          "y": "-3004",
-          "x": "973"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Rockwell T.S. HQ",
+    "coordinates": {
+      "y": "-3004",
+      "x": "973"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_24": {
-      "name": "LS Marina",
-      "coordinates": {
-          "y": "-1453",
-          "x": "-790"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
+    "name": "LS Marina",
+    "coordinates": {
+      "y": "-1453",
+      "x": "-790"
+    },
+    "type": "Watercraft Garage",
+    "spawns": "Boats"
   },
   "garage_22": {
-      "name": "Paleto Bay Marina",
-      "coordinates": {
-          "y": "6954",
-          "x": "-72"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
-  },
-  "garage_55": {
-      "name": "Staunton Island Docks",
-      "coordinates": {
-          "y": "7166",
-          "x": "-3373"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
-  },
-  "garage_42": {
-      "name": "Portland Night Club",
-      "coordinates": {
-          "y": "6451",
-          "x": "-2073"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
+    "name": "Paleto Bay Marina",
+    "coordinates": {
+      "y": "6954",
+      "x": "-72"
+    },
+    "type": "Watercraft Garage",
+    "spawns": "Boats"
   },
   "garage_17": {
-      "name": "Zancudo Hangar",
-      "coordinates": {
-          "y": "2985",
-          "x": "-2088"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "Zancudo Hangar",
+    "coordinates": {
+      "y": "2985",
+      "x": "-2088"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_19": {
-      "name": "SSIA Garage",
-      "coordinates": {
-          "y": "3698",
-          "x": "1198"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "SSIA Garage",
+    "coordinates": {
+      "y": "3698",
+      "x": "1198"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_9": {
-      "name": "Vinewood Warehouse Garage",
-      "coordinates": {
-          "y": "162",
-          "x": "84"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Vinewood Warehouse Garage",
+    "coordinates": {
+      "y": "162",
+      "x": "84"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
-  "garage_56": {
-      "name": "Francis Intl. Airport",
-      "coordinates": {
-          "y": "6391",
-          "x": "-4580"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Trailers, Bikes, Aircraft, Helicopters, Cars, Semi Cabs"
-  },
+
   "garage_25": {
-      "name": "Sandy Shores Marina",
-      "coordinates": {
-          "y": "3898",
-          "x": "1589"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
+    "name": "Sandy Shores Marina",
+    "coordinates": {
+      "y": "3898",
+      "x": "1589"
+    },
+    "type": "Watercraft Garage",
+    "spawns": "Boats"
   },
   "garage_4": {
-      "name": "LSIA Hangar",
-      "coordinates": {
-          "y": "-3510",
-          "x": "-1058"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Helicopters, Aircraft"
+    "name": "LSIA Hangar",
+    "coordinates": {
+      "y": "-3510",
+      "x": "-1058"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Helicopters, Aircraft"
   },
   "garage_58": {
-      "name": "Mount Gordo Airport",
-      "coordinates": {
-          "y": "6645",
-          "x": "2370"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Aircraft, Helicopters"
+    "name": "Mount Gordo Airport",
+    "coordinates": {
+      "y": "6645",
+      "x": "2370"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Aircraft, Helicopters"
   },
   "garage_15": {
-      "name": "Pacific Ocean Hangar",
-      "coordinates": {
-          "y": "-862",
-          "x": "2945"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "Pacific Ocean Hangar",
+    "coordinates": {
+      "y": "-862",
+      "x": "2945"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_37": {
-      "name": "First Responders Helipad",
-      "coordinates": {
-          "y": "-597",
-          "x": "319"
-      },
-      "type": "Helicopter Garage",
-      "spawns": "Helicopters"
+    "name": "First Responders Helipad",
+    "coordinates": {
+      "y": "-597",
+      "x": "319"
+    },
+    "type": "Helicopter Garage",
+    "spawns": "Helicopters"
   },
-  "garage_54": {
-      "name": "Portland Docks",
-      "coordinates": {
-          "y": "6183",
-          "x": "-2246"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
-  },
+
   "garage_23": {
-      "name": "El Gordo Lighthouse",
-      "coordinates": {
-          "y": "5184",
-          "x": "3368"
-      },
-      "type": "Watercraft Garage",
-      "spawns": "Boats"
+    "name": "El Gordo Lighthouse",
+    "coordinates": {
+      "y": "5184",
+      "x": "3368"
+    },
+    "type": "Watercraft Garage",
+    "spawns": "Boats"
   },
   "garage_6": {
-      "name": "Simeon's Dealership",
-      "coordinates": {
-          "y": "-1112",
-          "x": "-56"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
-  },
-  "garage_46": {
-      "name": "Staunton Island Stadium",
-      "coordinates": {
-          "y": "6961",
-          "x": "-3132"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
-  "garage_53": {
-      "name": "Portland Bus Depot",
-      "coordinates": {
-          "y": "6319",
-          "x": "-1778"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
+    "name": "Simeon's Dealership",
+    "coordinates": {
+      "y": "-1112",
+      "x": "-56"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_18": {
-      "name": "SSIA Hangar",
-      "coordinates": {
-          "y": "3736.5",
-          "x": "1230"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "SSIA Hangar",
+    "coordinates": {
+      "y": "3736.5",
+      "x": "1230"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_31": {
-      "name": "Imperial Airlines HQ",
-      "coordinates": {
-          "y": "-3194",
-          "x": "-1513"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Imperial Airlines HQ",
+    "coordinates": {
+      "y": "-3194",
+      "x": "-1513"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
-  "garage_52": {
-      "name": "Staunton Island Lot",
-      "coordinates": {
-          "y": "5834",
-          "x": "-3160"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
+
   "garage_33": {
-      "name": "Hospital Parkway",
-      "coordinates": {
-          "y": "-327",
-          "x": "-530"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Hospital Parkway",
+    "coordinates": {
+      "y": "-327",
+      "x": "-530"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_10": {
-      "name": "Truck Garage",
-      "coordinates": {
-          "y": "-2417",
-          "x": "-130"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Truck Garage",
+    "coordinates": {
+      "y": "-2417",
+      "x": "-130"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_39": {
-      "name": "Higgins Helitours Garage",
-      "coordinates": {
-          "y": "-1406",
-          "x": "-695"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Higgins Helitours Garage",
+    "coordinates": {
+      "y": "-1406",
+      "x": "-695"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_30": {
-      "name": "Richard's Majestic Roof",
-      "coordinates": {
-          "y": "-375",
-          "x": "-901"
-      },
-      "type": "Helicopter Garage",
-      "spawns": "Helicopters"
+    "name": "Richard's Majestic Roof",
+    "coordinates": {
+      "y": "-375",
+      "x": "-901"
+    },
+    "type": "Helicopter Garage",
+    "spawns": "Helicopters"
   },
-  "garage_50": {
-      "name": "Shoreside Vale Parking Lot",
-      "coordinates": {
-          "y": "7494",
-          "x": "-3822"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
+
   "garage_26": {
-      "name": "Race Track Garage",
-      "coordinates": {
-          "y": "5768",
-          "x": "3717"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Race Track Garage",
+    "coordinates": {
+      "y": "5768",
+      "x": "3717"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_5": {
-      "name": "LSIA Vehicle Garage",
-      "coordinates": {
-          "y": "-2409",
-          "x": "-1114"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
-  },
-  "garage_49": {
-      "name": "Shoreside Vale Lot",
-      "coordinates": {
-          "y": "7276",
-          "x": "-4284"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
+    "name": "LSIA Vehicle Garage",
+    "coordinates": {
+      "y": "-2409",
+      "x": "-1114"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_8": {
-      "name": "Mission Row PD Garage",
-      "coordinates": {
-          "y": "-1021",
-          "x": "441"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Mission Row PD Garage",
+    "coordinates": {
+      "y": "-1021",
+      "x": "441"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_36": {
-      "name": "First Responders LLC HQ",
-      "coordinates": {
-          "y": "-550",
-          "x": "330"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "First Responders LLC HQ",
+    "coordinates": {
+      "y": "-550",
+      "x": "330"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_13": {
-      "name": "Paleto Garage",
-      "coordinates": {
-          "y": "6258",
-          "x": "-231"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Paleto Garage",
+    "coordinates": {
+      "y": "6258",
+      "x": "-231"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_3": {
-      "name": "LSIA Main Gate #2",
-      "coordinates": {
-          "y": "-2961",
-          "x": "-1045"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Cars, Aircraft, Helicopters, Bicycles"
+    "name": "LSIA Main Gate #2",
+    "coordinates": {
+      "y": "-2961",
+      "x": "-1045"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Cars, Aircraft, Helicopters, Bicycles"
   },
   "garage_27": {
-      "name": "Palmer-Taylor Garage",
-      "coordinates": {
-          "y": "1415",
-          "x": "2727"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
-  },
-  "garage_45": {
-      "name": "Staunton Island Hospital",
-      "coordinates": {
-          "y": "7296",
-          "x": "-2788"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
-  "garage_47": {
-      "name": "Staunton Island PD",
-      "coordinates": {
-          "y": "6237",
-          "x": "-2744"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
-  "garage_43": {
-      "name": "Portland Taxi Depot",
-      "coordinates": {
-          "y": "7240",
-          "x": "-2157"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
+    "name": "Palmer-Taylor Garage",
+    "coordinates": {
+      "y": "1415",
+      "x": "2727"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_57": {
-      "name": "Postop Airport",
-      "coordinates": {
-          "y": "-3150",
-          "x": "1347"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "Postop Airport",
+    "coordinates": {
+      "y": "-3150",
+      "x": "1347"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_41": {
-      "name": "CollinsCo Garage",
-      "coordinates": {
-          "y": "-3006",
-          "x": "-1629"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "CollinsCo Garage",
+    "coordinates": {
+      "y": "-3006",
+      "x": "-1629"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_40": {
-      "name": "P.I.G.S. Garage",
-      "coordinates": {
-          "y": "-3172",
-          "x": "1001"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "P.I.G.S. Garage",
+    "coordinates": {
+      "y": "-3172",
+      "x": "1001"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
   "garage_38": {
-      "name": "Higgins Helipad",
-      "coordinates": {
-          "y": "-1402",
-          "x": "-701"
-      },
-      "type": "Helicopter Garage",
-      "spawns": "Helicopters"
+    "name": "Higgins Helipad",
+    "coordinates": {
+      "y": "-1402",
+      "x": "-701"
+    },
+    "type": "Helicopter Garage",
+    "spawns": "Helicopters"
   },
   "garage_1": {
-      "name": "Parking Garage",
-      "coordinates": {
-          "y": "-779",
-          "x": "-336"
-      },
-      "type": "Car Garage",
-      "spawns": "Bikes, Cars, Bicycles"
+    "name": "Parking Garage",
+    "coordinates": {
+      "y": "-779",
+      "x": "-336"
+    },
+    "type": "Car Garage",
+    "spawns": "Bikes, Cars, Bicycles"
   },
-  "garage_48": {
-      "name": "Francis Intl. Airport",
-      "coordinates": {
-          "y": "6900",
-          "x": "-3924"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
+
   "garage_34": {
-      "name": "Substation Garage",
-      "coordinates": {
-          "y": "141",
-          "x": "712"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Substation Garage",
+    "coordinates": {
+      "y": "141",
+      "x": "712"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_12": {
-      "name": "Sandy Shores Garage",
-      "coordinates": {
-          "y": "3598",
-          "x": "1699"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
-  },
-  "garage_51": {
-      "name": "Staunton Island City Hall",
-      "coordinates": {
-          "y": "6300",
-          "x": "-2992"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
-  },
-  "garage_44": {
-      "name": "Portland FD",
-      "coordinates": {
-          "y": "7251",
-          "x": "-1975"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Trailers, Bikes, Cars, Semi Cabs"
+    "name": "Sandy Shores Garage",
+    "coordinates": {
+      "y": "3598",
+      "x": "1699"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_35": {
-      "name": "Bay Area Towing HQ",
-      "coordinates": {
-          "y": "-1649",
-          "x": "-625"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Bay Area Towing HQ",
+    "coordinates": {
+      "y": "-1649",
+      "x": "-625"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   },
   "garage_16": {
-      "name": "McKenzie Hangar",
-      "coordinates": {
-          "y": "4809",
-          "x": "2130"
-      },
-      "type": "Aircraft Garage",
-      "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
+    "name": "McKenzie Hangar",
+    "coordinates": {
+      "y": "4809",
+      "x": "2130"
+    },
+    "type": "Aircraft Garage",
+    "spawns": "Bikes, Aircraft, Helicopters, Cars, Bicycles"
   },
   "garage_11": {
-      "name": "Legion Square Garage",
-      "coordinates": {
-          "y": "-784",
-          "x": "233"
-      },
-      "type": "Vehicle Garage",
-      "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
+    "name": "Legion Square Garage",
+    "coordinates": {
+      "y": "-784",
+      "x": "233"
+    },
+    "type": "Vehicle Garage",
+    "spawns": "Bikes, Cars, Trailers, Bicycles, Semi Cabs"
   }
 }
