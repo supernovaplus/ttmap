@@ -392,13 +392,7 @@ function generateRoute(posHist, server, currentPlayer, player_id) {
 
   server.players[player_id].positions_last_index =
     posHist[posHist.length - 1][0];
-  console.log(
-    posRoute,
-    new Array(posRoute.length > 0 ? 1 : 2).fill({
-      lat: currentPlayer[3].x,
-      lng: currentPlayer[3].y,
-    })
-  );
+
   posRoute = posRoute.concat(
     new Array(posRoute.length > 0 ? 1 : 2).fill({
       lat: currentPlayer[3].x,
@@ -567,7 +561,7 @@ function generate_popup(data, server, color, xoffset) {
         ${
           data[4]["vehicle_label"] === "NULL"
             ? ""
-            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" class="veh-img" alt="[no vehicle image found]"/></a>`
+            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://ttdata.transporttycoon.eu/vehicles/veh_images_min/${spawn_label}.jpg" class="veh-img" alt="${spawn_label}" onerror="on_vehicle_image_load_error(this)"/></a>`
         }
         <hr>
         <b>${server.name}</b> ${
@@ -575,6 +569,11 @@ function generate_popup(data, server, color, xoffset) {
       ? ""
       : `<a href="fivem://connect/cfx.re/join/${server.endpoint}" title="Join: ${server.name}" class="join-btn">JOIN</a>`
   }`;
+}
+
+function on_vehicle_image_load_error(e) {
+  console.log(e.parentElement);
+  e.parentElement.outerHTML = `<span style="color:gray;">no vehicle image found</span>`;
 }
 
 function generate_job_tag(job, player_name_and_id = "") {
