@@ -13,6 +13,7 @@ let copy_link_url =
 const params = {
   hideplayers: new URL(location.href).searchParams.get("hideplayers") === "",
   hideicons: new URL(location.href).searchParams.get("hideicons") === "",
+  alwaysactive: new URL(location.href).searchParams.get("alwaysactive") === "",
   expmap: new URL(location.href).searchParams.get("expmap") === "",
   //"plot_url": new URL(location.href).searchParams.get("plot_url") || false,
   coords: (() => {
@@ -32,11 +33,14 @@ window.lastCoords = [0, 0]; //for tt remote
 //     params.hideplayers = true;
 // }
 
+const max_inactivity_time_in_minutes = 30;
+
 const options = {
   current_map_index: 1,
   sidebar_open: true,
-  current_trail_index: 3,
+  current_trail_index: 4,
   // current_trail_index: is_mobile_device ? 3 : 2,
+  current_animation_speed_index: 0,
   timestamp: 0,
 
   markers: {
@@ -53,11 +57,11 @@ let currentTileLayer = null;
 
 const save_options = () => {
   options.timestamp = Date.now();
-  localStorage.setItem("ttmap_options_2", JSON.stringify(options));
+  localStorage.setItem("ttmap_options_3", JSON.stringify(options));
 };
 
 try {
-  const options_from_storage = localStorage.getItem("ttmap_options_2");
+  const options_from_storage = localStorage.getItem("ttmap_options_3");
   if (options_from_storage) {
     Object.assign(options, JSON.parse(options_from_storage));
 
@@ -70,8 +74,9 @@ try {
     if (params.expmap) {
       options.markers["expmap"] = true;
     }
+
   }
-  save_options();
+  save_options(); //resave in case a new option came from query params
 } catch (err) {
   console.error(err);
 }

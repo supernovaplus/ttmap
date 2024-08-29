@@ -2,97 +2,60 @@ const nova_servers = {};
 
 const trail_modes = [
   // Trails values represent number of updates to keep
-  { name: "Infinite", title: "Forever", value: Infinity },
-  { name: "MASSIVE", title: "3 Hours", value: 1800 },
-  { name: "EXTREME", title: "1 Hour", value: 600 },
-  { name: "LONG", title: "30 Minutes", value: 300 },
-  { name: "MEDIUM", title: "15 Minutes", value: 150 },
-  { name: "SHORT", title: "5 Minutes", value: 50 },
-  { name: "TINY", title: "1 Minute", value: 10 },
-  { name: "NONE", title: "No Trail", value: 0 },
+  { name: "Infinite", title: "No Limit", value: Infinity },
+  // { name: "Extreme", title: "1 Hour", value: 600 },
+  { name: "Long", title: "30 Minutes", value: 300 },
+  { name: "Medium", title: "15 Minutes", value: 150 },
+  { name: "Short", title: "5 Minutes", value: 50 },
+  { name: "Tiny", title: "1 Minute", value: 10 },
+  { name: "Tiny+", title: "30 seconds", value: 5 },
+  { name: "Tiny++", title: "6 seconds", value: 1 },
+  { name: "None", title: "None", value: 0 },
 ];
 
-function handle_find_player(input) {
-  if (!input.previousSibling.value) return;
-  const search_for = String(input.previousSibling.value).toLowerCase();
-  let found;
-
-  for (const server_id in nova_servers) {
-    if (found) break;
-    if (!nova_servers[server_id].disabled) {
-      for (const player_id in nova_servers[server_id]["players"]) {
-        if (
-          String(nova_servers[server_id]["players"][player_id]["gameid"])
-            .toLowerCase()
-            .includes(search_for)
-        ) {
-          found = nova_servers[server_id]["players"][player_id];
-          break;
-        }
-      }
-    }
-  }
-
-  if (found) {
-    input.previousSibling.style.backgroundColor = "lime";
-
-    window.mainMap.flyTo(found.marker._latlng, 7, {
-      animate: true,
-      duration: 0.5,
-    });
-
-    setTimeout(() => {
-      found.marker.openPopup();
-    }, 100);
-
-    // found._popup.openOn(map)
-    return false;
-  } else {
-    input.previousSibling.style.backgroundColor = "red";
-  }
-}
-
-function toggle_trail_mode(index) {
-  options.current_trail_index = index;
-  save_options();
-  refresh_trail_mode_buttons();
-}
-
-function get_trail_value() {
-  return trail_modes[options.current_trail_index].value;
-}
-
-function refresh_trail_mode_buttons() {
-  let index = 0;
-  for (const trail_button of document.querySelectorAll(".trails-btn")) {
-    if (index === options.current_trail_index) {
-      trail_button.classList.add("selected");
-    } else {
-      trail_button.classList.remove("selected");
-    }
-    index++;
-  }
-}
+const animation_speed_options = [
+  { name: "Slow (default)", value: 6250 },
+  { name: "Medium", value: 3000 },
+  { name: "Fast", value: 500 },
+];
 
 fetch(base_folder + "data/serversList.json")
   .then((res) => res.json())
   .then(async (servers_list) => {
     //hud
-    create_sideblock_item(
-      "Trail Mode",
-      ...trail_modes.map((trail, index) => [
-        "input",
-        assign_hud_hover_event({
-          type: "button",
-          className: "img-btn grow-item trails-btn",
-          _title: trail.title,
-          value: trail.name,
-          onclick: () => toggle_trail_mode(index),
-        }),
-      ])
-    );
-
-    refresh_trail_mode_buttons();
+    create_sideblock_item("Options", [
+      "div",
+      { className: "options-block" },
+      ["div", { innerText: "Trail length", className: "options-title" }],
+      [
+        "select",
+        { onchange: (e) => handle_trail_mode_change(Number(e.target.value)) },
+        ...trail_modes.map((trail, index) => [
+          "option",
+          {
+            value: index,
+            innerText: `${trail.name} (${trail.title})`,
+            selected: index === options.current_trail_index,
+          },
+        ]),
+      ],
+      ["div", { innerText: "Animation speed", className: "options-title" }],
+      [
+        "select",
+        {
+          onchange: (e) =>
+            handle_animation_speed_change(Number(e.target.value)),
+        },
+        ...animation_speed_options.map((trail, index) => [
+          "option",
+          {
+            value: index,
+            innerText: `${trail.name}`,
+            selected: index === options.current_animation_speed_index,
+          },
+        ]),
+      ],
+    ]);
 
     create_sideblock_item(
       "Find Player",
@@ -104,7 +67,7 @@ fetch(base_folder + "data/serversList.json")
           placeholder: "Enter player's ID or name",
           onkeydown: ({ keyCode, target }) => {
             if (keyCode === 13) {
-              handle_find_player(target.nextSibling);
+              handle_find_player_button(target.nextSibling);
             }
           },
         },
@@ -115,7 +78,7 @@ fetch(base_folder + "data/serversList.json")
           type: "button",
           className: "btn img-btn",
           value: "Find",
-          onclick: (e) => handle_find_player(e.target),
+          onclick: (e) => handle_find_player_button(e.target),
         },
       ]
     );
@@ -196,44 +159,105 @@ fetch(base_folder + "data/serversList.json")
     }
 
     if (!params["hideplayers"]) {
-      //if OS is on, only check the os, else scan all the servers
-      // const first_server_id = Object.keys(nova_servers)[0];
-
       enable_server(Object.values(nova_servers)[0]);
-
-      // if(window.location.protocol === "https:"){
-      //     enable_server(Object.values(nova_servers)[0]);
-      // }else{
-      //     fetch(`http://${nova_servers[first_server_id].endpoint}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-      //         if(res && res.players && res.players.length > 0){
-      //             enable_server(nova_servers[first_server_id])
-      //         }else{
-      //             disable_server(nova_servers[first_server_id]);
-      //         }
-
-      //     }).catch(err=>{
-      //         disable_server(nova_servers[first_server_id]);
-
-      //         //scan servers via keyless api for disabled servers or servers with 0 player count;
-      //         // for (const server_id in nova_servers) {
-      //         //     if(server_id === first_server_id) continue;
-      //         //     fetch(`http://${nova_servers[server_id].endpoint}/status/widget/players.json`).then(res=>res.json()).then(res=>{
-      //         //         if(res && res.players && res.players.length > 0){
-      //         //             enable_server(nova_servers[server_id])
-      //         //         }else{
-      //         //             disable_server(nova_servers[server_id]);
-      //         //         }
-      //         //     }).catch(err=>{
-      //         //         disable_server(nova_servers[server_id]);
-      //         //     });
-      //         // }
-      //     });
-      // }
     }
   })
   .catch((err) => {
     console.log(err);
   });
+
+//activity detection - pause the map after 30 minutes
+let inactivity_timer_last_active_at = Date.now();
+function inactivity_timer_reset() {
+  inactivity_timer_last_active_at = Date.now();
+}
+
+//check last activity every minute, pause if it's longer than 30 minutes
+if (!params.alwaysactive) {
+  setInterval(() => {
+    const diff = Date.now() - inactivity_timer_last_active_at;
+    if (diff > 1000 * 60 * max_inactivity_time_in_minutes) {
+      // check if it's longer than 30 minutes
+      const is_any_server_active = Object.values(nova_servers).some(
+        (server) => !server.disabled
+      );
+
+      if (is_any_server_active) {
+        alert(
+          `Paused after ${max_inactivity_time_in_minutes} minutes due to inactivity... \nWasting my charges is not nice.`
+        );
+      }
+
+      inactivity_timer_reset();
+    }
+  }, 1000 * 60); //every minute check time difference
+
+  document.addEventListener("click", inactivity_timer_reset);
+  document.addEventListener("wheel", inactivity_timer_reset);
+}
+
+function handle_find_player_button(input) {
+  if (!input.previousSibling.value) return;
+  const search_for = String(input.previousSibling.value).toLowerCase();
+  let found;
+
+  for (const server_id in nova_servers) {
+    if (found) break;
+    if (!nova_servers[server_id].disabled) {
+      for (const player_id in nova_servers[server_id]["players"]) {
+        if (
+          String(nova_servers[server_id]["players"][player_id]["gameid"])
+            .toLowerCase()
+            .includes(search_for)
+        ) {
+          found = nova_servers[server_id]["players"][player_id];
+          break;
+        }
+      }
+    }
+  }
+
+  if (found) {
+    input.previousSibling.style.backgroundColor = "lime";
+
+    window.mainMap.flyTo(found.prevAnimation.__marker._latlng, 7, {
+      animate: true,
+      duration: 0.5,
+    });
+
+    setTimeout(() => {
+      found.prevAnimation.openPopup();
+    }, 100);
+
+    // found._popup.openOn(map)
+    return false;
+  } else {
+    input.previousSibling.style.backgroundColor = "red";
+  }
+}
+
+function handle_trail_mode_change(index) {
+  options.current_trail_index = index;
+  if (get_current_trail_value() >= max_inactivity_time_in_minutes * 10) {
+    alert(
+      `Keep in mind that the map will pause after ${max_inactivity_time_in_minutes} minutes if you become inactive`
+    );
+  }
+  save_options();
+}
+
+function handle_animation_speed_change(index) {
+  options.current_animation_speed_index = index;
+  save_options();
+}
+
+function get_current_trail_value() {
+  return trail_modes[options.current_trail_index].value;
+}
+
+function get_current_animation_speed_value() {
+  return animation_speed_options[options.current_animation_speed_index].value;
+}
 
 function continue_scanning(server) {
   if (!server.timeout) {
@@ -415,7 +439,7 @@ function generatePolyline(
       posRoute,
       {
         color:
-          get_trail_value() == 0
+          get_current_trail_value() == 0
             ? "hsla(0, 0%, 0%, 0)" // invisible
             : server.players[player_id].color,
         smoothFactor: 0.3,
@@ -427,7 +451,7 @@ function generatePolyline(
         // showMarker: true,
       }
     )
-    .motionDuration(6250)
+    .motionDuration(get_current_animation_speed_value())
     .addTo(window.mainMap)
     .bindTooltip(
       generate_job_tag(
@@ -466,7 +490,10 @@ function transitionAnimation(server, player_id, posPolyline, last_anim) {
     last_anim.motionStop();
   }
 
-  while (server.players[player_id].prevLines.length - 1 > get_trail_value()) {
+  while (
+    server.players[player_id].prevLines.length - 1 >
+    get_current_trail_value()
+  ) {
     server.players[player_id].prevLines
       .shift()
       .motionStop()
@@ -561,7 +588,7 @@ function generate_popup(data, server, color, xoffset) {
         ${
           data[4]["vehicle_label"] === "NULL"
             ? ""
-            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://ttdata.transporttycoon.eu/vehicles/veh_images_min/${spawn_label}.jpg" class="veh-img" alt="${spawn_label}" onerror="on_vehicle_image_load_error(this)"/></a>`
+            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://ttdata.transporttycoon.eu/vehicles/veh_images_min/${spawn_label}.jpg" class="veh-img" alt="${spawn_label}" onerror="this.src = 'https://ttdata.transporttycoon.eu/vehicles/veh_images_min/unk.jpg';" /></a>`
         }
         <hr>
         <b>${server.name}</b> ${
@@ -572,7 +599,6 @@ function generate_popup(data, server, color, xoffset) {
 }
 
 function on_vehicle_image_load_error(e) {
-  console.log(e.parentElement);
   e.parentElement.outerHTML = `<span style="color:gray;">no vehicle image found</span>`;
 }
 

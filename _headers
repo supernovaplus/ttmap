@@ -1,3 +1,6 @@
 /*
     Cache-Control: public, max-age=1800
     CDN-Cache-Control: max-age=1800
+
+/index.html
+    Cache-Control: private, max-age=10
