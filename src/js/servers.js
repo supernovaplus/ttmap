@@ -186,6 +186,7 @@ if (!params.alwaysactive) {
         alert(
           `Paused after ${max_inactivity_time_in_minutes} minutes due to inactivity... \nWasting my charges is not nice.`
         );
+        servers_uncheck_all();
       }
 
       inactivity_timer_reset();
