@@ -2,15 +2,15 @@ const nova_servers = {};
 
 const trail_modes = [
   // Trails values represent number of updates to keep
-  { name: "Infinite", title: "No Limit", value: Infinity },
-  // { name: "Extreme", title: "1 Hour", value: 600 },
-  { name: "Long", title: "30 Minutes", value: 300 },
-  { name: "Medium", title: "15 Minutes", value: 150 },
-  { name: "Short", title: "5 Minutes", value: 50 },
-  { name: "Tiny", title: "1 Minute", value: 10 },
+  { name: "Infinite", title: "no limit", value: Infinity },
+  // { name: "Extreme", title: "1 hour", value: 600 },
+  { name: "Long", title: "30 minutes", value: 300 },
+  { name: "Medium", title: "15 minutes", value: 150 },
+  { name: "Short", title: "5 minutes", value: 50 },
+  { name: "Tiny", title: "1 minute", value: 10 },
   { name: "Tiny+", title: "30 seconds", value: 5 },
   { name: "Tiny++", title: "6 seconds", value: 1 },
-  { name: "None", title: "None", value: 0 },
+  { name: "None", title: "none", value: 0 },
 ];
 
 const animation_speed_options = [
@@ -64,7 +64,7 @@ fetch(base_folder + "data/serversList.json")
         {
           type: "text",
           id: "find-player-input",
-          placeholder: "Enter player's ID or name",
+          placeholder: "enter player's id or name",
           onkeydown: ({ keyCode, target }) => {
             if (keyCode === 13) {
               handle_find_player_button(target.nextSibling);
@@ -195,6 +195,14 @@ if (!params.alwaysactive) {
 
   document.addEventListener("click", inactivity_timer_reset);
   document.addEventListener("wheel", inactivity_timer_reset);
+
+  // document.addEventListener("visibilitychange", function() {
+  //   if (document.hidden) {
+  //       console.log("User has switched to another tab.");
+  //   } else {
+  //       console.log("User is viewing your website.");
+  //   }
+  // });
 }
 
 function handle_find_player_button(input) {
@@ -575,7 +583,7 @@ function generate_popup(data, server, color, xoffset) {
         ${
           data[4]["vehicle_type"] === "plane" ||
           data[4]["vehicle_type"] === "helicopter"
-            ? `<b>Height</b>: ${parseInt(data[3]["z"])}<hr>`
+            ? `<b>Height</b>: ${parseInt(data[3]["z"])}m.<hr>`
             : ""
         }
         <div class="popup-vehicle-label">

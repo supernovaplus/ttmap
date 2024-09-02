@@ -1,7 +1,9 @@
 body,
 #map,
-input {
-  font-family: "Roboto", sans-serif;
+input,
+select,
+option {
+  font-family: "Alata", sans-serif;
 }
 
 body,
@@ -17,14 +19,22 @@ body,
   text-align: center;
 }
 
+.leaflet-popup-content hr {
+  margin: 1px 0;
+}
+
 .leaflet-popup-content .join-btn {
   color: white;
   background-color: red;
   padding: 2px;
   margin: 0 2px;
   box-shadow: 1px 1px black;
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1px 1px 3px black, 1px 1px 1px black;
   display: inline-block;
+}
+
+.leaflet-popup-pane {
+  font-size: 0.83rem;
 }
 
 .car-img-link {
@@ -36,7 +46,8 @@ body,
 }
 
 .leaflet-popup-content-wrapper {
-  min-width: 150px;
+  padding: 2px;
+  min-width: 160px;
   border-radius: 0;
   background-color: rgb(61, 61, 61);
   color: white;
@@ -105,7 +116,19 @@ input[type="button"] {
   top: -15px !important;
   padding: 0 !important;
   background-color: red !important;
+  color: black;
+  /* border-bottom: 5px solid black !important; */
+  /* border-right: 2px solid black !important; */
+  box-shadow: 1px 1px 5px black;
+}
+
+.leaflet-popup-close-button:hover {
   color: white !important;
+}
+
+.leaflet-popup-close-button:active {
+  color: white !important;
+  background-color: black !important;
 }
 
 .leaflet-fade-anim .leaflet-tile,
@@ -408,9 +431,9 @@ small {
 }
 
 .options-block .options-title {
-    text-align: center;
-    font-size: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.292);
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.292);
 }
 
 .options-block select {
@@ -424,13 +447,13 @@ small {
 }
 
 .options-block select option {
-    text-align: center;
-    background-color: white;
-    cursor: pointer;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
 }
 
 .options-block select:hover {
-    background-color: rgba(0, 0, 0, 0.129);
+  background-color: rgba(0, 0, 0, 0.129);
 }
 
 @media (max-width: 600px) {

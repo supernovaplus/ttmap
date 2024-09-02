@@ -227,7 +227,7 @@ fetch(base_folder + "data/credits.txt")
         "a",
         {
           href: "https://forms.gle/8HJyRxN2MWKr1vBP7",
-          innerText: "> Feedback form",
+          innerText: "Feedback form",
         },
       ])
     );
@@ -270,7 +270,7 @@ fetch(base_folder + "data/credits.txt")
       ])
     );
     div_credits.appendChild(
-      cel(["input", { type: "button", value: "close", onclick: show_credits }])
+      cel(["input", { type: "button", value: "Close", onclick: show_credits, style: "margin-top:5px;cursor:pointer;" }])
     );
   });
 
