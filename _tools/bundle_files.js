@@ -65,10 +65,10 @@ const terser = require("gulp-terser");
 
   const html = fs
     .readFileSync("../src/index.html", "utf-8")
-    .replace(`<link rel="stylesheet" href="css/leaflet@1.7.1.css">`, "")
+    .replace(`<link rel="stylesheet" href="css/leaflet@1.7.1.css" />`, "")
     .replace(
-      `<link rel="stylesheet" href="css/style.css">`,
-      `<link rel="stylesheet" href="${new_css_file_name}">`
+      `<link rel="stylesheet" href="css/style.css" />`,
+      `<link rel="stylesheet" href="${new_css_file_name}" />`
     )
     .replace(
       /<body[^>]*>((.|[\n\r])*)<\/body>/gm,
