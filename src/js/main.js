@@ -50,6 +50,7 @@ const options = {
     self_storage: true,
     houses: true,
     expmap: false,
+    easteregg_weapons: isHalloweenEvent() //on when event is active
   },
 };
 

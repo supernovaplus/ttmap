@@ -36,3 +36,17 @@ function promiseTimeout(promise) {
 function getDistance(pos1, pos2) {
   return Math.abs(pos1[0] - pos2[0]) + Math.abs(pos1[1] - pos2[1]);
 }
+
+function isBetweenDates(monthFrom, dayFrom, monthTo, dayTo) {
+  const now = new Date(); // Current date and time
+  const currentYear = now.getFullYear();
+
+  const from = new Date(currentYear, monthFrom - 1, dayFrom, 0, 0, 0); // Months are 0-based
+  const to = new Date(currentYear, monthTo - 1, dayTo, 0, 0, 0);
+
+  return now >= from && now < to;
+}
+
+function isHalloweenEvent() {
+  return isBetweenDates(10, 1, 11, 1);
+}

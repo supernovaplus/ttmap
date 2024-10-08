@@ -1,0 +1,66 @@
+[
+  {
+    "name": "1st weapon location",
+    "x": 220.8,
+    "y": -815,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/1st-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/1st-location.jpg",
+    "v-full": "https://imgur.com/1st-weapon-location-2pKLiOO"
+  },
+  {
+    "name": "2nd weapon location",
+    "x": 886.7,
+    "y": -935.1,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/2nd-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/2nd-location.jpg",
+    "v-full": "https://imgur.com/2nd-weapon-location-jLIvQhp"
+  },
+  {
+    "name": "3rd weapon location",
+    "x": -34.9,
+    "y": -1104.6,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/3rd-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/3rd-location.jpg",
+    "v-full": "https://imgur.com/3rd-weapon-location-aOHhYiY"
+  },
+  {
+    "name": "4th weapon location",
+    "x": 476.8,
+    "y": -1291.1,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/4th-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/4th-location.jpg",
+    "v-full": "https://imgur.com/4th-weapon-location-3WW4X4i"
+  },
+  {
+    "name": "5th weapon location",
+    "x": 288.1,
+    "y": -992.1,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/5th-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/5th-location.jpg",
+    "v-full": "https://imgur.com/5th-weapon-location-c44jJu6"
+  },
+  {
+    "name": "6th weapon location",
+    "x": -110.2,
+    "y": -970.9,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/6th-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/6th-location.jpg",
+    "v-full": "https://imgur.com/6th-weapon-location-bcVQRBw"
+  },
+  {
+    "name": "7th weapon location",
+    "x": 36.0,
+    "y": -1350.8,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/7th-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/7th-location.jpg",
+    "v-full": "https://imgur.com/7th-weapon-location-ES7bEiF"
+  },
+  {
+    "name": "8th weapon location",
+    "x": 468.5,
+    "y": -1015.5,
+    "v-thumb": "https://ttdata.transporttycoon.eu/easteregg/vid/8th-location-full-thumb.mp4",
+    "img": "https://ttdata.transporttycoon.eu/easteregg/img/8th-location.jpg",
+    "v-full": "https://imgur.com/8th-weapon-location-dI61oM9"
+  }
+]

@@ -9,35 +9,21 @@ const business_icons = {
   House: `${company_emoji_folder}22px-House.png`,
   Exp: `${company_emoji_folder}22px-exp.png`,
   "Custom Point": `${company_emoji_folder}point22px.png`,
+  "Weapon Easteregg": `${company_emoji_folder}radar_shootingrange_gunshop.png`,
 };
 
-const static_markers_list = {
-  business: {
-    title: "Businesses",
-    image: business_icons["Business"],
-    markers: [],
-  },
-  garages: {
-    title: "Garages",
-    image: business_icons["Vehicle Garage"],
-    markers: [],
-  },
-  self_storage: {
-    title: "Self Storages",
-    image: business_icons["Self Storage"],
-    markers: [],
-  },
-  houses: {
-    title: "Houses",
-    image: business_icons["House"],
-    markers: [],
-  },
-  expmap: {
-    title: "EXP Pickup Locations",
-    image: business_icons["Exp"],
-    markers: [],
-  },
-};
+const m_list = [
+  ["business", "Businesses", business_icons["Business"]],
+  ["garages", "Garages", business_icons["Vehicle Garage"]],
+  ["self_storage", "Self Storages", business_icons["Self Storage"]],
+  ["houses", "Houses", business_icons["House"]],
+  ["expmap", "EXP Pickup Locations", business_icons["Exp"]],
+  ["easteregg_weapons", "Easter Egg Weapons", business_icons["Weapon Easteregg"]],
+];
+
+const static_markers_list = Object.fromEntries(
+  m_list.map(([key, title, image]) => [key, { title, image, markers: [] }])
+);
 
 //hud
 create_sideblock_item(
@@ -161,6 +147,27 @@ fetch(base_folder + "data/houses.json")
 
       static_markers_list.houses.markers.push(marker);
       if (options.markers["houses"]) window.mainMap.addLayer(marker);
+    });
+  });
+
+fetch(base_folder + "data/eastereggWeapons.json")
+  .then((res) => res.json())
+  .then((res) => {
+    res.forEach((d) => {
+      const marker = L.marker([d.x, d.y], {
+        icon: create_data_marker_icon("Weapon Easteregg"),
+      })
+        .bindPopup(`<div class="popup-header" style="background-color:black;">${d.name}</div>
+         <video muted controls preload="metadata" loop class="video-block"><source src="${d["v-thumb"]}" type="video/mp4"></video>
+         <div class="video-block-links">
+         <a href="${d["v-full"]}" target="_blank">HQ video</a>
+         <a href="${d.img}" target="_blank">image</a>
+         </div>
+         </div> 
+        `);
+
+      static_markers_list.easteregg_weapons.markers.push(marker);
+      if (options.markers["easteregg_weapons"]) window.mainMap.addLayer(marker);
     });
   });
 
