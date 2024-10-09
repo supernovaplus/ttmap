@@ -27,14 +27,13 @@ const static_markers_list = Object.fromEntries(
 
 //hud
 create_sideblock_item(
-  "Toggle Makers",
+  "Toggle Markers",
   ...Object.entries(static_markers_list).map((data) => [
     "img",
     assign_hud_hover_event({
       className: "img-btn toggle-markers",
       src: data[1].image,
       _key: data[0],
-      _title: data[1].title,
       _title: data[1].title,
       onclick: () => toggle_markers(data[0]),
     }),

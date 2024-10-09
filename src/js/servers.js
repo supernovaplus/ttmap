@@ -597,7 +597,7 @@ function generate_popup(data, server, color, xoffset) {
         ${
           data[4]["vehicle_label"] === "NULL"
             ? ""
-            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${spawn_label}.png" target="_blank" class="car-img-link"><img src="https://ttdata.transporttycoon.eu/vehicles/veh_images_min/${spawn_label}.jpg" class="veh-img" alt="${spawn_label}" onerror="this.src = 'https://ttdata.transporttycoon.eu/vehicles/veh_images_min/unk.jpg';" /></a>`
+            : `<hr><a href="https://cdn.tycoon.community/dealership/vehicles/${data[4]["vehicle_spawn"]}.png" target="_blank" class="car-img-link"><img src="https://ttdata.transporttycoon.eu/vehicles/veh_images_min/${data[4]["vehicle_spawn"]}.jpg" class="veh-img" alt="${spawn_label}" onerror="this.src = 'https://ttdata.transporttycoon.eu/vehicles/veh_images_min/unk.jpg';" /></a>`
         }
         <hr>
         <b>${server.name}</b> ${

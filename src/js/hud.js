@@ -270,7 +270,15 @@ fetch(base_folder + "data/credits.txt")
       ])
     );
     div_credits.appendChild(
-      cel(["input", { type: "button", value: "Close", onclick: show_credits, style: "margin-top:5px;cursor:pointer;" }])
+      cel([
+        "input",
+        {
+          type: "button",
+          value: "Close",
+          onclick: show_credits,
+          style: "margin-top:5px;cursor:pointer;",
+        },
+      ])
     );
   });
 
@@ -289,4 +297,22 @@ window.mainMap.attributionControl._container.prepend(
   ]),
   " | "
 );
+
+(() => {
+  try {
+    const leaf = window.mainMap.attributionControl._container.querySelector(
+      "a[href='https://leafletjs.com']"
+    );
+    if (leaf) {
+      leaf.innerHTML = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag">
+      <path fill="#4C7BE1" d="M0 0h12v4H0z" style="--darkreader-inline-fill: #569ae3;" data-darkreader-inline-fill="">
+      </path><path fill="#FFD500" d="M0 4h12v3H0z" style="--darkreader-inline-fill: #ffd91a;" data-darkreader-inline-fill="">
+      </path><path fill="#E0BC00" d="M0 7h12v1H0z" style="--darkreader-inline-fill: #ffde2f;" data-darkreader-inline-fill=""></path></svg> ${leaf.innerHTML}`;
+      leaf.target = "_blank";
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})();
+
 // window.mainMap.attributionControl._container.prepend(cel(["a", {href: "https://forms.gle/8HJyRxN2MWKr1vBP7", target:"_blank", innerText: "Feedback", className: "cursor"}]), " | ");
